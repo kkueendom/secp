@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="追踪巴基斯坦 SECP 数字贷款监管政策，包括 Nano Lending、BNPL APP 白名单及合规要求">
+  <title>SECP 解析 - 巴基斯坦数字贷款监管追踪</title>
+  <!-- 添加到主屏幕图标（可选） -->
+  <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #f5f5f7;
+      min-height: 100vh;
+    }
+    :root {
+      --blue: #007aff; --green: #34c759; --orange: #ff9500;
+      --red: #ff3b30; --purple: #af52de; --gray: #86868b;
+    }
+    .header {
+      background: rgba(255,255,255,0.9); backdrop-filter: blur(20px);
+      padding: 20px 24px; border-bottom: 1px solid #d2d2d7;
+      position: sticky; top: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .title { font-size: 24px; font-weight: 600; }
+    .subtitle { font-size: 13px; color: var(--gray); margin-top: 4px; }
+    .main { max-width: 1000px; margin: 0 auto; padding: 24px; }
+    .card {
+      background: #fff; border-radius: 16px; padding: 20px;
+      margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    }
+    .card-header {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 16px; flex-wrap: wrap;
+    }
+    .card-title { font-size: 17px; font-weight: 600; }
+    .card-badge {
+      margin-left: auto; padding: 4px 10px; border-radius: 12px;
+      font-size: 12px; font-weight: 500;
+    }
+    .card-link { width: 100%; font-size: 12px; margin-top: 8px; }
+    .card-link a { color: var(--blue); text-decoration: none; }
+
+    /* 分类区块 */
+    .section { margin-bottom: 20px; }
+    .section-header {
+      display: flex; align-items: center; gap: 10px;
+      padding-bottom: 10px; border-bottom: 1px solid #e5e5e5; margin-bottom: 12px;
+    }
+    .section-icon {
+      width: 28px; height: 28px; border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px; color: #fff;
+    }
+    .section-title { font-size: 15px; font-weight: 600; }
+    .section-count {
+      margin-left: auto; font-size: 12px; color: var(--gray);
+      background: #f5f5f7; padding: 2px 8px; border-radius: 10px;
+    }
+
+    /* APP 列表 */
+    .app-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 10px;
+    }
+    .app-item {
+      display: flex; align-items: flex-start; gap: 12px;
+      padding: 12px; background: #f9f9f9; border-radius: 12px;
+      transition: all 0.2s;
+    }
+    .app-item:hover { background: #f0f0f0; }
+    .app-logo {
+      width: 44px; height: 44px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; font-weight: 700; color: #fff; flex-shrink: 0;
+    }
+    .app-info { flex: 1; min-width: 0; }
+    .app-name { font-size: 14px; font-weight: 600; margin-bottom: 2px; }
+    .app-nbfc {
+      font-size: 11px; color: var(--gray); margin-bottom: 4px;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .app-tag {
+      display: inline-block; padding: 2px 6px; border-radius: 4px;
+      font-size: 10px; font-weight: 500; color: #fff;
+    }
+    .app-note-display {
+      margin-top: 6px; padding: 6px 8px; background: #fff8e6;
+      border-left: 3px solid #ffc107; border-radius: 4px;
+      font-size: 12px; color: #856404; line-height: 1.4;
+      cursor: pointer;
+    }
+    .app-note-display:hover { background: #fff3cd; }
+    .app-note-btn {
+      background: none; border: 1px solid #ddd; border-radius: 6px;
+      padding: 4px 8px; font-size: 11px; color: var(--gray);
+      cursor: pointer; margin-left: auto; flex-shrink: 0;
+    }
+    .app-note-btn:hover { background: #f0f0f0; }
+
+    /* 备注弹窗 */
+    .modal-overlay {
+      display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.4); z-index: 200;
+      align-items: center; justify-content: center;
+    }
+    .modal-overlay.show { display: flex; }
+    .modal {
+      background: #fff; border-radius: 16px; padding: 24px;
+      width: 90%; max-width: 400px; box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+    .modal-title { font-size: 18px; font-weight: 600; margin-bottom: 16px; }
+    .modal-textarea {
+      width: 100%; height: 120px; border: 1px solid #ddd; border-radius: 8px;
+      padding: 12px; font-size: 14px; resize: none; margin-bottom: 12px;
+    }
+    .modal-history {
+      font-size: 11px; color: var(--gray); margin-bottom: 16px;
+      max-height: 80px; overflow-y: auto;
+    }
+    .modal-history div { padding: 4px 0; border-bottom: 1px solid #f0f0f0; }
+    .modal-btns { display: flex; gap: 10px; justify-content: flex-end; }
+    .modal-btn {
+      padding: 8px 16px; border-radius: 8px; font-size: 14px;
+      cursor: pointer; border: none;
+    }
+    .modal-btn.cancel { background: #f0f0f0; }
+    .modal-btn.save { background: var(--blue); color: #fff; }
+
+    /* 要求卡片 */
+    .req-list { list-style: none; }
+    .req-item {
+      display: flex; gap: 12px; padding: 12px 0;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    .req-item:last-child { border-bottom: none; }
+    .req-num {
+      width: 24px; height: 24px; border-radius: 50%;
+      background: var(--purple); color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px; font-weight: 600; flex-shrink: 0;
+    }
+    .req-title { font-weight: 500; margin-bottom: 4px; }
+    .req-desc { font-size: 13px; color: var(--gray); line-height: 1.4; }
+
+    .expand-btn {
+      width: 100%; padding: 10px; background: none;
+      border: 1px solid #ddd; border-radius: 8px;
+      color: var(--blue); cursor: pointer; font-size: 14px; margin-top: 12px;
+    }
+
+    /* 新闻列表 */
+    .news-list { display: flex; flex-direction: column; gap: 12px; }
+    .news-item {
+      padding: 12px; background: #f9f9f9; border-radius: 10px;
+      border-left: 3px solid var(--blue);
+    }
+    .news-date { font-size: 11px; color: var(--gray); margin-bottom: 4px; }
+    .news-title { font-weight: 600; font-size: 14px; margin-bottom: 4px; }
+    .news-desc { font-size: 13px; color: #444; line-height: 1.4; margin-bottom: 6px; }
+    .news-link { font-size: 12px; color: var(--blue); text-decoration: none; }
+    .news-link:hover { text-decoration: underline; }
+
+    /* 风险提示 */
+    .risk-list { display: flex; flex-direction: column; gap: 10px; }
+    .risk-item {
+      display: flex; align-items: flex-start; gap: 10px;
+      padding: 10px 12px; border-radius: 8px; background: #f9f9f9;
+    }
+    .risk-item.high { background: #fff5f5; }
+    .risk-item.medium { background: #fff8e6; }
+    .risk-item.low { background: #f0fff4; }
+    .risk-icon { font-size: 16px; flex-shrink: 0; }
+    .risk-content { flex: 1; }
+    .risk-title { font-weight: 600; font-size: 14px; margin-bottom: 2px; }
+    .risk-desc { font-size: 12px; color: #666; line-height: 1.4; }
+
+    /* 分享功能 */
+    .share-box {
+      margin-top: 16px; padding: 16px; background: #f9f9fb;
+      border-radius: 12px; border: 1px dashed #ddd;
+    }
+    .share-header {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 14px; font-weight: 600; margin-bottom: 12px;
+    }
+    .share-count {
+      margin-left: auto; font-size: 12px; font-weight: 400;
+      color: var(--gray); background: #fff; padding: 2px 8px;
+      border-radius: 10px;
+    }
+    .share-btns { display: flex; gap: 10px; flex-wrap: wrap; }
+    .share-btn {
+      padding: 10px 16px; border-radius: 8px; border: 1px solid #ddd;
+      background: #fff; font-size: 13px; cursor: pointer;
+      transition: all 0.2s;
+    }
+    .share-btn:hover { background: #f5f5f7; }
+    .share-btn.primary { background: var(--blue); color: #fff; border-color: var(--blue); }
+    .share-btn.primary:hover { background: #0066d6; }
+    .share-result {
+      margin-top: 12px; display: flex; gap: 8px;
+    }
+    .share-result input {
+      flex: 1; padding: 10px 12px; border: 1px solid #ddd;
+      border-radius: 8px; font-size: 12px; background: #fff;
+    }
+    .share-copy-btn {
+      padding: 10px 16px; background: var(--green); color: #fff;
+      border: none; border-radius: 8px; cursor: pointer; font-size: 13px;
+    }
+    .share-copy-btn:hover { background: #2db84c; }
+    .share-tip {
+      margin-top: 10px; font-size: 12px; color: var(--gray);
+      line-height: 1.5;
+    }
+    .share-tip.success { color: var(--green); }
+    .share-tip.info { color: var(--blue); }
+
+    .footer { text-align: center; padding: 24px; font-size: 12px; color: var(--gray); }
+    .footer a { color: var(--blue); text-decoration: none; }
+
+    /* ========== 手机端适配 ========== */
+    @media (max-width: 768px) {
+      body { font-size: 15px; }
+
+      .header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        padding: 16px;
+      }
+      .title { font-size: 20px; }
+      .subtitle { font-size: 12px; line-height: 1.4; }
+
+      .main { padding: 12px; }
+
+      .card {
+        padding: 16px;
+        border-radius: 12px;
+        margin-bottom: 12px;
+      }
+      .card-header {
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .card-title { font-size: 16px; }
+      .card-badge {
+        margin-left: 0;
+        font-size: 11px;
+      }
+      .card-link { font-size: 11px; }
+
+      /* APP 列表手机适配 */
+      .app-grid { grid-template-columns: 1fr; gap: 8px; }
+      .app-item { padding: 10px; }
+      .app-logo { width: 40px; height: 40px; font-size: 16px; }
+      .app-name { font-size: 13px; }
+      .app-nbfc { font-size: 10px; }
+      .app-tag { font-size: 9px; padding: 2px 5px; }
+      .app-note-display { font-size: 11px; padding: 5px 6px; }
+      .app-note-btn {
+        padding: 6px 10px;
+        font-size: 12px;
+        /* 增大点击区域 */
+        min-height: 32px;
+      }
+
+      /* 分类标题 */
+      .section-header { flex-wrap: wrap; gap: 8px; }
+      .section-icon { width: 24px; height: 24px; font-size: 12px; }
+      .section-title { font-size: 13px; }
+      .section-count { font-size: 11px; }
+
+      /* 新闻列表手机适配 */
+      .news-item { padding: 10px; }
+      .news-date { font-size: 10px; }
+      .news-title { font-size: 13px; }
+      .news-desc { font-size: 12px; }
+      .news-link { font-size: 11px; padding: 4px 0; display: inline-block; }
+
+      /* 风险提示手机适配 */
+      .risk-item { padding: 8px 10px; }
+      .risk-icon { font-size: 14px; }
+      .risk-title { font-size: 13px; }
+      .risk-desc { font-size: 11px; }
+
+      /* 要求列表手机适配 */
+      .req-item { padding: 10px 0; gap: 10px; }
+      .req-num { width: 22px; height: 22px; font-size: 11px; }
+      .req-title { font-size: 13px; }
+      .req-desc { font-size: 12px; }
+
+      /* 弹窗手机适配 */
+      .modal {
+        width: 95%;
+        padding: 20px;
+        max-height: 90vh;
+        overflow-y: auto;
+      }
+      .modal-title { font-size: 16px; }
+      .modal-textarea {
+        height: 100px;
+        font-size: 16px; /* 防止 iOS 缩放 */
+      }
+      .modal-btn {
+        padding: 12px 20px;
+        font-size: 15px;
+        /* 增大点击区域 */
+        min-height: 44px;
+      }
+
+      .expand-btn {
+        padding: 12px;
+        font-size: 14px;
+        min-height: 44px;
+      }
+
+      .footer { padding: 16px; font-size: 11px; }
+
+      /* 分享区域手机适配 */
+      .share-box { padding: 12px; }
+      .share-header { font-size: 13px; }
+      .share-btns { flex-direction: column; }
+      .share-btn { width: 100%; justify-content: center; min-height: 44px; }
+      .share-result { flex-direction: column; }
+      .share-result input { font-size: 11px; }
+      .share-copy-btn { width: 100%; min-height: 44px; }
+    }
+
+    /* 超小屏幕（iPhone SE 等） */
+    @media (max-width: 375px) {
+      .title { font-size: 18px; }
+      .card { padding: 12px; }
+      .card-title { font-size: 14px; }
+      .section-title { font-size: 12px; flex: 1; }
+      .app-logo { width: 36px; height: 36px; font-size: 14px; }
+    }
+
+    /* 触摸设备优化 */
+    @media (hover: none) and (pointer: coarse) {
+      .app-item:hover { background: #f9f9f9; }
+      .app-note-btn:hover { background: none; }
+
+      /* 增大可点击元素 */
+      .news-link,
+      .card-link a {
+        padding: 8px 0;
+        display: inline-block;
+      }
+    }
+
+    /* 横屏手机 */
+    @media (max-width: 768px) and (orientation: landscape) {
+      .header { padding: 12px 16px; }
+      .main { padding: 12px 24px; }
+      .app-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* 暗色模式支持（可选） */
+    @media (prefers-color-scheme: dark) {
+      /* 保持亮色主题，如需暗色可取消注释
+      body { background: #1c1c1e; color: #fff; }
+      .card { background: #2c2c2e; }
+      */
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div>
+      <h1 class="title">SECP 监管追踪器</h1>
+      <p class="subtitle">白名单更新：December 5, 2025 | 新闻更新：January 27, 2026</p>
+    </div>
+  </header>
+
+  <main class="main">
+    <!-- 新闻动态 -->
+    <div class="card">
+      <div class="card-header">
+        <span>📰</span>
+        <span class="card-title">本周新闻动态</span>
+        <span class="card-badge" style="background:#007aff;color:#fff;">2026年1月</span>
+      </div>
+
+      <div class="news-list">
+        <div class="news-item">
+          <div class="news-date">2026-01-14</div>
+          <div class="news-title">巴基斯坦与美国金融科技公司签署数字支付 MoU</div>
+          <div class="news-desc">巴基斯坦与 World Liberty Financial 签署合作备忘录，重点发展数字支付和跨境交易基础设施。</div>
+          <a class="news-link" href="https://mettisglobal.news/Pakistan-signs-MoU-with-US-fintech-for-digital-payments-57795" target="_blank">查看详情 →</a>
+        </div>
+        <div class="news-item">
+          <div class="news-date">2026-01-06</div>
+          <div class="news-title">SLG-Trax 计划推出 5 亿卢比数字贷款业务</div>
+          <div class="news-desc">Secure Logistics-Trax 集团计划收购金融科技平台 IP，通过 NBFC 子公司向 9,000+ 客户提供数字贷款。</div>
+          <a class="news-link" href="https://profit.pakistantoday.com.pk/2026/01/06/slg-trax-moves-to-acquire-fintech-ip-plans-rs500-million-digital-lending-rollout/" target="_blank">查看详情 →</a>
+        </div>
+        <div class="news-item">
+          <div class="news-date">2025-12-29</div>
+          <div class="news-title">SECP 发布最新 Digital Lending App 白名单</div>
+          <div class="news-desc">配合 Google Play 商店新政策，SECP 更新白名单至 25 个合规 APP（14 个 Nano + 11 个其他类型）。</div>
+          <a class="news-link" href="https://propakistani.pk/2025/12/29/secp-shares-new-whitelist-of-approved-lending-apps/" target="_blank">查看详情 →</a>
+        </div>
+        <div class="news-item">
+          <div class="news-date">2026-01</div>
+          <div class="news-title">外资持续看好巴基斯坦数字银行</div>
+          <div class="news-desc">WeOne Group 向 Mobilink Bank 注资 2,000 万美元，显示外国投资者对巴基斯坦数字金融信心增强。</div>
+          <a class="news-link" href="https://www.crowdfundinsider.com/2026/01/257102-pakistans-crypto-and-fintech-sector-expands-poised-for-steady-growth-in-2026/" target="_blank">查看详情 →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 风险提示 -->
+    <div class="card" style="border-left:4px solid #ff3b30;">
+      <div class="card-header">
+        <span>⚠️</span>
+        <span class="card-title">风险提示</span>
+        <span class="card-badge" style="background:#ff3b30;color:#fff;">重要</span>
+      </div>
+
+      <div class="risk-list">
+        <div class="risk-item high">
+          <span class="risk-icon">🔴</span>
+          <div class="risk-content">
+            <div class="risk-title">高利率警告</div>
+            <div class="risk-desc">Nano Lending 日利率可达 0.75%，APR 最高 274%，借款前请充分了解成本</div>
+          </div>
+        </div>
+        <div class="risk-item high">
+          <span class="risk-icon">🔴</span>
+          <div class="risk-content">
+            <div class="risk-title">非法 APP 诈骗</div>
+            <div class="risk-desc">大量未授权贷款 APP 仍在活跃，仅下载 SECP 白名单内的 APP</div>
+          </div>
+        </div>
+        <div class="risk-item medium">
+          <span class="risk-icon">🟠</span>
+          <div class="risk-content">
+            <div class="risk-title">过度负债风险</div>
+            <div class="risk-desc">所有 NBFC 合计借款上限 Rs.100,000，SECP 提醒消费者谨慎借贷</div>
+          </div>
+        </div>
+        <div class="risk-item low">
+          <span class="risk-icon">🟢</span>
+          <div class="risk-content">
+            <div class="risk-title">费用总额有上限保护</div>
+            <div class="risk-desc">所有费用（利息+手续费+逾期费）总和不得超过贷款本金</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:12px;padding:10px;background:#fff5f5;border-radius:8px;font-size:12px;">
+        <strong>非法 APP 黑名单：</strong>
+        <a href="https://www.secp.gov.pk/document/list-of-illegal-digital-apps/" target="_blank">查看 SECP 公布的非法贷款平台列表 (更新于 May 19, 2025)</a>
+      </div>
+    </div>
+
+    <!-- 白名单 -->
+    <div class="card">
+      <div class="card-header">
+        <span>📱</span>
+        <span class="card-title">Digital Lending App White List</span>
+        <span class="card-badge" style="background:#34c759;color:#fff;">25 个已批准</span>
+        <div class="card-link">
+          <a href="https://www.secp.gov.pk/document/digital-lending-apps-being-run-and-administered-by-duly-licensed-lending-nbfcs/?wpdmdl=46367" target="_blank">下载官方 PDF (Dec 5, 2025) →</a>
+        </div>
+      </div>
+
+      <!-- Nano Lending Apps -->
+      <div class="section">
+        <div class="section-header">
+          <div class="section-icon" style="background:linear-gradient(135deg,#34c759,#30d158);">💰</div>
+          <span class="section-title">Approved - Nano Lending Apps</span>
+          <span class="section-count">14 个</span>
+        </div>
+        <div class="app-grid" id="nanoGrid"></div>
+      </div>
+
+      <!-- Other Lending Apps -->
+      <div class="section">
+        <div class="section-header">
+          <div class="section-icon" style="background:linear-gradient(135deg,#007aff,#5856d6);">🏦</div>
+          <span class="section-title">Approved - Other Lending Apps (EWA, BNPL, B2B, B2C etc.)</span>
+          <span class="section-count">11 个</span>
+        </div>
+        <div class="app-grid" id="otherGrid"></div>
+      </div>
+
+      <button class="expand-btn" id="expandBtn" onclick="toggleExpand()">显示全部 25 个 APP</button>
+
+      <!-- 分享功能 -->
+      <div class="share-box" id="shareBox">
+        <div class="share-header">
+          <span>🔗</span>
+          <span>备注分享</span>
+          <span class="share-count" id="shareCount">0 条备注</span>
+        </div>
+        <div class="share-btns">
+          <button class="share-btn primary" onclick="generateShareLink()">📤 生成分享链接</button>
+          <button class="share-btn" onclick="clearNotes()">🗑️ 清空我的备注</button>
+        </div>
+        <div class="share-result" id="shareResult" style="display:none;">
+          <input type="text" id="shareUrl" readonly onclick="this.select()">
+          <button class="share-copy-btn" onclick="copyShareLink()">复制</button>
+        </div>
+        <div class="share-tip" id="shareTip"></div>
+      </div>
+    </div>
+
+    <!-- Digital Lending App 白名单要求 -->
+    <div class="card">
+      <div class="card-header">
+        <span>📝</span>
+        <span class="card-title">Digital Lending App 上白名单要求</span>
+        <span class="card-badge" style="background:#007aff;color:#fff;">Circular No.14 of 2024</span>
+      </div>
+
+      <!-- UI/UX 合规要求 -->
+      <div style="margin-bottom:16px;">
+        <div style="font-weight:600;margin-bottom:8px;color:#1d1d1f;">一、APP UI/UX 合规要求</div>
+        <ul class="req-list">
+          <li class="req-item"><span class="req-num">1</span><div><div class="req-title">显示 NBFC 全称和牌照信息</div><div class="req-desc">APP 主屏幕需展示完整公司名称和 SECP 牌照编号</div></div></li>
+          <li class="req-item"><span class="req-num">2</span><div><div class="req-title">注册前信息披露</div><div class="req-desc">注册时需告知用户 APP 将访问的数据权限，并获取明确同意</div></div></li>
+          <li class="req-item"><span class="req-num">3</span><div><div class="req-title">风险提示弹窗（Nano Lending）</div><div class="req-desc">每次打开 APP 需显示中英文/乌尔都语风险提示：高利率、谨慎借贷等</div></div></li>
+          <li class="req-item"><span class="req-num">4</span><div><div class="req-title">多因素认证（MFA）</div><div class="req-desc">实施强密码、OTP（有效期≤120秒）、生物识别等认证机制</div></div></li>
+          <li class="req-item"><span class="req-num">5</span><div><div class="req-title">禁止访问用户隐私数据</div><div class="req-desc">不得访问借款人的短信、通话记录、通讯录、相册（担保人除外）</div></div></li>
+          <li class="req-item"><span class="req-num">6</span><div><div class="req-title">提供贷款计算器</div><div class="req-desc">首页需提供计算器，展示处理费、利息、逾期费等所有成本</div></div></li>
+          <li class="req-item"><span class="req-num">7</span><div><div class="req-title">KYC 验证</div><div class="req-desc">CNIC 正反面上传（OCR）+ 活体自拍/生物识别验证</div></div></li>
+          <li class="req-item"><span class="req-num">8</span><div><div class="req-title">关键事实声明（Key Fact Statement）</div><div class="req-desc">放款前需展示利率、费用、还款计划等关键信息（视频/音频/截图）</div></div></li>
+        </ul>
+      </div>
+
+      <!-- Nano Lending 特殊规定 -->
+      <div style="margin-bottom:16px;">
+        <div style="font-weight:600;margin-bottom:8px;color:#1d1d1f;">二、Nano Lending 特殊规定</div>
+        <ul class="req-list">
+          <li class="req-item"><span class="req-num">1</span><div><div class="req-title">贷款上限</div><div class="req-desc">单笔最高 Rs.50,000，期限最长 90 天；所有 NBFC 合计不超过 Rs.100,000</div></div></li>
+          <li class="req-item"><span class="req-num">2</span><div><div class="req-title">利率上限</div><div class="req-desc">每日利率不超过 0.75%，APR 不超过 274%</div></div></li>
+          <li class="req-item"><span class="req-num">3</span><div><div class="req-title">禁止复利</div><div class="req-desc">不得对利息或逾期费再计利息</div></div></li>
+          <li class="req-item"><span class="req-num">4</span><div><div class="req-title">费用总额限制</div><div class="req-desc">所有费用（利息+手续费+逾期费等）总和不得超过贷款本金</div></div></li>
+          <li class="req-item"><span class="req-num">5</span><div><div class="req-title">禁止预扣费用</div><div class="req-desc">放款金额必须等于批准金额，不得预扣首期还款或手续费</div></div></li>
+        </ul>
+      </div>
+
+      <!-- 安全与数据要求 -->
+      <div style="margin-bottom:16px;">
+        <div style="font-weight:600;margin-bottom:8px;color:#1d1d1f;">三、安全与数据要求</div>
+        <ul class="req-list">
+          <li class="req-item"><span class="req-num">1</span><div><div class="req-title">应用安全</div><div class="req-desc">实施 WAF、定期 VAPT 测试、API 使用最新 TLS 协议</div></div></li>
+          <li class="req-item"><span class="req-num">2</span><div><div class="req-title">数据加密</div><div class="req-desc">数据传输和存储必须使用强加密算法</div></div></li>
+          <li class="req-item"><span class="req-num">3</span><div><div class="req-title">数据本地化</div><div class="req-desc">数据必须存储在巴基斯坦境内的云服务器</div></div></li>
+        </ul>
+      </div>
+
+      <!-- 申请材料 -->
+      <div style="margin-bottom:12px;">
+        <div style="font-weight:600;margin-bottom:8px;color:#1d1d1f;">四、申请材料（Annexure-B）</div>
+        <ul class="req-list">
+          <li class="req-item"><span class="req-num">1</span><div><div class="req-title">律所审核的隐私政策</div></div></li>
+          <li class="req-item"><span class="req-num">2</span><div><div class="req-title">相关协议确认书</div><div class="req-desc">与征信机构、NADRA、支付网关、云服务商的协议</div></div></li>
+          <li class="req-item"><span class="req-num">3</span><div><div class="req-title">APP 条款和条件</div></div></li>
+          <li class="req-item"><span class="req-num">4</span><div><div class="req-title">投诉处理政策</div></div></li>
+          <li class="req-item"><span class="req-num">5</span><div><div class="req-title">标准贷款协议</div></div></li>
+          <li class="req-item"><span class="req-num">6</span><div><div class="req-title">CEO 提交自我评估声明的董事会授权书</div></div></li>
+        </ul>
+      </div>
+
+      <div style="padding:10px;background:#f0f9ff;border-radius:8px;font-size:12px;">
+        详细要求：<a href="https://www.secp.gov.pk/document/circular-no-14-requirement-for-self-assessment-declaration-to-be-submitted-by-nbfc-engaged-in-digital-lending-along-with-application-for-whitelisting-of-digital-lending-app-2/?wpdmdl=51659" target="_blank">Circular No.14 of 2024 - Self-Assessment Declaration</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>数据来源：<a href="https://www.secp.gov.pk/" target="_blank">SECP 官网</a> | <a href="https://www.secp.gov.pk/data-and-statistics/nbfcs/" target="_blank">NBFCs 数据</a></p>
+  </footer>
+
+  <!-- 备注弹窗 -->
+  <div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+    <div class="modal" onclick="event.stopPropagation()">
+      <div class="modal-title" id="modalTitle">备注</div>
+      <textarea class="modal-textarea" id="noteInput" placeholder="输入备注内容..."></textarea>
+      <div class="modal-history" id="noteHistory"></div>
+      <div class="modal-btns">
+        <button class="modal-btn cancel" onclick="closeModal()">取消</button>
+        <button class="modal-btn save" onclick="saveNote()">保存</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ========== 白名单数据（基于 SECP PDF Dec 5, 2025）==========
+    const nanoApps = [
+      { id: "paisayaar", name: "Paisayaar", nbfc: "JingleCred Digital Financial Services Limited", tag: "Nano & BNPL", color: "#2ecc71", letter: "P" },
+      { id: "aitemaad", name: "Aitemaad", nbfc: "4Sight Finance Services (Pvt) Limited", tag: "Nano & BNPL", color: "#27ae60", letter: "A" },
+      { id: "hakeem", name: "Hakeem", nbfc: "Walee Financial Services (Pvt) Limited", tag: "Nano", color: "#1abc9c", letter: "H" },
+      { id: "fauricash", name: "Fauri Cash", nbfc: "Pakisnova Microfinance Company (Pvt) Limited", tag: "Nano", color: "#16a085", letter: "F" },
+      { id: "smartqarza", name: "SmartQarza", nbfc: "Goldlion Financial Private Limited", tag: "Nano", color: "#e74c3c", letter: "S" },
+      { id: "jazzcash", name: "JazzCash", nbfc: "JazzCash Private Limited", tag: "Digital Lending", color: "#c0392b", letter: "J" },
+      { id: "moneytap", name: "Money Tap", nbfc: "Zanda Financials (Pvt) Limited", tag: "Nano", color: "#3498db", letter: "M" },
+      { id: "pakcredit", name: "Pakcredit", nbfc: "VisionCred Financial Services (Pvt) Limited", tag: "Nano", color: "#2980b9", letter: "P" },
+      { id: "daira", name: "Daira", nbfc: "Finleap Financial Services (Private) Limited", tag: "Nano & BNPL", color: "#0984e3", letter: "D" },
+      { id: "loanlado", name: "Loan Lado", nbfc: "Easy Finance (Private) Limited", tag: "Nano", color: "#6c5ce7", letter: "L" },
+      { id: "cashbazar", name: "CashBazar", nbfc: "Bluesky Financial Services (Private) Limited", tag: "Nano", color: "#0652DD", letter: "B" },
+      { id: "sahara", name: "Sahara", nbfc: "Awami Financials (Private) Limited", tag: "Nano", color: "#ffc312", letter: "S" },
+      { id: "paisaghur", name: "PaisaGhur", nbfc: "Quark Financials Pakistan (Private) Limited", tag: "Nano", color: "#009432", letter: "P" },
+      { id: "qarzmitra", name: "QarzMitra", nbfc: "Fintech Gharana Financial (Private) Limited", tag: "Nano", color: "#38ada9", letter: "Q" }
+    ];
+
+    const otherApps = [
+      { id: "abhi", name: "Abhi", nbfc: "Abhi Private LTD", tag: "EWA", color: "#00b894", letter: "A" },
+      { id: "zoodpay", name: "ZoodPay & ZoodMall", nbfc: "Tez Financial Services Limited", tag: "BNPL", color: "#d63031", letter: "Z" },
+      { id: "muawin", name: "Muawin", nbfc: "Cashew Financial Services Limited", tag: "B2B", color: "#e17055", letter: "M" },
+      { id: "qistbazaar", name: "QistBazaar", nbfc: "QistBazaar Pvt Limited", tag: "BNPL", color: "#d63031", letter: "Q" },
+      { id: "tijara", name: "Tijara", nbfc: "CreditBook Financial Services Limited", tag: "B2B", color: "#00b894", letter: "T" },
+      { id: "edufi", name: "Edufi", nbfc: "Edufi Financial Services (Private) Limited", tag: "Study Now Pay Later", color: "#e74c3c", letter: "E" },
+      { id: "taleemconnect", name: "Taleem Connect", nbfc: "Taleem Finance Company Limited", tag: "Education", color: "#e74c3c", letter: "T" },
+      { id: "neempaymenow", name: "NeemPaymenow", nbfc: "Neem Exponential Financial Services (Private) Limited", tag: "EWA", color: "#27ae60", letter: "N" },
+      { id: "novafinance", name: "Nova Finance", nbfc: "Viva Finance (Private) Limited", tag: "EWA", color: "#2d3436", letter: "N" },
+      { id: "baadmay", name: "Baadmay", nbfc: "MG Financial Services Limited", tag: "BNPL", color: "#6c5ce7", letter: "B" },
+      { id: "alifshop", name: "Alif Shop", nbfc: "Alif Finance (Private) Limited", tag: "BNPL", color: "#00b894", letter: "A" }
+    ];
+
+    let expanded = false;
+    let currentAppId = null;
+
+    // 获取备注数据
+    function getNotes() {
+      return JSON.parse(localStorage.getItem('secp_notes') || '{}');
+    }
+
+    // 保存备注数据
+    function setNotes(notes) {
+      localStorage.setItem('secp_notes', JSON.stringify(notes));
+    }
+
+    // 渲染 APP 卡片
+    function renderApp(app) {
+      const notes = getNotes();
+      const noteData = notes[app.id];
+      const hasNote = noteData && noteData.content;
+      const noteContent = hasNote ? noteData.content : '';
+
+      return `
+        <div class="app-item">
+          <div class="app-logo" style="background:${app.color}">${app.letter}</div>
+          <div class="app-info">
+            <div class="app-name">${app.name}</div>
+            <div class="app-nbfc">${app.nbfc}</div>
+            <span class="app-tag" style="background:${app.color}">${app.tag}</span>
+            ${hasNote ? `<div class="app-note-display" onclick="openNote('${app.id}', '${app.name}')">${noteContent}</div>` : ''}
+          </div>
+          <button class="app-note-btn" onclick="openNote('${app.id}', '${app.name}')">
+            ${hasNote ? '编辑' : '+备注'}
+          </button>
+        </div>
+      `;
+    }
+
+    // 渲染列表
+    function render() {
+      const nanoGrid = document.getElementById('nanoGrid');
+      const otherGrid = document.getElementById('otherGrid');
+      const btn = document.getElementById('expandBtn');
+
+      const showNano = expanded ? nanoApps : nanoApps.slice(0, 4);
+      const showOther = expanded ? otherApps : otherApps.slice(0, 4);
+
+      nanoGrid.innerHTML = showNano.map(renderApp).join('');
+      otherGrid.innerHTML = showOther.map(renderApp).join('');
+      btn.textContent = expanded ? '收起' : '显示全部 25 个 APP';
+    }
+
+    function toggleExpand() {
+      expanded = !expanded;
+      render();
+    }
+
+    // 打开备注弹窗
+    function openNote(appId, appName) {
+      currentAppId = appId;
+      const notes = getNotes();
+      const appNote = notes[appId] || { content: '', history: [] };
+
+      document.getElementById('modalTitle').textContent = appName + ' - 备注';
+      document.getElementById('noteInput').value = appNote.content || '';
+
+      // 显示历史记录
+      const historyDiv = document.getElementById('noteHistory');
+      if (appNote.history && appNote.history.length > 0) {
+        historyDiv.innerHTML = '<strong>修改记录：</strong>' +
+          appNote.history.slice(-5).reverse().map(h =>
+            `<div>${h.time}: ${h.content.substring(0, 30)}${h.content.length > 30 ? '...' : ''}</div>`
+          ).join('');
+      } else {
+        historyDiv.innerHTML = '';
+      }
+
+      document.getElementById('modalOverlay').classList.add('show');
+    }
+
+    // 关闭弹窗
+    function closeModal(e) {
+      if (!e || e.target === document.getElementById('modalOverlay')) {
+        document.getElementById('modalOverlay').classList.remove('show');
+        currentAppId = null;
+      }
+    }
+
+    // 保存备注
+    function saveNote() {
+      if (!currentAppId) return;
+
+      const content = document.getElementById('noteInput').value.trim();
+      const notes = getNotes();
+      const now = new Date().toLocaleString('zh-CN');
+
+      if (!notes[currentAppId]) {
+        notes[currentAppId] = { content: '', history: [] };
+      }
+
+      // 如果内容有变化，记录历史
+      if (content !== notes[currentAppId].content) {
+        notes[currentAppId].history.push({
+          time: now,
+          content: content
+        });
+        // 只保留最近10条历史
+        if (notes[currentAppId].history.length > 10) {
+          notes[currentAppId].history = notes[currentAppId].history.slice(-10);
+        }
+      }
+
+      notes[currentAppId].content = content;
+      setNotes(notes);
+      closeModal();
+      render();
+      updateShareCount();
+    }
+
+    // ========== 分享功能 ==========
+
+    // 更新备注计数
+    function updateShareCount() {
+      const notes = getNotes();
+      const count = Object.values(notes).filter(n => n.content).length;
+      const countEl = document.getElementById('shareCount');
+      if (countEl) countEl.textContent = count + ' 条备注';
+    }
+
+    // 压缩并编码备注数据
+    function encodeNotes(notes) {
+      // 只保留有内容的备注，并精简数据结构
+      const simplified = {};
+      for (const [id, data] of Object.entries(notes)) {
+        if (data.content) {
+          simplified[id] = data.content; // 只保留内容，不保留历史
+        }
+      }
+      if (Object.keys(simplified).length === 0) return null;
+
+      // 转为 JSON 并 base64 编码
+      const json = JSON.stringify(simplified);
+      return btoa(encodeURIComponent(json));
+    }
+
+    // 解码备注数据
+    function decodeNotes(encoded) {
+      try {
+        const json = decodeURIComponent(atob(encoded));
+        const simplified = JSON.parse(json);
+
+        // 还原为完整结构
+        const notes = {};
+        for (const [id, content] of Object.entries(simplified)) {
+          notes[id] = { content: content, history: [] };
+        }
+        return notes;
+      } catch (e) {
+        console.error('解码备注失败:', e);
+        return null;
+      }
+    }
+
+    // 生成分享链接
+    function generateShareLink() {
+      const notes = getNotes();
+      const encoded = encodeNotes(notes);
+
+      if (!encoded) {
+        document.getElementById('shareTip').textContent = '⚠️ 没有备注可分享，请先添加备注';
+        document.getElementById('shareTip').className = 'share-tip';
+        document.getElementById('shareResult').style.display = 'none';
+        return;
+      }
+
+      // 生成带参数的 URL
+      const baseUrl = window.location.href.split('?')[0].split('#')[0];
+      const shareUrl = baseUrl + '?notes=' + encoded;
+
+      // 显示结果
+      document.getElementById('shareUrl').value = shareUrl;
+      document.getElementById('shareResult').style.display = 'flex';
+
+      // 检查链接长度
+      const count = Object.values(notes).filter(n => n.content).length;
+      if (shareUrl.length > 2000) {
+        document.getElementById('shareTip').innerHTML =
+          `⚠️ 链接较长 (${shareUrl.length} 字符)，部分平台可能无法完整复制。<br>建议：减少备注数量或内容长度。`;
+        document.getElementById('shareTip').className = 'share-tip';
+      } else {
+        document.getElementById('shareTip').innerHTML =
+          `✅ 已生成包含 ${count} 条备注的分享链接<br>复制链接发送给朋友，打开即可看到你的备注`;
+        document.getElementById('shareTip').className = 'share-tip success';
+      }
+    }
+
+    // 复制分享链接
+    function copyShareLink() {
+      const urlInput = document.getElementById('shareUrl');
+      urlInput.select();
+
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(urlInput.value).then(() => {
+          document.getElementById('shareTip').innerHTML = '✅ 链接已复制到剪贴板！';
+          document.getElementById('shareTip').className = 'share-tip success';
+        });
+      } else {
+        document.execCommand('copy');
+        document.getElementById('shareTip').innerHTML = '✅ 链接已复制！';
+        document.getElementById('shareTip').className = 'share-tip success';
+      }
+    }
+
+    // 清空备注
+    function clearNotes() {
+      const notes = getNotes();
+      const count = Object.values(notes).filter(n => n.content).length;
+
+      if (count === 0) {
+        alert('没有备注可清空');
+        return;
+      }
+
+      if (confirm(`确定要清空所有 ${count} 条备注吗？`)) {
+        localStorage.removeItem('secp_notes');
+        render();
+        updateShareCount();
+        document.getElementById('shareResult').style.display = 'none';
+        document.getElementById('shareTip').textContent = '已清空所有备注';
+        document.getElementById('shareTip').className = 'share-tip';
+      }
+    }
+
+    // 从 URL 加载分享的备注
+    function loadSharedNotes() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const encoded = urlParams.get('notes');
+
+      if (!encoded) return false;
+
+      const sharedNotes = decodeNotes(encoded);
+      if (!sharedNotes) {
+        alert('链接中的备注数据无效');
+        return false;
+      }
+
+      const count = Object.keys(sharedNotes).length;
+      const existingNotes = getNotes();
+      const existingCount = Object.values(existingNotes).filter(n => n.content).length;
+
+      // 询问用户如何处理
+      let action;
+      if (existingCount > 0) {
+        action = confirm(
+          `检测到分享链接中有 ${count} 条备注\n\n` +
+          `你本地已有 ${existingCount} 条备注\n\n` +
+          `点击「确定」→ 合并备注（分享的会覆盖同名备注）\n` +
+          `点击「取消」→ 忽略分享的备注`
+        );
+      } else {
+        action = confirm(`检测到分享链接中有 ${count} 条备注\n\n点击「确定」加载这些备注`);
+      }
+
+      if (action) {
+        // 合并备注
+        const merged = { ...existingNotes, ...sharedNotes };
+        setNotes(merged);
+
+        // 清除 URL 参数，避免刷新时重复提示
+        window.history.replaceState({}, '', window.location.pathname);
+
+        return true;
+      } else {
+        // 用户选择忽略，清除 URL 参数
+        window.history.replaceState({}, '', window.location.pathname);
+        return false;
+      }
+    }
+
+    // 初始化
+    loadSharedNotes(); // 先检查 URL 中是否有分享的备注
+    render();
+    updateShareCount();
+  </script>
+</body>
+</html>
