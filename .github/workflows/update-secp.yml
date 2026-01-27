@@ -1,5 +1,4 @@
-
-  name: Auto Update SECP Data
+name: Auto Update SECP Data
 
   on:
     schedule:
