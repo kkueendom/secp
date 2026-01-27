@@ -1,2 +1,51 @@
- Read(SECP解读\.github\workflows\update-secp.yml)
-  ⎿  Read 54 lines
+
+  name: Auto Update SECP Data
+
+  on:
+    schedule:
+      - cron: '0 4 * * 1'
+    workflow_dispatch:
+
+  jobs:
+    update:
+      runs-on: ubuntu-latest
+
+      steps:
+        - name: Checkout repository
+          uses: actions/checkout@v4
+
+        - name: Setup Node.js
+          uses: actions/setup-node@v4
+          with:
+            node-version: '20'
+
+        - name: Install dependencies
+          run: |
+            cd scripts
+            npm install
+
+        - name: Install Chromium for Puppeteer
+          run: npx puppeteer browsers install chrome
+
+        - name: Run scraper
+          run: node scripts/scrape-secp.js
+          env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+        - name: Check for changes
+          id: check
+          run: |
+            if git diff --quiet index.html; then
+              echo "changed=false" >> $GITHUB_OUTPUT
+            else
+              echo "changed=true" >> $GITHUB_OUTPUT
+            fi
+
+        - name: Commit and push
+          if: steps.check.outputs.changed == 'true'
+          run: |
+            git config --local user.email "github-actions[bot]@users.noreply.github.com"
+            git config --local user.name "github-actions[bot]"
+            git add index.html
+            git commit -m "Auto-update: SECP whitelist data $(date +'%Y-%m-%d')"
+            git push
