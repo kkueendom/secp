@@ -1,0 +1,13 @@
+ {
+    "name": "secp-scraper",
+    "version": "1.0.0",
+    "description": "SECP whitelist auto-updater",
+    "type": "module",
+    "scripts": {
+      "scrape": "node scrape-secp.js"
+    },
+    "dependencies": {
+      "puppeteer": "^23.0.0",
+      "pdf-parse": "^1.1.1"
+    }
+  }
