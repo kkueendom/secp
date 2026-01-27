@@ -1,50 +1,28 @@
-name: Auto Update SECP Data
-
-  on:
-    schedule:
-      - cron: '0 4 * * 1'
+name: Update SECP                                                                                                                                                                                                        
+on:
     workflow_dispatch:
+    schedule:
+      - cron: "0 4 * * 1"
 
   jobs:
     update:
       runs-on: ubuntu-latest
-
       steps:
-        - name: Checkout repository
-          uses: actions/checkout@v4
+        - uses: actions/checkout@v4
 
-        - name: Setup Node.js
-          uses: actions/setup-node@v4
+        - uses: actions/setup-node@v4
           with:
-            node-version: '20'
+            node-version: "20"
 
-        - name: Install dependencies
+        - name: Install and run
           run: |
             cd scripts
             npm install
+            npx puppeteer browsers install chrome
+            node scrape-secp.js
 
-        - name: Install Chromium for Puppeteer
-          run: npx puppeteer browsers install chrome
-
-        - name: Run scraper
-          run: node scripts/scrape-secp.js
-          env:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-        - name: Check for changes
-          id: check
+        - name: Commit changes
           run: |
-            if git diff --quiet index.html; then
-              echo "changed=false" >> $GITHUB_OUTPUT
-            else
-              echo "changed=true" >> $GITHUB_OUTPUT
-            fi
-
-        - name: Commit and push
-          if: steps.check.outputs.changed == 'true'
-          run: |
-            git config --local user.email "github-actions[bot]@users.noreply.github.com"
-            git config --local user.name "github-actions[bot]"
-            git add index.html
-            git commit -m "Auto-update: SECP whitelist data $(date +'%Y-%m-%d')"
-            git push
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git config user.name "github-actions[bot]"
+            git diff --quiet index.html || (git add index.html && git commit -m "Auto-update SECP data" && git push)
