@@ -750,13 +750,13 @@
         const newsResponse = await fetch('news.json');
         if (newsResponse.ok) {
           const newsData = await newsResponse.json();
-          if (newsData.lastUpdated) {
+          if (newsData.newsUpdateDate) {
+            newsDate = formatSubtitleDate(newsData.newsUpdateDate);
+          } else if (newsData.lastUpdated) {
             newsDate = formatSubtitleDate(newsData.lastUpdated);
           }
           if (newsData.whitelistDate) {
             whitelistDate = newsData.whitelistDate;
-          } else if (newsData.lastUpdated) {
-            whitelistDate = formatSubtitleDate(newsData.lastUpdated);
           }
         }
       } catch (e) {}
@@ -781,9 +781,20 @@
 
     function formatSubtitleDate(dateStr) {
       if (!dateStr) return '未更新';
-      const date = new Date(dateStr);
+      
       const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-      return `${monthNames[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
+      
+      const monthMatch = dateStr.match(/(January|February|March|April|May|June|July|August|September|October|November|December)\s+(\d{1,2}),?\s+(\d{4})/);
+      if (monthMatch) {
+        return dateStr;
+      }
+      
+      const date = new Date(dateStr);
+      if (!isNaN(date.getTime())) {
+        return `${monthNames[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
+      }
+      
+      return dateStr;
     }
 
     function parseDate(dateStr) {

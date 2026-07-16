@@ -647,10 +647,22 @@ function saveChangelog(changelog, date) {
 
 function saveNews(newsItems, whitelistDate) {
   const newsPath = path.join(__dirname, '..', 'news.json');
+  const today = new Date();
+  const todayStr = `${today.getFullYear()}-${(today.getMonth() + 1).toString().padStart(2, '0')}-${today.getDate().toString().padStart(2, '0')}`;
+  
+  let existingWhitelistDate = '';
+  try {
+    const existingData = fs.readFileSync(newsPath, 'utf-8');
+    const existingJson = JSON.parse(existingData);
+    if (existingJson.whitelistDate) {
+      existingWhitelistDate = existingJson.whitelistDate;
+    }
+  } catch (e) {}
   
   const newsData = {
     lastUpdated: new Date().toISOString(),
-    whitelistDate: whitelistDate || '',
+    newsUpdateDate: todayStr,
+    whitelistDate: whitelistDate || existingWhitelistDate || '',
     items: newsItems.map(item => ({
       date: item.date,
       title: item.title,
