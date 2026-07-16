@@ -379,7 +379,7 @@
   <header class="header">
     <div>
       <h1 class="title">SECP 监管追踪器</h1>
-      <p class="subtitle">白名单更新：December 5, 2025 | 新闻更新：January 27, 2026</p>
+      <p class="subtitle" id="updateTime">白名单更新：加载中... | 新闻更新：加载中...</p>
     </div>
     <button class="update-btn" onclick="manualUpdate()">
       <span class="update-icon">🔄</span>
@@ -734,10 +734,56 @@
               }
             }
           }
+          
+          updateSubtitle(data.lastUpdated, 'news');
         }
       } catch (e) {
         console.log('Failed to load news.json, using fallback content');
       }
+    }
+
+    async function updateSubtitle() {
+      let whitelistDate = '未更新';
+      let newsDate = '未更新';
+      
+      try {
+        const newsResponse = await fetch('news.json');
+        if (newsResponse.ok) {
+          const newsData = await newsResponse.json();
+          if (newsData.lastUpdated) {
+            newsDate = formatSubtitleDate(newsData.lastUpdated);
+          }
+          if (newsData.whitelistDate) {
+            whitelistDate = newsData.whitelistDate;
+          } else if (newsData.lastUpdated) {
+            whitelistDate = formatSubtitleDate(newsData.lastUpdated);
+          }
+        }
+      } catch (e) {}
+      
+      if (whitelistDate === '未更新') {
+        try {
+          const changelogResponse = await fetch('changelog.json');
+          if (changelogResponse.ok) {
+            const changelogData = await changelogResponse.json();
+            if (changelogData && changelogData.length > 0) {
+              whitelistDate = formatSubtitleDate(changelogData[0].date);
+            }
+          }
+        } catch (e) {}
+      }
+      
+      const subtitle = document.getElementById('updateTime');
+      if (subtitle) {
+        subtitle.textContent = `白名单更新：${whitelistDate} | 新闻更新：${newsDate}`;
+      }
+    }
+
+    function formatSubtitleDate(dateStr) {
+      if (!dateStr) return '未更新';
+      const date = new Date(dateStr);
+      const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+      return `${monthNames[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
     }
 
     function parseDate(dateStr) {
@@ -809,6 +855,7 @@
     generateWatermark();
     loadNews();
     loadChangelog();
+    updateSubtitle();
   </script>
 </body>
 </html>

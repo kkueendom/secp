@@ -75,11 +75,16 @@ async function main() {
         
         if (filteredNews.length > 0) {
           const analyzedNews = await analyzeNewsWithAI(filteredNews);
-          const relevantNews = analyzedNews.filter(n => n.relevanceScore >= 0.60);
+          const relevantNews = analyzedNews.filter(n => n.relevanceScore >= 0.65);
           console.log(`Filtered ${analyzedNews.length - relevantNews.length} low-relevance articles`);
-          saveNews([...relevantNews, ...existingNews].slice(0, 20));
+          saveNews([...relevantNews, ...existingNews].slice(0, 20), whitelistResult?.date);
         } else {
           console.log('No new news found');
+        }
+      } else if (whitelistResult?.date) {
+        const existingNews = loadExistingNews();
+        if (existingNews && existingNews.length > 0) {
+          saveNews(existingNews, whitelistResult.date);
         }
       }
 
@@ -640,11 +645,12 @@ function saveChangelog(changelog, date) {
   console.log('changelog.json updated');
 }
 
-function saveNews(newsItems) {
+function saveNews(newsItems, whitelistDate) {
   const newsPath = path.join(__dirname, '..', 'news.json');
   
   const newsData = {
     lastUpdated: new Date().toISOString(),
+    whitelistDate: whitelistDate || '',
     items: newsItems.map(item => ({
       date: item.date,
       title: item.title,
