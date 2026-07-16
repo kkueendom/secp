@@ -11,11 +11,10 @@ const __dirname = path.dirname(__filename);
 const SECP_URL = 'https://www.secp.gov.pk/document/digital-lending-apps-being-run-and-administered-by-duly-licensed-lending-nbfcs/';
 
 const NEWS_SOURCES = [
-  { name: 'SECP Official', url: 'https://www.secp.gov.pk/news/', type: 'official' },
-  { name: 'ProPakistani', url: 'https://propakistani.pk/', type: 'media' },
-  { name: 'Pakistan Today Profit', url: 'https://profit.pakistantoday.com.pk/', type: 'media' },
-  { name: 'TechJuice', url: 'https://techjuice.pk/', type: 'media' },
-  { name: 'Dawn', url: 'https://www.dawn.com/', type: 'media' }
+  { name: 'SECP Official', url: 'https://www.secp.gov.pk/news/' },
+  { name: 'TechJuice', url: 'https://techjuice.pk/' },
+  { name: 'Pakistan Today Profit', url: 'https://profit.pakistantoday.com.pk/' },
+  { name: 'The News', url: 'https://www.thenews.com.pk/' }
 ];
 
 const KEYWORDS = [
