@@ -4,6 +4,7 @@
     "type": "module",
     "dependencies": {
       "puppeteer": "^23.0.0",
-      "pdf-parse": "^1.1.1"
+      "pdf-parse": "^1.1.1",
+      "openai": "^4.52.0"
     }
   }

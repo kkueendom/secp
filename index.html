@@ -198,6 +198,16 @@
     .news-desc { font-size: 13px; color: #444; line-height: 1.4; margin-bottom: 6px; }
     .news-link { font-size: 12px; color: var(--blue); text-decoration: none; }
     .news-link:hover { text-decoration: underline; }
+    .news-impact {
+      font-size: 12px; color: #ff9500; background: #fff8e6; padding: 6px 10px;
+      border-radius: 6px; margin-top: 6px; line-height: 1.4; border-left: 3px solid #ff9500;
+    }
+    .news-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 6px; }
+    .news-tag {
+      font-size: 10px; padding: 2px 6px; background: #f0f0f0;
+      border-radius: 4px; color: #666;
+    }
+    .news-source { font-size: 11px; color: #86868b; margin-top: 4px; }
 
     /* 风险提示 */
     .risk-list { display: flex; flex-direction: column; gap: 10px; }
@@ -205,6 +215,34 @@
       display: flex; align-items: flex-start; gap: 10px;
       padding: 10px 12px; border-radius: 8px; background: #f9f9f9;
     }
+
+    /* 变更记录 */
+    .changelog-list { display: flex; flex-direction: column; gap: 16px; }
+    .changelog-item {
+      border-radius: 10px; padding: 14px; background: #f9f9f9;
+      border-left: 4px solid #ff9500;
+    }
+    .changelog-date {
+      font-size: 11px; color: #86868b; margin-bottom: 8px; font-weight: 500;
+    }
+    .changelog-summary {
+      display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 10px;
+    }
+    .changelog-stat {
+      display: inline-flex; align-items: center; gap: 4px;
+      padding: 4px 8px; border-radius: 8px; font-size: 12px; font-weight: 500;
+    }
+    .changelog-stat.added { background: #f0fff4; color: #34c759; }
+    .changelog-stat.removed { background: #fff5f5; color: #ff3b30; }
+    .changelog-stat.changed { background: #fff8e6; color: #ff9500; }
+    .changelog-details {
+      font-size: 13px; color: #444; line-height: 1.5;
+    }
+    .changelog-details ul { padding-left: 18px; margin: 4px 0; }
+    .changelog-details li { margin-bottom: 4px; }
+    .changelog-details .add-icon { color: #34c759; margin-right: 4px; }
+    .changelog-details .remove-icon { color: #ff3b30; margin-right: 4px; }
+    .changelog-details .change-icon { color: #ff9500; margin-right: 4px; }
     .risk-item.high { background: #fff5f5; }
     .risk-item.medium { background: #fff8e6; }
     .risk-item.low { background: #f0fff4; }
@@ -358,7 +396,7 @@
         <span class="card-badge" style="background:#007aff;color:#fff;">2026年1月</span>
       </div>
 
-      <div class="news-list">
+      <div class="news-list" id="newsList">
         <div class="news-item">
           <div class="news-date">2026-01-14</div>
           <div class="news-title">巴基斯坦与美国金融科技公司签署数字支付 MoU</div>
@@ -428,6 +466,21 @@
       <div style="margin-top:12px;padding:10px;background:#fff5f5;border-radius:8px;font-size:12px;">
         <strong>非法 APP 黑名单：</strong>
         <a href="https://www.secp.gov.pk/document/list-of-illegal-digital-apps/" target="_blank">查看 SECP 公布的非法贷款平台列表 (更新于 May 19, 2025)</a>
+      </div>
+    </div>
+
+    <!-- 白名单变更记录 -->
+    <div class="card">
+      <div class="card-header">
+        <span>📊</span>
+        <span class="card-title">白名单变更记录</span>
+        <span class="card-badge" style="background:#ff9500;color:#fff;">追踪历史</span>
+      </div>
+
+      <div id="changelogContainer">
+        <div style="text-align:center;padding:20px;color:#86868b;font-size:14px;">
+          暂无变更记录<br><span style="font-size:12px;">下次自动更新后将显示变更历史</span>
+        </div>
       </div>
     </div>
 
@@ -643,9 +696,119 @@
       }
     }
 
+    // 动态加载新闻
+    async function loadNews() {
+      try {
+        const response = await fetch('news.json');
+        if (response.ok) {
+          const data = await response.json();
+          const newsList = document.getElementById('newsList');
+          if (newsList && data.items && data.items.length > 0) {
+            const sortedItems = [...data.items].sort((a, b) => {
+              const dateA = parseDate(a.date);
+              const dateB = parseDate(b.date);
+              return dateB - dateA;
+            });
+            
+            newsList.innerHTML = sortedItems.slice(0, 6).map(item => `
+              <div class="news-item">
+                <div class="news-date">${formatDate(item.date)}</div>
+                <div class="news-title">${item.title}</div>
+                ${item.summary ? `<div class="news-desc">${item.summary}</div>` : ''}
+                ${item.businessImpact ? `<div class="news-impact">💡 ${item.businessImpact}</div>` : ''}
+                ${item.keywords && item.keywords.length > 0 ? `<div class="news-tags">${item.keywords.map(k => `<span class="news-tag">${k}</span>`).join('')}</div>` : ''}
+                <a class="news-link" href="${item.link}" target="_blank">查看详情 →</a>
+                <div class="news-source">来源：${item.source}</div>
+              </div>
+            `).join('');
+            
+            const cardHeaders = document.querySelectorAll('.card-header');
+            for (const header of cardHeaders) {
+              if (header.textContent.includes('新闻动态')) {
+                const badge = header.querySelector('.card-badge');
+                if (badge && data.lastUpdated) {
+                  const date = new Date(data.lastUpdated);
+                  badge.textContent = `${date.getFullYear()}年${date.getMonth() + 1}月`;
+                }
+                break;
+              }
+            }
+          }
+        }
+      } catch (e) {
+        console.log('Failed to load news.json, using fallback content');
+      }
+    }
+
+    function parseDate(dateStr) {
+      if (!dateStr) return new Date(0);
+      const match = dateStr.match(/(\d{4})[\/-](\d{1,2})[\/-](\d{1,2})/);
+      if (match) {
+        return new Date(parseInt(match[1]), parseInt(match[2]) - 1, parseInt(match[3]));
+      }
+      return new Date(dateStr);
+    }
+
+    function formatDate(dateStr) {
+      if (!dateStr) return '';
+      const match = dateStr.match(/(\d{4})[\/-](\d{1,2})[\/-](\d{1,2})/);
+      if (match) {
+        return `${match[1]}-${parseInt(match[2]).toString().padStart(2, '0')}-${parseInt(match[3]).toString().padStart(2, '0')}`;
+      }
+      return dateStr;
+    }
+
+    // 动态加载变更记录
+    async function loadChangelog() {
+      try {
+        const response = await fetch('changelog.json');
+        if (response.ok) {
+          const history = await response.json();
+          const container = document.getElementById('changelogContainer');
+          
+          if (history && history.length > 0) {
+            container.innerHTML = `<div class="changelog-list">${history.slice(0, 10).map(entry => {
+              let details = '';
+              if (entry.added && entry.added.length > 0) {
+                details += `<div><strong>新增 ${entry.added.length} 个 APP：</strong><ul>`;
+                details += entry.added.map(a => `<li><span class="add-icon">+</span>${a.name} (${a.type})</li>`).join('');
+                details += '</ul></div>';
+              }
+              if (entry.removed && entry.removed.length > 0) {
+                details += `<div><strong>移除 ${entry.removed.length} 个 APP：</strong><ul>`;
+                details += entry.removed.map(r => `<li><span class="remove-icon">-</span>${r.name}</li>`).join('');
+                details += '</ul></div>';
+              }
+              if (entry.changed && entry.changed.length > 0) {
+                details += `<div><strong>变更 ${entry.changed.length} 个 APP：</strong><ul>`;
+                details += entry.changed.map(c => `<li><span class="change-icon">~</span>${c.name}: ${c.changes.map(ch => `${ch.field}: ${ch.from} → ${ch.to}`).join(', ')}</li>`).join('');
+                details += '</ul></div>';
+              }
+              
+              return `
+                <div class="changelog-item">
+                  <div class="changelog-date">📅 ${entry.date}</div>
+                  <div class="changelog-summary">
+                    ${entry.added && entry.added.length > 0 ? `<span class="changelog-stat added">+${entry.added.length} 新增</span>` : ''}
+                    ${entry.removed && entry.removed.length > 0 ? `<span class="changelog-stat removed">-${entry.removed.length} 移除</span>` : ''}
+                    ${entry.changed && entry.changed.length > 0 ? `<span class="changelog-stat changed">~${entry.changed.length} 变更</span>` : ''}
+                  </div>
+                  ${details ? `<div class="changelog-details">${details}</div>` : ''}
+                </div>
+              `;
+            }).join('')}</div>`;
+          }
+        }
+      } catch (e) {
+        console.log('Failed to load changelog.json');
+      }
+    }
+
     // 初始化
     render();
     generateWatermark();
+    loadNews();
+    loadChangelog();
   </script>
 </body>
 </html>
