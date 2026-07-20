@@ -15,7 +15,6 @@ jobs:
       steps:
         - uses: actions/checkout@v4
           with:
-            persist-credentials: false
             fetch-depth: 0
 
         - uses: actions/setup-node@v4
@@ -29,19 +28,10 @@ jobs:
             npx puppeteer browsers install chrome
             node scrape-secp.js
 
-        - name: Check changes
+        - name: Commit and push changes
           run: |
-            echo "=== Checking changed files ==="
-            git status
-            echo "=== News.json content ==="
-            cat news.json | head -50
-
-        - name: Commit and push
-          uses: EndBug/add-and-commit@v9
-          with:
-            add: "index.html changelog.json news.json"
-            message: "Auto-update SECP data"
-            author_name: "github-actions[bot]"
-            author_email: "github-actions[bot]@users.noreply.github.com"
-            push: true
-            token: ${{ secrets.GITHUB_TOKEN }}
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git config user.name "github-actions[bot]"
+            git add index.html changelog.json news.json
+            git diff --cached --quiet || git commit -m "Auto-update SECP data"
+            git push
