@@ -43,3 +43,5 @@ jobs:
             message: "Auto-update SECP data"
             author_name: "github-actions[bot]"
             author_email: "github-actions[bot]@users.noreply.github.com"
+            push: true
+            token: ${{ secrets.GITHUB_TOKEN }}
