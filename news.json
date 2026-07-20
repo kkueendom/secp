@@ -1,8 +1,50 @@
 {
-  "lastUpdated": "2026-07-20T03:30:24.803Z",
+  "lastUpdated": "2026-07-20T06:55:50.705Z",
   "newsUpdateDate": "2026-07-20",
   "whitelistDate": "December 5, 2025",
   "items": [
+    {
+      "date": "2026/7/18",
+      "title": "From Karachi to a $170 Million Success! The Ali Moiz Startup Story",
+      "link": "https://www.techjuice.pk/from-karachi-to-a-170-million-success-the-ali-moiz-startup-story/",
+      "source": "TechJuice",
+      "summary": "该新闻讲述了巴基斯坦创业者Ali Moiz从卡拉奇成长、赴美留学，最终创立估值1.7亿美元金融科技公司的故事。其成功路径反映了巴基斯坦本土金融科技创业生态的崛起，以及数字贷款领域吸引国际资本的趋势。",
+      "businessImpact": "Ali Moiz的成功案例表明巴基斯坦数字贷款市场具有高增长潜力和资本吸引力。对中国互金公司而言，需关注本土化合规运营、用户数据保护及利率上限等监管要求，避免因模式差异引发监管风险。",
+      "keywords": [
+        "巴基斯坦金融科技",
+        "数字贷款监管",
+        "创业生态"
+      ],
+      "relevanceScore": 0.7
+    },
+    {
+      "date": "2026/7/18",
+      "title": "Zong & Ufone Gain Cellular Market Share as Jazz & Telenor Slip in June 2026",
+      "link": "https://www.techjuice.pk/zong-ufone-gain-cellular-market-share-as-jazz-telenor-slip-in-june-2026/",
+      "source": "TechJuice",
+      "summary": "2026年6月巴基斯坦电信行业用户份额发生显著变化，Jazz和Telenor的用户流失，而Zong和Ufone成功扩大了市场份额。这一趋势反映了运营商竞争格局的调整，可能影响移动金融服务生态。",
+      "businessImpact": "Zong和Ufone份额上升可能改变数字贷款渠道的合作伙伴选择，需关注其网络覆盖和用户质量，以优化nano lending的获客与风控策略。",
+      "keywords": [
+        "电信市场份额",
+        "移动金融生态",
+        "运营商竞争"
+      ],
+      "relevanceScore": 0.65
+    },
+    {
+      "date": "2026/7/19",
+      "title": "How to Apply for Punjab Free Electric Bike Scheme 2026: Full Details",
+      "link": "https://www.techjuice.pk/how-to-apply-for-punjab-free-electric-bike-scheme-2026-full-details/",
+      "source": "TechJuice",
+      "summary": "巴基斯坦旁遮普省政府推出2026年电动自行车计划，向全省学生提供10万辆电动自行车，女生免费获得，男生可购买。该计划旨在促进绿色交通和教育支持，可能涉及政府补贴或融资安排。",
+      "businessImpact": "该计划可能创造学生群体的消费信贷需求，尤其是男生购买电动自行车的融资机会。需关注政府是否与金融机构合作提供分期付款，以及监管对数字贷款在绿色金融领域的支持政策。",
+      "keywords": [
+        "旁遮普省电动自行车计划",
+        "学生金融包容性",
+        "绿色金融监管"
+      ],
+      "relevanceScore": 0.6
+    },
     {
       "date": "2026/7/8",
       "title": "SECP Engages Sialkot Business Community",
