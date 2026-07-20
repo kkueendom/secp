@@ -1,64 +1,8 @@
 {
-  "lastUpdated": "2026-07-20T06:13:09.586Z",
+  "lastUpdated": "2026-07-20T03:30:24.803Z",
   "newsUpdateDate": "2026-07-20",
   "whitelistDate": "December 5, 2025",
   "items": [
-    {
-      "date": "2026/7/20",
-      "title": "The emerging upper middle class",
-      "link": "https://profit.pakistantoday.com.pk/2026/07/20/the-emerging-upper-middle-class",
-      "source": "Pakistan Today Profit",
-      "summary": "该新闻聚焦巴基斯坦新兴中上阶层群体的崛起，分析其消费能力、金融需求及数字服务渗透趋势。随着经济结构转型和收入提升，这一阶层对便捷信贷、消费金融和数字支付的需求显著增长，可能推动金融科技产品创新与监管框架调整。",
-      "businessImpact": "中上阶层扩大可能增加nano lending优质客户群，但需关注其信用评估差异化及更高额度需求。监管或针对该群体出台更严格的消费者保护规则，需提前优化风控与合规策略。",
-      "keywords": [
-        "中上阶层",
-        "消费金融",
-        "数字信贷监管"
-      ],
-      "relevanceScore": 0.7
-    },
-    {
-      "date": "2026/7/20",
-      "title": "Hugging Face Breach: What We Know Of the Internal Datasets, Credentials, and Tokens Exposed",
-      "link": "https://www.techjuice.pk/hugging-face-breach-ai-driven-attack-datasets-credentials/",
-      "source": "TechJuice",
-      "summary": "Hugging Face披露了一起数据泄露事件，攻击者未经授权访问其部分生产基础设施，暴露了内部数据集和服务凭证。这起事件凸显了AI平台面临的网络攻击新趋势，即攻击目标从用户数据转向模型训练数据和基础设施凭证，可能引发更严重的安全风险。",
-      "businessImpact": "若nano lending业务使用AI模型或依赖第三方AI平台，需警惕模型训练数据泄露导致客户信用评估偏差，以及服务凭证被盗可能引发系统入侵和用户数据泄露，影响业务合规与声誉。",
-      "keywords": [
-        "数据泄露",
-        "AI安全",
-        "金融科技风险"
-      ],
-      "relevanceScore": 0.6
-    },
-    {
-      "date": "2026/7/18",
-      "title": "From Karachi to a $170 Million Success! The Ali Moiz Startup Story",
-      "link": "https://www.techjuice.pk/from-karachi-to-a-170-million-success-the-ali-moiz-startup-story/",
-      "source": "TechJuice",
-      "summary": "本文讲述了巴基斯坦创业者Ali Moiz从卡拉奇成长、赴美留学，最终创立估值1.7亿美元金融科技公司的故事。其成功路径体现了巴基斯坦本土金融科技创业生态的崛起，以及数字贷款领域在巴基斯坦的潜力与挑战。",
-      "businessImpact": "该案例表明巴基斯坦数字贷款市场存在巨大机会，但需关注本土竞争加剧、监管合规要求（如利率上限、数据保护）以及用户信用评估模型的本地化适配。",
-      "keywords": [
-        "巴基斯坦金融科技",
-        "数字贷款",
-        "创业生态"
-      ],
-      "relevanceScore": 0.7
-    },
-    {
-      "date": "2026/7/18",
-      "title": "Zong & Ufone Gain Cellular Market Share as Jazz & Telenor Slip in June 2026",
-      "link": "https://www.techjuice.pk/zong-ufone-gain-cellular-market-share-as-jazz-telenor-slip-in-june-2026/",
-      "source": "TechJuice",
-      "summary": "2026年6月巴基斯坦电信行业用户份额发生显著变化，Jazz和Telenor流失市场份额，而Zong和Ufone成功巩固并提升了行业地位。这一趋势反映了运营商竞争格局的调整，可能影响移动金融服务的用户基础与渠道合作策略。",
-      "businessImpact": "Jazz和Telenor份额下滑可能削弱其数字贷款渠道的覆盖力，需关注Zong/Ufone的金融科技合作潜力，并评估用户迁移对现有贷款催收与获客效率的影响。",
-      "keywords": [
-        "电信市场份额",
-        "移动金融渠道",
-        "用户迁移风险"
-      ],
-      "relevanceScore": 0.7
-    },
     {
       "date": "2026/7/8",
       "title": "SECP Engages Sialkot Business Community",
