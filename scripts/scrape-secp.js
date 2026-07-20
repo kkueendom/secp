@@ -74,7 +74,7 @@ async function main() {
         
         if (filteredNews.length > 0) {
           const analyzedNews = await analyzeNewsWithAI(filteredNews);
-          const relevantNews = analyzedNews.filter(n => n.relevanceScore >= 0.65);
+          const relevantNews = analyzedNews.filter(n => n.relevanceScore >= 0.55);
           console.log(`Filtered ${analyzedNews.length - relevantNews.length} low-relevance articles`);
           saveNews([...relevantNews, ...existingNews].slice(0, 20), whitelistResult?.date);
         } else {
@@ -381,9 +381,14 @@ function parseDate(dateStr) {
 }
 
 function filterByKeywords(newsItems) {
+  const trustedSources = ['SECP Official', 'TechJuice', 'Pakistan Today Profit'];
+  
   return newsItems.filter(item => {
     const text = (item.title + ' ' + item.excerpt).toLowerCase();
-    return KEYWORDS.some(keyword => text.includes(keyword.toLowerCase()));
+    const hasKeyword = KEYWORDS.some(keyword => text.includes(keyword.toLowerCase()));
+    const isTrustedSource = trustedSources.includes(item.source);
+    
+    return hasKeyword || isTrustedSource;
   });
 }
 
