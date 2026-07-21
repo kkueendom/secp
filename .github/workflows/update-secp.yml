@@ -12,30 +12,43 @@ jobs:
         DEEPSEEK_BASE_URL: ${{ secrets.DEEPSEEK_BASE_URL }}
       permissions:
         contents: write
+        pull-requests: write
       steps:
         - uses: actions/checkout@v4
           with:
             fetch-depth: 0
+            token: ${{ secrets.GH_TOKEN || secrets.GITHUB_TOKEN }}
 
         - uses: actions/setup-node@v4
           with:
             node-version: "20"
 
-        - name: Install and run
+        - name: Install dependencies
           run: |
             cd scripts
             npm install
+
+        - name: Install Chrome
+          run: |
+            cd scripts
             npx puppeteer browsers install chrome
+
+        - name: Run scraper
+          run: |
+            cd scripts
             node scrape-secp.js
 
-        - name: Commit and push changes
+        - name: Check for changes
+          id: check_changes
+          run: |
+            git diff --quiet && echo "changed=false" >> $GITHUB_OUTPUT || echo "changed=true" >> $GITHUB_OUTPUT
+            git status
+
+        - name: Commit and push if changed
+          if: steps.check_changes.outputs.changed == 'true'
           run: |
             git config user.email "github-actions[bot]@users.noreply.github.com"
             git config user.name "github-actions[bot]"
             git add index.html changelog.json news.json
-            if git diff --cached --quiet; then
-              echo "No changes to commit"
-            else
-              git commit -m "Auto-update SECP data"
-              git push https://${{ secrets.GH_TOKEN }}@github.com/kkueendom/secp.git HEAD:main
-            fi
+            git commit -m "Auto-update SECP data"
+            git push
