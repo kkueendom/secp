@@ -656,7 +656,7 @@
               return dateB - dateA;
             });
             
-            newsList.innerHTML = sortedItems.slice(0, 6).map(item => `
+            newsList.innerHTML = sortedItems.slice(0, 4).map(item => `
               <div class="news-item">
                 <div class="news-date">${formatDate(item.date)}</div>
                 <div class="news-title">${item.title}</div>
