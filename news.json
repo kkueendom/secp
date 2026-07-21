@@ -1,8 +1,36 @@
 {
-  "lastUpdated": "2026-07-20T06:55:50.705Z",
-  "newsUpdateDate": "2026-07-20",
+  "lastUpdated": "2026-07-21T08:33:33.275Z",
+  "newsUpdateDate": "2026-07-21",
   "whitelistDate": "December 5, 2025",
   "items": [
+    {
+      "date": "2026/7/21",
+      "title": "FIA Launches Crypto Crime Unit to Choke Money Laundering Networks",
+      "link": "https://www.techjuice.pk/fia-launches-crypto-crime-unit-to-choke-money-laundering-networks/",
+      "source": "TechJuice",
+      "summary": "巴基斯坦联邦调查局（FIA）成立专门的加密货币犯罪调查部门，旨在打击通过虚拟货币交易进行的洗钱和恐怖融资活动。此举表明巴基斯坦政府正加强金融科技领域的反洗钱（AML）和反恐融资（CFT）监管力度，尤其针对虚拟资产相关非法行为。",
+      "businessImpact": "该部门可能加强对数字金融交易的监控，包括nano lending业务中涉及的资金流动。需确保业务合规，避免因客户使用加密货币还款或资金流转被误判为洗钱风险，建议加强KYC和交易监测。",
+      "keywords": [
+        "FIA加密货币犯罪调查",
+        "反洗钱监管",
+        "巴基斯坦金融科技合规"
+      ],
+      "relevanceScore": 0.7
+    },
+    {
+      "date": "2026/7/20",
+      "title": "Daily Fuel Price Formula Introduced: Here Is How It Will Work",
+      "link": "https://www.techjuice.pk/daily-fuel-price-formula-introduced-here-is-how-it-will-work/",
+      "source": "TechJuice",
+      "summary": "巴基斯坦推出每日燃油价格公式，将燃油价格与市场挂钩，并对石油营销公司施加更严格的合规条件，包括进口和炼油厂提货承诺。此举旨在提高价格透明度，减少财政补贴，但可能加剧通胀压力，影响消费者购买力和贷款偿还能力。",
+      "businessImpact": "燃油价格每日波动可能推高通胀，削弱低收入借款人还款能力，增加nano lending的信用风险。需关注借款人还款行为变化，并调整风控模型以应对宏观经济波动。",
+      "keywords": [
+        "燃油价格改革",
+        "通胀风险",
+        "借款人还款能力"
+      ],
+      "relevanceScore": 0.6
+    },
     {
       "date": "2026/7/18",
       "title": "From Karachi to a $170 Million Success! The Ali Moiz Startup Story",

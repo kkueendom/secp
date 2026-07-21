@@ -381,7 +381,7 @@ function parseDate(dateStr) {
 }
 
 function filterByKeywords(newsItems) {
-  const trustedSources = ['SECP Official', 'TechJuice', 'Pakistan Today Profit'];
+  const trustedSources = ['SECP Official'];
   
   return newsItems.filter(item => {
     const text = (item.title + ' ' + item.excerpt).toLowerCase();
