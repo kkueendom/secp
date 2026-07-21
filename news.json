@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-21T08:33:33.275Z",
+  "lastUpdated": "2026-07-21T09:31:49.932Z",
   "newsUpdateDate": "2026-07-21",
   "whitelistDate": "December 5, 2025",
   "items": [
@@ -16,20 +16,6 @@
         "巴基斯坦金融科技合规"
       ],
       "relevanceScore": 0.7
-    },
-    {
-      "date": "2026/7/20",
-      "title": "Daily Fuel Price Formula Introduced: Here Is How It Will Work",
-      "link": "https://www.techjuice.pk/daily-fuel-price-formula-introduced-here-is-how-it-will-work/",
-      "source": "TechJuice",
-      "summary": "巴基斯坦推出每日燃油价格公式，将燃油价格与市场挂钩，并对石油营销公司施加更严格的合规条件，包括进口和炼油厂提货承诺。此举旨在提高价格透明度，减少财政补贴，但可能加剧通胀压力，影响消费者购买力和贷款偿还能力。",
-      "businessImpact": "燃油价格每日波动可能推高通胀，削弱低收入借款人还款能力，增加nano lending的信用风险。需关注借款人还款行为变化，并调整风控模型以应对宏观经济波动。",
-      "keywords": [
-        "燃油价格改革",
-        "通胀风险",
-        "借款人还款能力"
-      ],
-      "relevanceScore": 0.6
     },
     {
       "date": "2026/7/18",
@@ -60,74 +46,16 @@
       "relevanceScore": 0.65
     },
     {
-      "date": "2026/7/19",
-      "title": "How to Apply for Punjab Free Electric Bike Scheme 2026: Full Details",
-      "link": "https://www.techjuice.pk/how-to-apply-for-punjab-free-electric-bike-scheme-2026-full-details/",
-      "source": "TechJuice",
-      "summary": "巴基斯坦旁遮普省政府推出2026年电动自行车计划，向全省学生提供10万辆电动自行车，女生免费获得，男生可购买。该计划旨在促进绿色交通和教育支持，可能涉及政府补贴或融资安排。",
-      "businessImpact": "该计划可能创造学生群体的消费信贷需求，尤其是男生购买电动自行车的融资机会。需关注政府是否与金融机构合作提供分期付款，以及监管对数字贷款在绿色金融领域的支持政策。",
-      "keywords": [
-        "旁遮普省电动自行车计划",
-        "学生金融包容性",
-        "绿色金融监管"
-      ],
-      "relevanceScore": 0.6
-    },
-    {
-      "date": "2026/7/8",
+      "date": "2026/7/16",
       "title": "SECP Engages Sialkot Business Community",
       "link": "https://www.secp.gov.pk/media-center/event-gallery/secp-engages-sialkot-business-community/",
       "source": "SECP Official",
-      "summary": "巴基斯坦证券交易委员会（SECP）专员Muzzafar Ahmed Mirza和Ali Farid Khwaja与锡亚尔科特商业社区进行接触，旨在加强监管机构与当地企业之间的沟通，可能涉及金融包容性、中小企业融资及合规要求等议题。此举显示SECP正积极拓展与地方商业生态的联系，以推动金融监管政策的落地。",
-      "businessImpact": "该接触可能预示SECP将加强对中小企业及数字贷款业务的监管关注，尤其是nano lending的合规要求。需警惕未来可能出台针对小额贷款的新规，影响业务运营成本与审批流程。",
+      "summary": "巴基斯坦证券交易委员会（SECP）委员Muzzafar Ahmed Mirza和Ali Farid Khwaja与锡亚尔科特商业社区进行接触，旨在加强监管机构与当地企业之间的沟通与合作。此举可能涉及金融监管政策宣导、合规要求讨论或促进商业环境改善。",
+      "businessImpact": "SECP与商业社区的互动可能预示未来对数字贷款业务（包括nano lending）的监管趋严，需关注合规要求变化及与地方商业协会的合作机会，以降低政策风险。",
       "keywords": [
         "SECP",
-        "锡亚尔科特商业社区",
+        "商业社区",
         "金融监管"
-      ],
-      "relevanceScore": 0.6
-    },
-    {
-      "date": "2026/7/16",
-      "title": "AWAJ Tokyo Summit: Japan & Pakistan to Launch Tech Startup Corridor",
-      "link": "https://www.techjuice.pk/awaj-tokyo-summit-japan-pakistan-to-launch-tech-startup-corridor/",
-      "source": "TechJuice",
-      "summary": "亚洲Web3联盟日本（AWAJ）在巴基斯坦驻东京大使馆举办跨境科技峰会，旨在建立日本与巴基斯坦之间的制度化创新走廊。峰会聚焦政府、初创企业与投资者之间的对接，由AWAJ总裁Hinza Asif主导，意在促进两国科技合作与投资流动。",
-      "businessImpact": "该创新走廊可能推动巴基斯坦金融科技监管环境优化，吸引更多外资和技术合作。需关注是否涉及数字贷款、区块链或跨境支付政策，可能为nano lending业务带来合规创新或竞争压力。",
-      "keywords": [
-        "巴基斯坦-日本创新走廊",
-        "金融科技监管",
-        "跨境科技合作"
-      ],
-      "relevanceScore": 0.6
-    },
-    {
-      "date": "2026/7/15",
-      "title": "Why Google Optimized a Chinese Rival’s AI Model and Gave It Away Free",
-      "link": "https://www.techjuice.pk/google-qwen-35-ironwood-tpu-optimization-4-7x-speedup/",
-      "source": "TechJuice",
-      "summary": "谷歌工程师优化了阿里巴巴的AI模型Qwen 3.5，使其在其芯片上运行速度提升近五倍，并将优化方案免费公开。此举看似反常，实则可能旨在推动AI生态竞争、降低技术门槛，并间接影响全球AI应用成本与部署效率。",
-      "businessImpact": "该优化可能降低AI驱动的信用评分、反欺诈和客户服务模型的部署成本，提升nano lending业务效率。但需关注巴基斯坦监管对AI模型透明度和数据本地化的要求，避免技术依赖风险。",
-      "keywords": [
-        "AI模型优化",
-        "开源竞争",
-        "金融科技效率",
-        "巴基斯坦监管",
-        "数据本地化"
-      ],
-      "relevanceScore": 0.6
-    },
-    {
-      "date": "2026/7/14",
-      "title": "The Reality of Pakistan’s 5G Rollout: 449 Towers Activated Only",
-      "link": "https://www.techjuice.pk/the-reality-of-pakistans-5g-rollout-449-towers-activated-only/",
-      "source": "TechJuice",
-      "summary": "2026年7月14日，巴基斯坦国民议会IT与电信常设委员会召开会议，讨论网络质量普遍下降问题。会上，信息技术与电信部及巴基斯坦电信管理局反复强调，近期推出的5G网络是解决网络问题的最终方案，但实际仅激活了449座5G基站，进展缓慢。",
-      "businessImpact": "5G网络覆盖不足可能影响nano lending业务的移动端用户访问速度和稳定性，导致客户体验下降、交易失败率上升。需关注网络基础设施改善进度，评估对线上贷款流程的潜在中断风险。",
-      "keywords": [
-        "5G部署",
-        "网络质量",
-        "移动金融基础设施"
       ],
       "relevanceScore": 0.6
     },
@@ -162,20 +90,6 @@
         "巴基斯坦金融科技"
       ],
       "relevanceScore": 0.85
-    },
-    {
-      "date": "2026/7/8",
-      "title": "Advancing a digital future for Pakistan’s Investors",
-      "link": "https://www.secp.gov.pk/media-center/event-gallery/advancing-a-digital-future-for-pakistans-investors/",
-      "source": "SECP Official",
-      "summary": "巴基斯坦证券交易委员会（SECP）主席卡比尔·艾哈迈德·西杜博士在访问CDC卡拉奇时强调，应利用金融科技推动巴基斯坦投资者的数字化未来。此举表明SECP正积极推动金融科技在资本市场中的应用，旨在提升投资者体验和金融包容性。",
-      "businessImpact": "SECP对金融科技的重视可能加速数字贷款监管框架的完善，对nano lending业务既是机遇也是挑战。需关注合规要求变化，尤其是数据保护和消费者权益条款，以确保持续运营。",
-      "keywords": [
-        "SECP",
-        "金融科技",
-        "数字化未来"
-      ],
-      "relevanceScore": 0.7
     }
   ]
 }

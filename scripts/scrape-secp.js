@@ -50,8 +50,9 @@ const COLORS = ["#2ecc71","#27ae60","#1abc9c","#16a085","#e74c3c","#c0392b","#34
 const DEEPSEEK_API_KEY = process.env.DEEPSEEK_API_KEY;
 const DEEPSEEK_BASE_URL = process.env.DEEPSEEK_BASE_URL || 'https://api.deepseek.com/v1';
 
-const MAX_NEWS_PER_SOURCE = 8;
-const MAX_ARTICLE_FETCH = 20;
+const MAX_NEWS_PER_SOURCE = 5;
+const MAX_ARTICLE_FETCH = 15;
+const MAX_NEWS_PER_SOURCE_FINAL = 3;
 const RECENCY_DAYS = 14;
 
 async function main() {
@@ -76,14 +77,17 @@ async function main() {
           const analyzedNews = await analyzeNewsWithAI(filteredNews);
           const relevantNews = analyzedNews.filter(n => n.relevanceScore >= 0.55);
           console.log(`Filtered ${analyzedNews.length - relevantNews.length} low-relevance articles`);
-          saveNews([...relevantNews, ...existingNews].slice(0, 20), whitelistResult?.date);
+          const allNews = [...relevantNews, ...existingNews];
+          const balancedNews = balanceNewsBySource(allNews);
+          saveNews(balancedNews.slice(0, 20), whitelistResult?.date);
         } else {
           console.log('No new news found');
         }
       } else if (whitelistResult?.date) {
         const existingNews = loadExistingNews();
         if (existingNews && existingNews.length > 0) {
-          saveNews(existingNews, whitelistResult.date);
+          const balancedNews = balanceNewsBySource(existingNews);
+          saveNews(balancedNews.slice(0, 20), whitelistResult.date);
         }
       }
 
@@ -390,6 +394,30 @@ function filterByKeywords(newsItems) {
     
     return hasKeyword || isTrustedSource;
   });
+}
+
+function balanceNewsBySource(newsItems, maxPerSource = MAX_NEWS_PER_SOURCE_FINAL) {
+  const sourceGroups = {};
+  newsItems.forEach(item => {
+    if (!sourceGroups[item.source]) {
+      sourceGroups[item.source] = [];
+    }
+    sourceGroups[item.source].push(item);
+  });
+  
+  Object.keys(sourceGroups).forEach(source => {
+    sourceGroups[source].sort((a, b) => parseDate(b.date) - parseDate(a.date));
+    sourceGroups[source] = sourceGroups[source].slice(0, maxPerSource);
+  });
+  
+  const allItems = [];
+  Object.values(sourceGroups).forEach(items => {
+    allItems.push(...items);
+  });
+  
+  allItems.sort((a, b) => parseDate(b.date) - parseDate(a.date));
+  
+  return allItems;
 }
 
 function loadExistingNews() {
