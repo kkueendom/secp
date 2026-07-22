@@ -1,8 +1,24 @@
 {
-  "lastUpdated": "2026-07-21T09:31:49.932Z",
-  "newsUpdateDate": "2026-07-21",
+  "lastUpdated": "2026-07-22T02:48:54.142Z",
+  "newsUpdateDate": "2026-07-22",
   "whitelistDate": "December 5, 2025",
   "items": [
+    {
+      "date": "2026/7/21",
+      "title": "PTA QoS Survey Q2 2026: The Best & Worst Broadband Providers Revealed",
+      "link": "https://www.techjuice.pk/pta-qos-survey-q2-2026-the-best-worst-broadband-providers-revealed/",
+      "source": "TechJuice",
+      "summary": "巴基斯坦电信管理局（PTA）发布了2026年第二季度服务质量（QoS）调查，评估了24个主要城市的34家固定宽带运营商。调查旨在验证服务提供商是否满足监管标准，并公布了最佳和最差宽带供应商。",
+      "businessImpact": "宽带服务质量直接影响数字贷款业务的客户体验和运营效率。若网络不稳定，可能导致贷款申请、还款流程中断，增加客户投诉和坏账风险。需关注PTA对运营商合规要求的变化，确保合作网络稳定。",
+      "keywords": [
+        "PTA",
+        "服务质量调查",
+        "宽带运营商",
+        "数字基础设施",
+        "巴基斯坦电信监管"
+      ],
+      "relevanceScore": 0.6
+    },
     {
       "date": "2026/7/21",
       "title": "FIA Launches Crypto Crime Unit to Choke Money Laundering Networks",
@@ -30,20 +46,6 @@
         "创业生态"
       ],
       "relevanceScore": 0.7
-    },
-    {
-      "date": "2026/7/18",
-      "title": "Zong & Ufone Gain Cellular Market Share as Jazz & Telenor Slip in June 2026",
-      "link": "https://www.techjuice.pk/zong-ufone-gain-cellular-market-share-as-jazz-telenor-slip-in-june-2026/",
-      "source": "TechJuice",
-      "summary": "2026年6月巴基斯坦电信行业用户份额发生显著变化，Jazz和Telenor的用户流失，而Zong和Ufone成功扩大了市场份额。这一趋势反映了运营商竞争格局的调整，可能影响移动金融服务生态。",
-      "businessImpact": "Zong和Ufone份额上升可能改变数字贷款渠道的合作伙伴选择，需关注其网络覆盖和用户质量，以优化nano lending的获客与风控策略。",
-      "keywords": [
-        "电信市场份额",
-        "移动金融生态",
-        "运营商竞争"
-      ],
-      "relevanceScore": 0.65
     },
     {
       "date": "2026/7/16",
