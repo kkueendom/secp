@@ -1,8 +1,36 @@
 {
-  "lastUpdated": "2026-07-22T04:18:57.261Z",
-  "newsUpdateDate": "2026-07-22",
+  "lastUpdated": "2026-07-23T04:17:19.718Z",
+  "newsUpdateDate": "2026-07-23",
   "whitelistDate": "December 5, 2025",
   "items": [
+    {
+      "date": "2026/7/22",
+      "title": "Mobile Operators Raise Call, Data Package Prices by Up to 33% in Fresh Blow to Consumers",
+      "link": "https://www.techjuice.pk/mobile-operators-raise-call-data-package-prices-by-up-to-33-in-fresh-blow-to-consumers/",
+      "source": "TechJuice",
+      "summary": "巴基斯坦电信管理局批准后，移动运营商将通话和数据套餐价格年度上调19%至33%，加重消费者负担。此举可能影响低收入群体的移动互联网使用，对依赖手机渠道的数字金融服务构成潜在冲击。",
+      "businessImpact": "价格上涨可能降低目标用户的数据使用频率，影响nano lending的APP访问和还款行为，需关注用户活跃度下降及逾期风险上升。",
+      "keywords": [
+        "巴基斯坦电信",
+        "数据套餐涨价",
+        "数字金融影响"
+      ],
+      "relevanceScore": 0.7
+    },
+    {
+      "date": "2026/7/22",
+      "title": "K-Electric Announces 10-Hour Power Outage in Karachi: Check Affected Areas",
+      "link": "https://www.techjuice.pk/k-electric-announces-10-hour-power-outage-in-karachi-check-affected-areas/",
+      "source": "TechJuice",
+      "summary": "巴基斯坦卡拉奇电力公司（K-Electric）宣布将于2026年7月23日对多个馈线进行计划性维护，导致卡拉奇多个区域停电超过10小时。此次停电将影响数十个地区的居民和商业活动。",
+      "businessImpact": "长时间停电将中断借款人还款渠道（如移动钱包、银行APP），导致逾期率上升；同时影响我司本地员工运营和客户服务响应，需提前与电信运营商及支付合作方确认备用方案。",
+      "keywords": [
+        "卡拉奇停电",
+        "nano lending风险",
+        "巴基斯坦电力中断"
+      ],
+      "relevanceScore": 0.7
+    },
     {
       "date": "2026/7/21",
       "title": "PTA QoS Survey Q2 2026: The Best & Worst Broadband Providers Revealed",
@@ -18,34 +46,6 @@
         "巴基斯坦电信监管"
       ],
       "relevanceScore": 0.6
-    },
-    {
-      "date": "2026/7/21",
-      "title": "FIA Launches Crypto Crime Unit to Choke Money Laundering Networks",
-      "link": "https://www.techjuice.pk/fia-launches-crypto-crime-unit-to-choke-money-laundering-networks/",
-      "source": "TechJuice",
-      "summary": "巴基斯坦联邦调查局（FIA）成立专门的加密货币犯罪调查部门，旨在打击通过虚拟货币交易进行的洗钱和恐怖融资活动。此举表明巴基斯坦政府正加强金融科技领域的反洗钱（AML）和反恐融资（CFT）监管力度，尤其针对虚拟资产相关非法行为。",
-      "businessImpact": "该部门可能加强对数字金融交易的监控，包括nano lending业务中涉及的资金流动。需确保业务合规，避免因客户使用加密货币还款或资金流转被误判为洗钱风险，建议加强KYC和交易监测。",
-      "keywords": [
-        "FIA加密货币犯罪调查",
-        "反洗钱监管",
-        "巴基斯坦金融科技合规"
-      ],
-      "relevanceScore": 0.7
-    },
-    {
-      "date": "2026/7/18",
-      "title": "From Karachi to a $170 Million Success! The Ali Moiz Startup Story",
-      "link": "https://www.techjuice.pk/from-karachi-to-a-170-million-success-the-ali-moiz-startup-story/",
-      "source": "TechJuice",
-      "summary": "该新闻讲述了巴基斯坦创业者Ali Moiz从卡拉奇成长、赴美留学，最终创立估值1.7亿美元金融科技公司的故事。其成功路径反映了巴基斯坦本土金融科技创业生态的崛起，以及数字贷款领域吸引国际资本的趋势。",
-      "businessImpact": "Ali Moiz的成功案例表明巴基斯坦数字贷款市场具有高增长潜力和资本吸引力。对中国互金公司而言，需关注本土化合规运营、用户数据保护及利率上限等监管要求，避免因模式差异引发监管风险。",
-      "keywords": [
-        "巴基斯坦金融科技",
-        "数字贷款监管",
-        "创业生态"
-      ],
-      "relevanceScore": 0.7
     },
     {
       "date": "2026/7/16",
