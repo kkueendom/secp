@@ -1,10 +1,24 @@
 {
-  "lastUpdated": "2026-07-28T06:50:18.423Z",
-  "lastChecked": "2026-07-28T06:50:18.423Z",
+  "lastUpdated": "2026-07-28T15:08:34.952Z",
+  "lastChecked": "2026-07-28T15:08:34.952Z",
   "newsUpdateDate": "2026-07-28",
   "latestArticleDate": "2026/7/28",
   "whitelistDate": "JULY 22, 2026",
   "items": [
+    {
+      "date": "2026/7/28",
+      "title": "SECP facilitates Mutual Fund Industry through updated Master Circular",
+      "link": "https://www.secp.gov.pk/wp-content/uploads/2026/07/PR-Jul-28.jpeg",
+      "source": "SECP Official",
+      "summary": "巴基斯坦证券交易委员会（SECP）发布了更新后的共同基金行业总通知，旨在简化监管流程并促进共同基金行业发展。该通知主要针对资产管理行业，不涉及数字信贷、NBFC或金融科技监管。",
+      "businessImpact": "该新闻对nano lending业务无直接影响，不涉及数字信贷监管、牌照、定价或消费者保护等关键领域。",
+      "keywords": [
+        "SECP",
+        "共同基金",
+        "监管通知"
+      ],
+      "relevanceScore": 0.69
+    },
     {
       "date": "2026/7/28",
       "title": "PVARA provides modern regulations for digital assets: Aurangzeb",
@@ -90,6 +104,22 @@
         "合规成本"
       ],
       "relevanceScore": 0.84
+    },
+    {
+      "date": "2026/7/11",
+      "title": "SECP unveils digital KYC for investors",
+      "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTE9wNzBDbGpld3RHYzZYM0wwOWRuYnN4aEhhd29KN0w1R0E0U0tOZS02Y1JGYUlsMHpiOVRnX3RSazRRMWZheWs1SkFzdllpaGxOUEs2ZUQ3RHFTMVNyMXBmTUxJWmpuMl9yaVh3SWZ3TFFBRWNoYVRVOWNn?oc=5&hl=en-US&gl=US&ceid=US:en",
+      "source": "Mettis Global",
+      "summary": "巴基斯坦证券交易委员会（SECP）推出面向投资者的数字KYC（e-KYC）方案，旨在简化开户流程、提升合规效率。该措施允许通过电子方式验证身份，减少纸质文件需求，有望降低金融机构的运营成本并增强反洗钱（AML）能力。",
+      "businessImpact": "该政策直接涉及KYC/AML合规要求，可能影响nano lending业务的客户身份验证流程。需关注SECP是否将e-KYC扩展至非银行金融公司（NBFC）及数字信贷领域，以及是否要求采用特定技术标准。",
+      "keywords": [
+        "数字KYC",
+        "SECP",
+        "投资者身份验证",
+        "AML合规",
+        "金融科技监管"
+      ],
+      "relevanceScore": 0.687
     },
     {
       "date": "2026/7/8",
