@@ -1,1 +1,60 @@
-[]
+[
+  {
+    "date": "July 22, 2026",
+    "fromDate": "December 5, 2025",
+    "toDate": "July 22, 2026",
+    "timestamp": "2026-07-22T00:00:00.000Z",
+    "added": [
+      {
+        "id": "foriqarz",
+        "name": "ForiQarz",
+        "nbfc": "Foremost Financials Services Limited",
+        "tag": "Nano",
+        "type": "Nano"
+      },
+      {
+        "id": "ishtirak",
+        "name": "Ishtirak",
+        "nbfc": "Ishtirak Microfinance (Private) Limited",
+        "tag": "Nano",
+        "type": "Nano"
+      },
+      {
+        "id": "foriraqam",
+        "name": "Fori Raqam",
+        "nbfc": "Original Khaata Financial Services (Private) Limited",
+        "tag": "Nano",
+        "type": "Nano"
+      },
+      {
+        "id": "palmpay",
+        "name": "Palmpay",
+        "nbfc": "PalmPay (Private) Limited",
+        "tag": "BNPL",
+        "type": "Other"
+      },
+      {
+        "id": "digikhata",
+        "name": "Digi Khata",
+        "nbfc": "Digi Khata Financial Services (Private) Limited",
+        "tag": "B2B",
+        "type": "Other"
+      }
+    ],
+    "removed": [
+      {
+        "id": "abhi",
+        "name": "Abhi",
+        "nbfc": "Abhi Private LTD",
+        "tag": "EWA"
+      },
+      {
+        "id": "muawin",
+        "name": "Muawin",
+        "nbfc": "Cashew Financial Services Limited",
+        "tag": "B2B"
+      }
+    ],
+    "changed": []
+  }
+]

@@ -143,7 +143,7 @@ async function main() {
         const changelog = generateChangelog(oldApps, whitelistResult.apps);
         
         if (!DRY_RUN && changelog && (changelog.added.length > 0 || changelog.removed.length > 0 || changelog.changed.length > 0)) {
-          saveChangelog(changelog, whitelistResult.date);
+          saveChangelog(changelog, whitelistResult.date, oldApps.sourceDate);
         }
         
         if (!DRY_RUN) saveWhitelist(whitelistResult);
@@ -980,6 +980,7 @@ function loadOldApps() {
   try {
     const data = JSON.parse(fs.readFileSync(whitelistPath, 'utf-8'));
     return {
+      sourceDate: data.sourceDate || data.sourceDateISO || '',
       nanoApps: Array.isArray(data.nanoApps) ? data.nanoApps : [],
       otherApps: Array.isArray(data.otherApps) ? data.otherApps : []
     };
@@ -1078,7 +1079,7 @@ function generateChangelog(oldApps, newApps) {
   return { added, removed, changed };
 }
 
-function saveChangelog(changelog, date) {
+function saveChangelog(changelog, date, fromDate = '') {
   const changelogPath = path.join(__dirname, '..', 'changelog.json');
   
   let history = [];
@@ -1092,6 +1093,8 @@ function saveChangelog(changelog, date) {
 
   const entry = {
     date: date || new Date().toLocaleDateString('zh-CN'),
+    fromDate,
+    toDate: date || '',
     timestamp: new Date().toISOString(),
     ...changelog
   };

@@ -955,12 +955,21 @@
         const added = latest.added?.length || 0;
         const removed = latest.removed?.length || 0;
         const changed = latest.changed?.length || 0;
+        const addedNames = (latest.added || []).map(item => escapeHtml(item.name)).join("、");
+        const removedNames = (latest.removed || []).map(item => escapeHtml(item.name)).join("、");
+        const details = [
+          addedNames ? `新增：${addedNames}` : "",
+          removedNames ? `移除：${removedNames}` : ""
+        ].filter(Boolean).join("<br>");
+        const versionLabel = latest.fromDate && latest.toDate
+          ? `${formatDate(latest.fromDate)} → ${formatDate(latest.toDate)}`
+          : formatDate(latest.date);
         document.getElementById("auditContainer").innerHTML = `
           <div class="audit-status">
             <div class="audit-icon">Δ</div>
-            <div><div class="audit-title">最近一次记录：新增 ${added} · 移除 ${removed} · 变更 ${changed}</div><div class="audit-copy">名单变动已记录，可回溯核验。</div></div>
+            <div><div class="audit-title">最近一次记录：新增 ${added} · 移除 ${removed} · 变更 ${changed}</div><div class="audit-copy">${details || "名单变动已记录，可回溯核验。"}</div></div>
           </div>
-          <div class="audit-meta">记录日期<br>${formatDate(latest.date)}</div>`;
+          <div class="audit-meta">版本比较<br>${versionLabel}</div>`;
       } catch {}
     }
 
