@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-07-28T03:52:24.300Z",
-  "lastChecked": "2026-07-28T03:52:24.300Z",
+  "lastUpdated": "2026-07-28T03:54:29.384Z",
+  "lastChecked": "2026-07-28T03:54:29.384Z",
   "newsUpdateDate": "2026-07-28",
   "latestArticleDate": "2026/7/28",
   "whitelistDate": "December 5, 2025",
@@ -10,42 +10,42 @@
       "title": "PVARA provides modern regulations for digital assets: Aurangzeb",
       "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFAyVHBvb29YTkp5VE03UkRWUlBha2h2dnFMa01rdjZ3M3BwUmFDMjRpM1pNOUhnMUktSU1qV0lWYWpJaTJIN0sydGQwdWFBZGwtYjZoekd30gFWQVVfeXFMUDJUcG9vb1hOSnlUTTdSRFZSUGFraHZ2cUxrTWt2NnczcHBSYUMyNGkzWk05SGcxSS1JTWpXSVZhaklpMkg3SzJ0ZDB1YUFkbC1iNmh6R3c?oc=5&hl=en-US&gl=US&ceid=US:en",
       "source": "Business Recorder",
-      "summary": "巴基斯坦财政部长Aurangzeb宣布，PVARA（巴基斯坦虚拟资产监管机构）将为数字资产提供现代监管框架。该新闻聚焦于数字资产（如加密货币）的监管，而非直接涉及数字信贷或nano lending业务。",
-      "businessImpact": "该新闻对nano lending业务无直接影响，因数字资产监管与数字信贷监管分属不同领域。需关注未来是否会有交叉监管，但当前无需调整业务策略。",
+      "summary": "巴基斯坦财政部长Aurangzeb宣布，PVARA（巴基斯坦虚拟资产监管机构）为数字资产提供了现代化监管框架。该新闻主要聚焦于数字资产（如加密货币）的监管，而非直接涉及数字信贷或nano lending业务。",
+      "businessImpact": "该新闻对nano lending业务无直接影响，但可能间接影响数字金融生态。需关注未来数字资产监管是否延伸至数字信贷领域，但目前无直接关联。",
       "keywords": [
         "数字资产监管",
         "PVARA",
-        "巴基斯坦"
+        "巴基斯坦金融科技"
       ],
-      "relevanceScore": 0.297
+      "relevanceScore": 0.57
     },
     {
       "date": "2026/7/27",
       "title": "Finance Minister Chairs First Meeting of Access to Finance Steering Committee, Calls for Accelerated Implementation of Access to Finance Plan",
       "link": "https://pid.gov.pk/site/press_detail/33354",
       "source": "Government of Pakistan (PID)",
-      "summary": "巴基斯坦财政部长主持了金融准入指导委员会的首次会议，要求加速实施金融准入计划。该计划旨在扩大金融服务覆盖面，特别是对中小企业和低收入群体。会议强调了协调各方努力、推动数字金融和普惠金融的重要性，但未提及具体监管或信贷政策调整。",
-      "businessImpact": "该新闻表明政府正积极推动金融普惠，可能为nano lending创造更有利的政策环境，但短期内无直接监管变化。需关注后续具体措施对信贷准入和支付基础设施的潜在影响。",
+      "summary": "巴基斯坦财政部长主持了金融准入指导委员会的首次会议，要求加速实施金融准入计划。该计划旨在扩大金融服务的覆盖范围，特别是针对未银行化人群，可能涉及数字金融基础设施的完善和监管协调。会议强调了跨部门合作与政策执行效率，但未直接提及数字信贷或NBFC监管细则。",
+      "businessImpact": "该会议表明政府正积极推动金融普惠，可能间接改善nano lending的支付基础设施和融资环境，但未涉及具体监管或牌照变化，短期影响有限。需关注后续政策细节是否涉及数字信贷准入或消费者保护。",
       "keywords": [
         "金融准入计划",
-        "普惠金融",
-        "指导委员会"
+        "指导委员会",
+        "金融普惠"
       ],
-      "relevanceScore": 0.527
+      "relevanceScore": 0.67
     },
     {
       "date": "2026/7/17",
       "title": "Pakistan finance minister orders new push to develop corporate debt market",
       "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE0wakJHNDhHV2JLdjBZRWp1blJ5NE9XbmxOd0NqRXQ5c2h0N1FGSHp4RWhVbVJQUXJBZDBCelhRcGdoaHltZ08wZUk2T0I2dnIwRzUtT3JRLXE?oc=5&hl=en-US&gl=US&ceid=US:en",
       "source": "Arab News PK",
-      "summary": "巴基斯坦财政部长下令推动公司债券市场发展，旨在拓宽企业融资渠道、深化资本市场。该政策主要针对大型企业和机构融资，不直接涉及数字信贷或消费金融监管。",
-      "businessImpact": "该政策对nano lending业务无直接影响，但可能间接改善整体融资环境。需关注是否伴随信贷市场规则调整，但当前不改变数字贷款监管框架。",
+      "summary": "巴基斯坦财政部长下令推动企业债券市场发展，旨在拓宽融资渠道、深化资本市场。该政策主要针对大型企业融资，不涉及数字信贷或消费金融监管。",
+      "businessImpact": "该政策对nano lending业务无直接影响，但可能间接改善整体融资环境，需关注未来是否影响非银行金融机构的融资准入。",
       "keywords": [
-        "公司债券市场",
-        "资本市场发展",
-        "融资渠道"
+        "企业债券市场",
+        "融资渠道",
+        "资本市场"
       ],
-      "relevanceScore": 0.362
+      "relevanceScore": 0.57
     },
     {
       "date": "2026/7/13",
@@ -112,28 +112,28 @@
       "title": "Finance Minister Aurangzeb reviews SECP Reforms, stresses balanced regulation to boost Business Growth",
       "link": "https://www.secp.gov.pk/wp-content/uploads/2026/07/8-july-.pdf",
       "source": "SECP Official",
-      "summary": "巴基斯坦财政部长Aurangzeb审查了SECP改革，强调平衡监管以促进商业增长。该新闻未提及具体数字信贷、NBFC、KYC/AML或消费者保护规则修改，仅表达对监管平衡的总体支持。",
-      "businessImpact": "该新闻对nano lending业务无直接影响，但表明监管环境可能趋于稳定，需关注后续具体改革措施是否涉及数字信贷领域。",
+      "summary": "巴基斯坦财政部长Aurangzeb审查了SECP（证券交易委员会）的改革进展，强调需要采取平衡的监管方式以促进商业增长。这表明政府正致力于优化监管环境，在保障市场稳定的同时支持企业发展。目前尚未发布具体的数字信贷或金融科技监管细则。",
+      "businessImpact": "该新闻未直接涉及数字信贷监管规则，但暗示未来监管可能趋于平衡。需关注SECP后续是否出台针对NBFC或数字贷款的具体政策，尤其是定价和消费者保护方面。",
       "keywords": [
         "SECP改革",
         "平衡监管",
         "商业增长"
       ],
-      "relevanceScore": 0.469
+      "relevanceScore": 0.69
     },
     {
       "date": "2026/7/7",
       "title": "SBP launches portal to attract investment",
       "link": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxQS3ZHZXBmSDhZS2I1dW9OQTd3TWhfTERJNmRrdE5lcElPM09mMS1DS2ZJZzZrV3hoOUNwMktsLU1CQ2pVQlVSemUzUkJBbkUyZ0pGOVpyUXVzMXFFWFpDenV3Q2s5a3BldDBORms4SUVjSnN5TzlISndvNVI3azR4OWtKT0ZCdHBURkVPZkRyaFd5TDAybF9zSjJnZmtxdHg2d0F0QVNJOG9FWi1hUEZadEk0cEV4UDFuU19SMTVhcm9ka3V1UzlhMTlpUTl5dUIxQzhpQXFBX2dRTEhvNXFrZA?oc=5&hl=en-US&gl=US&ceid=US:en",
       "source": "Dawn",
-      "summary": "巴基斯坦国家银行（SBP）推出新门户网站，旨在吸引投资。该举措属于一般性经济促进措施，未涉及数字信贷、NBFC、KYC/AML、消费者保护或支付基础设施等具体监管政策调整。",
-      "businessImpact": "该新闻对nano lending业务无直接影响，不涉及监管、牌照或定价变化。可视为积极信号，但无需调整现有合规策略。",
+      "summary": "巴基斯坦国家银行（SBP）推出新门户网站，旨在吸引投资。该举措属于一般性经济促进措施，未涉及数字信贷、金融科技或监管政策的具体调整。",
+      "businessImpact": "该新闻对nano lending业务无直接影响，不涉及监管、牌照、定价或消费者保护等核心领域，仅反映宏观投资环境改善。",
       "keywords": [
         "SBP",
         "投资门户",
-        "经济促进"
+        "巴基斯坦经济"
       ],
-      "relevanceScore": 0.33
+      "relevanceScore": 0.57
     }
   ]
 }
