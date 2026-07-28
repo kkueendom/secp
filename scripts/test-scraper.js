@@ -3,7 +3,8 @@ import {
   balanceNewsBySource,
   deduplicateAllNews,
   normalizeDate,
-  scoreRegulatoryRelevance
+  scoreRegulatoryRelevance,
+  shouldAcceptAnalyzedNews
 } from './scrape-secp.js';
 
 const relevant = {
@@ -27,6 +28,8 @@ const mobileTax = {
 assert.ok(scoreRegulatoryRelevance(relevant) >= 0.6, 'direct finance policy should be retained');
 assert.ok(scoreRegulatoryRelevance(irrelevant) < 0.38, 'power outage should be rejected');
 assert.ok(scoreRegulatoryRelevance(mobileTax) < 0.38, 'mobile recharge tax should be rejected');
+assert.equal(shouldAcceptAnalyzedNews({ ...irrelevant, relevanceScore: 0.95 }), false, 'AI must not override a failed rule gate');
+assert.equal(shouldAcceptAnalyzedNews({ ...relevant, relevanceScore: 0.52 }), true, 'qualified policy news should survive a conservative AI score');
 assert.equal(normalizeDate('Mon, 27 Jul 2026 10:35:43 GMT'), '2026/7/27');
 
 const duplicateItems = deduplicateAllNews([

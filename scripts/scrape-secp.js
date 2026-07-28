@@ -95,7 +95,7 @@ const MAX_TOTAL_NEWS = 24;
 const RECENCY_DAYS = 21;
 const EXISTING_RETENTION_DAYS = 45;
 const MIN_RULE_SCORE = 0.38;
-const MIN_FINAL_SCORE = 0.60;
+const MIN_FINAL_SCORE = 0.50;
 const DRY_RUN = process.argv.includes('--dry-run');
 const NEWS_ONLY = process.argv.includes('--news-only');
 
@@ -120,11 +120,7 @@ async function main() {
         unseenNews.forEach(item => console.log(`${item.date} | ${item.source} | rule=${Number(item.ruleScore).toFixed(2)} | ${item.title}`));
       }
       const analyzedNews = unseenNews.length > 0 ? await analyzeNewsWithAI(unseenNews) : [];
-      const requiredFinalScore = DEEPSEEK_API_KEY ? MIN_FINAL_SCORE : 0.55;
-      const relevantNews = analyzedNews.filter(item => {
-        const ruleScore = item.ruleScore ?? scoreRegulatoryRelevance(item);
-        return ruleScore >= MIN_RULE_SCORE && Number(item.relevanceScore) >= requiredFinalScore;
-      });
+      const relevantNews = analyzedNews.filter(shouldAcceptAnalyzedNews);
       console.log(`Accepted ${relevantNews.length}/${analyzedNews.length} newly analyzed articles`);
 
       const balancedNews = balanceNewsBySource(deduplicateAllNews([...relevantNews, ...existingNews]));
@@ -548,6 +544,11 @@ function scoreRegulatoryRelevance(item) {
   }
 
   return Math.max(0, Math.min(1, Number(score.toFixed(3))));
+}
+
+function shouldAcceptAnalyzedNews(item) {
+  const ruleScore = item.ruleScore ?? scoreRegulatoryRelevance(item);
+  return ruleScore >= MIN_RULE_SCORE && Number(item.relevanceScore) >= MIN_FINAL_SCORE;
 }
 
 function isOfficialSource(source = '') {
@@ -987,5 +988,6 @@ export {
   filterRecentNews,
   normalizeDate,
   normalizeTitle,
-  scoreRegulatoryRelevance
+  scoreRegulatoryRelevance,
+  shouldAcceptAnalyzedNews
 };
