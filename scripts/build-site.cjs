@@ -18,6 +18,7 @@ const NEWS = ${JSON.stringify(news)};
 const WHITELIST = ${JSON.stringify(whitelist)};
 const CHANGELOG = ${JSON.stringify(changelog)};
 const SOCIAL_CARD = ${JSON.stringify(socialCard)};
+const LIVE_DATA_BASE = "https://raw.githubusercontent.com/kkueendom/secp/main";
 
 const securityHeaders = {
   "Content-Security-Policy": "default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; connect-src 'self'; img-src 'self' data:; base-uri 'none'; frame-ancestors 'none'",
@@ -41,6 +42,19 @@ function decodeBase64(value) {
   return bytes;
 }
 
+async function liveJson(filename, fallback, request) {
+  try {
+    const upstream = await fetch(LIVE_DATA_BASE + "/" + filename, {
+      headers: { "Accept": "application/json" },
+      cf: { cacheEverything: true, cacheTtl: 300 }
+    });
+    if (upstream.ok) {
+      return response(await upstream.text(), "application/json; charset=utf-8", request);
+    }
+  } catch {}
+  return response(fallback, "application/json; charset=utf-8", request);
+}
+
 export default {
   async fetch(request) {
     const url = new URL(request.url);
@@ -51,9 +65,9 @@ export default {
       const page = PAGE.replaceAll("__OG_IMAGE__", url.origin + "/og.png");
       return response(page, "text/html; charset=utf-8", request);
     }
-    if (url.pathname === "/news.json") return response(NEWS, "application/json; charset=utf-8", request);
-    if (url.pathname === "/whitelist.json") return response(WHITELIST, "application/json; charset=utf-8", request);
-    if (url.pathname === "/changelog.json") return response(CHANGELOG, "application/json; charset=utf-8", request);
+    if (url.pathname === "/news.json") return liveJson("news.json", NEWS, request);
+    if (url.pathname === "/whitelist.json") return liveJson("whitelist.json", WHITELIST, request);
+    if (url.pathname === "/changelog.json") return liveJson("changelog.json", CHANGELOG, request);
     if (url.pathname === "/og.png") return response(decodeBase64(SOCIAL_CARD), "image/png", request, 200, { "Cache-Control": "public, max-age=86400" });
     return response("Not found", "text/plain; charset=utf-8", request, 404);
   }
