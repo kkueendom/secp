@@ -1,0 +1,280 @@
+{
+  "lastChecked": "2026-07-28T06:22:20.929Z",
+  "sourceDate": "July 22, 2026",
+  "sourceDateISO": "2026-07-22",
+  "sourcePage": "https://www.secp.gov.pk/document/digital-lending-apps-being-run-and-administered-by-duly-licensed-lending-nbfcs/",
+  "pdfUrl": "https://www.secp.gov.pk/document/digital-lending-apps-being-run-and-administered-by-duly-licensed-lending-nbfcs/?ind=1784781149046&filename=Name-of-Digital-Applications-run-by-the-Lending-NBFC-July-22-2026.pdf&wpdmdl=46367&refresh=6a684a901759e1785219728",
+  "pageCount": 4,
+  "total": 28,
+  "nanoCount": 17,
+  "otherCount": 11,
+  "nanoApps": [
+    {
+      "id": "paisayaar",
+      "name": "Paisayaar",
+      "nbfc": "JingleCred Digital Financial Services Limited",
+      "tag": "Nano & BNPL",
+      "color": "#2ecc71",
+      "letter": "P",
+      "note": "金果",
+      "type": "nano"
+    },
+    {
+      "id": "aitemaad",
+      "name": "Aitemaad",
+      "nbfc": "4Sight Finance Services (Private) Limited",
+      "tag": "Nano & BNPL",
+      "color": "#27ae60",
+      "letter": "A",
+      "note": "萨摩耶",
+      "type": "nano"
+    },
+    {
+      "id": "hakeem",
+      "name": "Hakeem",
+      "nbfc": "Walee Financial Services (Private) Limited",
+      "tag": "Nano",
+      "color": "#1abc9c",
+      "letter": "H",
+      "note": "LOCAL",
+      "type": "nano"
+    },
+    {
+      "id": "fauricash",
+      "name": "Fauri Cash",
+      "nbfc": "Pakisnova Microfinance Company (Private) Limited",
+      "tag": "Nano",
+      "color": "#16a085",
+      "letter": "F",
+      "note": "迈步",
+      "type": "nano"
+    },
+    {
+      "id": "smartqarza",
+      "name": "SmartQarza",
+      "nbfc": "Goldlion Financial (Private) Limited",
+      "tag": "Nano",
+      "color": "#e74c3c",
+      "letter": "S",
+      "note": "快牛",
+      "type": "nano"
+    },
+    {
+      "id": "jazzcash",
+      "name": "JazzCash",
+      "nbfc": "JazzCash (Private) Limited",
+      "tag": "Digital Lending Tool",
+      "color": "#c0392b",
+      "letter": "J",
+      "note": "local",
+      "type": "nano"
+    },
+    {
+      "id": "moneytap",
+      "name": "Money Tap",
+      "nbfc": "Zanda Financials (Private) Limited",
+      "tag": "Nano",
+      "color": "#3498db",
+      "letter": "M",
+      "note": "致鑫",
+      "type": "nano"
+    },
+    {
+      "id": "pakcredit",
+      "name": "Pakcredit",
+      "nbfc": "VisionCred Financial Services (Priavte) Limited",
+      "tag": "Nano",
+      "color": "#2980b9",
+      "letter": "P",
+      "note": "众志诚",
+      "type": "nano"
+    },
+    {
+      "id": "daira",
+      "name": "Daira",
+      "nbfc": "Finleap Financial Services (Private) Limited",
+      "tag": "Nano & BNPL",
+      "color": "#0984e3",
+      "letter": "D",
+      "note": "拍拍贷",
+      "type": "nano"
+    },
+    {
+      "id": "loanlado",
+      "name": "Loan Lado",
+      "nbfc": "Easy Finance (Private) Limited",
+      "tag": "Nano",
+      "color": "#6c5ce7",
+      "letter": "L",
+      "note": "上海瑾灿",
+      "type": "nano"
+    },
+    {
+      "id": "cashbazar",
+      "name": "CashBazar",
+      "nbfc": "Bluesky Financial Services (Private) Limited",
+      "tag": "Nano",
+      "color": "#0652DD",
+      "letter": "C",
+      "type": "nano"
+    },
+    {
+      "id": "sahara",
+      "name": "Sahara",
+      "nbfc": "Awami Financials (Private) Limited",
+      "tag": "Nano",
+      "color": "#ffc312",
+      "letter": "S",
+      "note": "金格方",
+      "type": "nano"
+    },
+    {
+      "id": "paisaghur",
+      "name": "PaisaGhur",
+      "nbfc": "Quark Financials Pakistan (Private) Limited",
+      "tag": "Nano",
+      "color": "#009432",
+      "letter": "P",
+      "note": "成都博问",
+      "type": "nano"
+    },
+    {
+      "id": "qarzmitra",
+      "name": "QarzMitra",
+      "nbfc": "Fintech Gharana Financial (Private) Limited",
+      "tag": "Nano",
+      "color": "#38ada9",
+      "letter": "Q",
+      "note": "武汉 老板薛磊 cash代运营",
+      "type": "nano"
+    },
+    {
+      "id": "foriqarz",
+      "name": "ForiQarz",
+      "nbfc": "Foremost Financials Services Limited",
+      "tag": "Nano",
+      "color": "#00b894",
+      "letter": "F",
+      "type": "nano"
+    },
+    {
+      "id": "ishtirak",
+      "name": "Ishtirak",
+      "nbfc": "Ishtirak Microfinance (Private) Limited",
+      "tag": "Nano",
+      "color": "#d63031",
+      "letter": "I",
+      "type": "nano"
+    },
+    {
+      "id": "foriraqam",
+      "name": "Fori Raqam",
+      "nbfc": "Original Khaata Financial Services (Private) Limited",
+      "tag": "Nano",
+      "color": "#e17055",
+      "letter": "F",
+      "type": "nano"
+    }
+  ],
+  "otherApps": [
+    {
+      "id": "zoodpayzoodmall",
+      "name": "ZoodPay & ZoodMall",
+      "nbfc": "Tez Financial Services Limited",
+      "tag": "BNPL",
+      "color": "#2ecc71",
+      "letter": "Z",
+      "type": "other"
+    },
+    {
+      "id": "qistbazaar",
+      "name": "QistBazaar",
+      "nbfc": "QistBazaar (Private) Limited",
+      "tag": "BNPL",
+      "color": "#27ae60",
+      "letter": "Q",
+      "type": "other"
+    },
+    {
+      "id": "tijara",
+      "name": "Tijara",
+      "nbfc": "CreditBook Financial Services Limited",
+      "tag": "B2B",
+      "color": "#1abc9c",
+      "letter": "T",
+      "type": "other"
+    },
+    {
+      "id": "edufi",
+      "name": "Edufi",
+      "nbfc": "Edufi Financial Services (Private) Limited",
+      "tag": "Study Now Pay Later",
+      "color": "#16a085",
+      "letter": "E",
+      "type": "other"
+    },
+    {
+      "id": "taleemconnect",
+      "name": "Taleem Connect",
+      "nbfc": "Taleem Finance Company Limited",
+      "tag": "Education Finance",
+      "color": "#e74c3c",
+      "letter": "T",
+      "type": "other"
+    },
+    {
+      "id": "neempaymenow",
+      "name": "NeemPaymenow",
+      "nbfc": "Neem Exponential Financial Services (Private) Limited",
+      "tag": "EWA",
+      "color": "#c0392b",
+      "letter": "N",
+      "type": "other"
+    },
+    {
+      "id": "novafinance",
+      "name": "Nova Finance",
+      "nbfc": "Viva Finance (Private) Limited",
+      "tag": "EWA",
+      "color": "#3498db",
+      "letter": "N",
+      "type": "other"
+    },
+    {
+      "id": "baadmay",
+      "name": "Baadmay",
+      "nbfc": "MG Financial Services Limited",
+      "tag": "BNPL",
+      "color": "#2980b9",
+      "letter": "B",
+      "type": "other"
+    },
+    {
+      "id": "alifshop",
+      "name": "Alif Shop",
+      "nbfc": "Alif Finance (Private) Limited",
+      "tag": "BNPL",
+      "color": "#0984e3",
+      "letter": "A",
+      "type": "other"
+    },
+    {
+      "id": "palmpay",
+      "name": "Palmpay",
+      "nbfc": "PalmPay (Private) Limited",
+      "tag": "BNPL",
+      "color": "#6c5ce7",
+      "letter": "P",
+      "type": "other"
+    },
+    {
+      "id": "digikhata",
+      "name": "Digi Khata",
+      "nbfc": "Digi Khata Financial Services (Private) Limited",
+      "tag": "B2B",
+      "color": "#0652DD",
+      "letter": "D",
+      "type": "other"
+    }
+  ]
+}

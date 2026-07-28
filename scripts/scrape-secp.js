@@ -98,6 +98,7 @@ const MIN_RULE_SCORE = 0.38;
 const MIN_FINAL_SCORE = 0.50;
 const DRY_RUN = process.argv.includes('--dry-run');
 const NEWS_ONLY = process.argv.includes('--news-only');
+const WHITELIST_ONLY = process.argv.includes('--whitelist-only');
 
 async function main() {
     console.log('SECP Auto-Updater Started:', new Date().toISOString());
@@ -110,38 +111,42 @@ async function main() {
   try {
       const [whitelistResult, newsItems] = await Promise.all([
         NEWS_ONLY ? Promise.resolve(null) : scrapeWhitelist(browser),
-        scrapeNewsFromSources(browser)
+        WHITELIST_ONLY ? Promise.resolve([]) : scrapeNewsFromSources(browser)
       ]);
 
-      const existingNews = refreshExistingNews(cleanExistingNews(loadExistingNews()), newsItems || []);
-      const unseenNews = deduplicateNews(newsItems || [], existingNews);
-      if (DRY_RUN) {
-        console.log('\nNew candidate scores:');
-        unseenNews.forEach(item => console.log(`${item.date} | ${item.source} | rule=${Number(item.ruleScore).toFixed(2)} | ${item.title}`));
-      }
-      const analyzedNews = unseenNews.length > 0 ? await analyzeNewsWithAI(unseenNews) : [];
-      const relevantNews = analyzedNews.filter(shouldAcceptAnalyzedNews);
-      console.log(`Accepted ${relevantNews.length}/${analyzedNews.length} newly analyzed articles`);
+      if (!WHITELIST_ONLY) {
+        const existingNews = refreshExistingNews(cleanExistingNews(loadExistingNews()), newsItems || []);
+        const unseenNews = deduplicateNews(newsItems || [], existingNews);
+        if (DRY_RUN) {
+          console.log('\nNew candidate scores:');
+          unseenNews.forEach(item => console.log(`${item.date} | ${item.source} | rule=${Number(item.ruleScore).toFixed(2)} | ${item.title}`));
+        }
+        const analyzedNews = unseenNews.length > 0 ? await analyzeNewsWithAI(unseenNews) : [];
+        const relevantNews = analyzedNews.filter(shouldAcceptAnalyzedNews);
+        console.log(`Accepted ${relevantNews.length}/${analyzedNews.length} newly analyzed articles`);
 
-      const balancedNews = balanceNewsBySource(deduplicateAllNews([...relevantNews, ...existingNews]));
-      if (DRY_RUN) {
-        console.log('\nDry-run result:');
-        balancedNews.slice(0, 12).forEach(item => {
-          console.log(`${item.date} | ${item.source} | ${Number(item.relevanceScore).toFixed(2)} | ${item.title}`);
-        });
-      } else if (balancedNews.length > 0 || whitelistResult?.date) {
-        saveNews(balancedNews, whitelistResult?.date);
+        const balancedNews = balanceNewsBySource(deduplicateAllNews([...relevantNews, ...existingNews]));
+        if (DRY_RUN) {
+          console.log('\nDry-run result:');
+          balancedNews.slice(0, 12).forEach(item => {
+            console.log(`${item.date} | ${item.source} | ${Number(item.relevanceScore).toFixed(2)} | ${item.title}`);
+          });
+        } else if (balancedNews.length > 0 || whitelistResult?.date) {
+          saveNews(balancedNews, whitelistResult?.date);
+        }
       }
 
-      if (whitelistResult && whitelistResult.apps && whitelistResult.apps.nanoApps.length > 0) {
+      if (whitelistResult) {
         const oldApps = loadOldApps();
+        validateWhitelist(whitelistResult.apps, oldApps);
+        preserveAppMetadata(whitelistResult.apps, oldApps);
         const changelog = generateChangelog(oldApps, whitelistResult.apps);
         
         if (!DRY_RUN && changelog && (changelog.added.length > 0 || changelog.removed.length > 0 || changelog.changed.length > 0)) {
           saveChangelog(changelog, whitelistResult.date);
         }
         
-        if (!DRY_RUN) updateHtml(whitelistResult.apps, whitelistResult.date);
+        if (!DRY_RUN) saveWhitelist(whitelistResult);
       }
 
 } catch (err) {
@@ -162,27 +167,21 @@ async function scrapeWhitelist(browser) {
   await page.goto(SECP_URL, { waitUntil: 'networkidle2' });
 
   const pageInfo = await page.evaluate(() => {
-    const links = document.querySelectorAll('a');
-    let pdfUrl = null;
-    
-    for (const link of links) {
-      const href = link.href || '';
-      const text = link.textContent || '';
-      if (href.includes('wpdmdl') && (text.includes('PDF') || text.includes('pdf') || text.includes('download') || text.includes('Download'))) {
-        pdfUrl = href;
-        break;
-      }
-    }
-    
-    if (!pdfUrl) {
-      for (const link of links) {
+    const candidates = [...document.querySelectorAll('a')]
+      .map(link => {
         const href = link.href || '';
-        if (href.includes('wpdmdl')) {
-          pdfUrl = href;
-          break;
-        }
-      }
-    }
+        const text = link.textContent || '';
+        let score = 0;
+        if (href.includes('filename=') && /\.pdf/i.test(href)) score += 100;
+        if (/\.pdf/i.test(text)) score += 80;
+        if (/Digital[-\s]+Applications|Digital[-\s]+Lending/i.test(`${href} ${text}`)) score += 60;
+        if (href.includes('wpdmdl')) score += 10;
+        if (/download/i.test(text)) score += 5;
+        return { href, score };
+      })
+      .filter(candidate => candidate.href.includes('wpdmdl'))
+      .sort((a, b) => b.score - a.score);
+    const pdfUrl = candidates[0]?.href || null;
     
     const text = document.body.innerText;
     const dates = text.match(/(\w+\s+\d{1,2},?\s+\d{4})/g);
@@ -197,16 +196,19 @@ async function scrapeWhitelist(browser) {
 
   await page.close();
 
-  if (pageInfo.pdfUrl) {
-    const pdfBuffer = await downloadPDF(pageInfo.pdfUrl);
-    if (pdfBuffer) {
-      const apps = await parsePDF(pdfBuffer);
-      if (apps && apps.nanoApps && apps.nanoApps.length > 0) {
-        return { apps, date: pageInfo.dates[0] };
-      }
-    }
-  }
-  return null;
+  if (!pageInfo.pdfUrl) throw new Error('SECP whitelist PDF link was not found');
+
+  const pdfBuffer = await downloadPDF(pageInfo.pdfUrl);
+  if (!pdfBuffer?.length) throw new Error('SECP whitelist PDF download was empty');
+
+  const parsed = await parsePDF(pdfBuffer);
+  return {
+    apps: parsed.apps,
+    date: parsed.date || pageInfo.dates[0] || '',
+    pdfUrl: pageInfo.pdfUrl,
+    sourcePage: SECP_URL,
+    pageCount: parsed.pageCount
+  };
 }
 
 async function scrapeNewsFromSources(browser) {
@@ -795,73 +797,240 @@ function downloadPDF(url) {
 }
 
 async function parsePDF(buffer) {
-    try {
-      const pdfParse = (await import('pdf-parse')).default;
-      const data = await pdfParse(buffer);
-      console.log('PDF pages:', data.numpages);
+  const pdfParse = (await import('pdf-parse')).default;
+  const pages = [];
+  const data = await pdfParse(buffer, {
+    pagerender: async page => {
+      const content = await page.getTextContent();
+      pages.push(content.items.map(item => ({
+        text: item.str,
+        x: item.transform[4],
+        y: item.transform[5],
+        width: item.width || 0
+      })));
+      return content.items.map(item => item.str).join(' ');
+    }
+  });
 
-      const lines = data.text.split('\n').filter(l => l.trim());
-      const nanoApps = [];
-      const otherApps = [];
-      let section = null;
+  const fullText = pages.flat().map(item => item.text).join(' ');
+  const date = fullText.match(/Update Date:\s*([A-Za-z]+\s+\d{1,2},\s+\d{4})/i)?.[1] || '';
+  const apps = parseWhitelistPages(pages);
+  console.log('PDF pages:', data.numpages);
+  console.log(`Parsed: Nano=${apps.nanoApps.length}, Other=${apps.otherApps.length}`);
+  return { apps, date, pageCount: data.numpages };
+}
 
-      for (const line of lines) {
-        if (line.includes('Nano Lending') || line.includes('Nano Finance')) {
-          section = 'nano';
-          continue;
-        }
-        if (line.includes('Other Lending') || line.includes('BNPL') || line.includes('EWA')) {
-          section = 'other';
-          continue;
-        }
+function parseWhitelistPages(pages) {
+  const nanoApps = [];
+  const otherApps = [];
+  let currentSection = 'nano';
 
-       const match = line.match(/^\d+\.?\s*(.+?)(?:\s{2,}|\|)(.+?)(?:\s{2,}|\|)(.+)$/);
-        if (match && section) {
-          const [, name, nbfc, tag] = match;
-          const id = name.trim().toLowerCase().replace(/[^a-z0-9]/g, '');
-          const app = {
-            id,
-            name: name.trim(),
-            nbfc: nbfc.trim(),
-            tag: tag.trim(),
-            color: COLORS[(section === 'nano' ? nanoApps : otherApps).length % COLORS.length],
-            letter: name.trim()[0].toUpperCase()
-          };
-          if (PRESERVED_NOTES[id]) app.note = PRESERVED_NOTES[id];
+  for (const pageItems of pages) {
+    const otherHeading = pageItems.find(item => /Other Lending Apps/i.test(item.text));
+    const starts = findWhitelistRowStarts(pageItems);
 
-          if (section === 'nano') nanoApps.push(app);
-          else otherApps.push(app);
-        }
-      }
-
-      console.log(`Parsed: Nano=${nanoApps.length}, Other=${otherApps.length}`);
-      return { nanoApps, otherApps };
-    } catch (e) {
-      console.error('PDF parse error:', e.message);
-      return null;
+    for (let index = 0; index < starts.length; index += 1) {
+      const start = starts[index];
+      if (otherHeading && start.y < otherHeading.y) currentSection = 'other';
+      const nextY = starts[index + 1]?.y ?? -Infinity;
+      const sectionBoundary = otherHeading && start.y > otherHeading.y && nextY < otherHeading.y
+        ? otherHeading.y + 2
+        : -Infinity;
+      const lowerBound = Math.max(nextY + 2, sectionBoundary);
+      const rowItems = pageItems.filter(item =>
+        item.y <= start.y + 2 &&
+        item.y > lowerBound &&
+        item.x >= 90 &&
+        item.x < 410
+      );
+      const app = parseWhitelistRow(rowItems, currentSection);
+      if (app) (currentSection === 'nano' ? nanoApps : otherApps).push(app);
+    }
   }
+
+  return { nanoApps, otherApps };
+}
+
+function findWhitelistRowStarts(items) {
+  const byY = groupItemsByLine(items);
+  return [...byY.entries()]
+    .map(([y, lineItems]) => ({
+      y,
+      serial: lineItems
+        .filter(item => item.x >= 55 && item.x < 90)
+        .sort((a, b) => a.x - b.x)
+        .map(item => item.text.trim())
+        .join('')
+    }))
+    .filter(row => /^(?:0?[1-9]|1\d|20)$/.test(row.serial))
+    .sort((a, b) => b.y - a.y);
+}
+
+function groupItemsByLine(items, tolerance = 2) {
+  const lines = new Map();
+  for (const item of items) {
+    if (!item.text.trim()) continue;
+    const existingY = [...lines.keys()].find(y => Math.abs(y - item.y) <= tolerance);
+    const key = existingY ?? item.y;
+    if (!lines.has(key)) lines.set(key, []);
+    lines.get(key).push(item);
+  }
+  return lines;
+}
+
+function joinPositionedText(items) {
+  const lines = groupItemsByLine(items);
+  return [...lines.entries()]
+    .sort((a, b) => b[0] - a[0])
+    .map(([, lineItems]) => {
+      const sorted = [...lineItems].sort((a, b) => a.x - b.x);
+      let result = '';
+      let previous = null;
+      for (const item of sorted) {
+        if (previous && !/\s$/.test(result)) {
+          const gap = item.x - (previous.x + previous.width);
+          if (gap > 1.5) result += ' ';
+        }
+        result += item.text;
+        previous = item;
+      }
+      return result.trim();
+    })
+    .filter(Boolean)
+    .join(' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function parseWhitelistRow(rowItems, section) {
+  const nbfcRaw = joinPositionedText(rowItems.filter(item => item.x < 250));
+  const appRaw = joinPositionedText(rowItems.filter(item => item.x >= 250));
+  if (!nbfcRaw || !appRaw) return null;
+
+  const tag = inferProductTag(`${nbfcRaw} ${appRaw}`, section);
+  const nbfc = nbfcRaw
+    .replace(/\((?:Nano\s*&\s*BNPL|BNPL|B2B Financing|Study Now Pay Later|Education Finance|Earned Wage Access|For recovery of outstanding portfolio)\)/gi, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+  const name = canonicalizeAppName(appRaw);
+  const id = normalizeAppId(name);
+  if (!id || !nbfc) return null;
+
+  return {
+    id,
+    name,
+    nbfc,
+    tag,
+    color: COLORS[0],
+    letter: name[0].toUpperCase(),
+    ...(PRESERVED_NOTES[id] ? { note: PRESERVED_NOTES[id] } : {})
+  };
+}
+
+function canonicalizeAppName(raw) {
+  const value = raw.replace(/\(Digital Lending Tool\)/gi, '').replace(/\s+/g, ' ').trim();
+  if (/ZoodPay/i.test(value) && /ZoodMall/i.test(value)) return 'ZoodPay & ZoodMall';
+  if (/JazzCash/i.test(value)) return 'JazzCash';
+  if (/Alif Shop/i.test(value)) return 'Alif Shop';
+  if (/Digi Khata/i.test(value)) return 'Digi Khata';
+  return value;
+}
+
+function inferProductTag(value, section) {
+  if (/Nano\s*&\s*BNPL/i.test(value)) return 'Nano & BNPL';
+  if (/Study Now Pay Later/i.test(value)) return 'Study Now Pay Later';
+  if (/Education Finance/i.test(value)) return 'Education Finance';
+  if (/Earned Wage Access/i.test(value)) return 'EWA';
+  if (/B2B Financing/i.test(value)) return 'B2B';
+  if (/\bBNPL\b/i.test(value)) return 'BNPL';
+  if (/Digital Lending Tool/i.test(value)) return 'Digital Lending Tool';
+  return section === 'nano' ? 'Nano' : 'Other';
+}
+
+function normalizeAppId(name) {
+  return String(name || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+}
+
+function validateWhitelist(apps, oldApps = { nanoApps: [], otherApps: [] }) {
+  const nanoCount = apps?.nanoApps?.length || 0;
+  const otherCount = apps?.otherApps?.length || 0;
+  const total = nanoCount + otherCount;
+  const ids = [...(apps?.nanoApps || []), ...(apps?.otherApps || [])].map(app => app.id);
+  if (nanoCount < 10 || otherCount < 5 || total > 80) {
+    throw new Error(`Whitelist validation failed: Nano=${nanoCount}, Other=${otherCount}`);
+  }
+  if (new Set(ids).size !== ids.length) throw new Error('Whitelist validation failed: duplicate app IDs');
+  const malformed = [...apps.nanoApps, ...apps.otherApps].find(app =>
+    /Name of NBFCs|Other Lending Apps|\bURL\b/i.test(`${app.name} ${app.nbfc}`) ||
+    app.name.length > 80 ||
+    app.nbfc.length > 160
+  );
+  if (malformed) throw new Error(`Whitelist validation failed: malformed row ${malformed.name}`);
+
+  const oldTotal = (oldApps.nanoApps?.length || 0) + (oldApps.otherApps?.length || 0);
+  if (oldTotal >= 15 && total < oldTotal * 0.6) {
+    throw new Error(`Whitelist validation failed: suspicious count drop ${oldTotal} -> ${total}`);
+  }
+  return true;
 }
 
 function loadOldApps() {
-  const htmlPath = path.join(__dirname, '..', 'index.html');
-  if (!fs.existsSync(htmlPath)) {
-    return { nanoApps: [], otherApps: [] };
-  }
-
-  const html = fs.readFileSync(htmlPath, 'utf-8');
-  
-  const nanoMatch = html.match(/const nanoApps = (\[[\s\S]*?\]);/);
-  const otherMatch = html.match(/const otherApps = (\[[\s\S]*?\]);/);
-
+  const whitelistPath = path.join(__dirname, '..', 'whitelist.json');
+  if (!fs.existsSync(whitelistPath)) return { nanoApps: [], otherApps: [] };
   try {
+    const data = JSON.parse(fs.readFileSync(whitelistPath, 'utf-8'));
     return {
-      nanoApps: nanoMatch ? JSON.parse(nanoMatch[1]) : [],
-      otherApps: otherMatch ? JSON.parse(otherMatch[1]) : []
+      nanoApps: Array.isArray(data.nanoApps) ? data.nanoApps : [],
+      otherApps: Array.isArray(data.otherApps) ? data.otherApps : []
     };
-  } catch (e) {
-    console.error('Failed to load old apps:', e.message);
-    return { nanoApps: [], otherApps: [] };
+  } catch (error) {
+    throw new Error(`Failed to load whitelist.json: ${error.message}`);
   }
+}
+
+function preserveAppMetadata(apps, oldApps) {
+  const oldById = new Map([...oldApps.nanoApps, ...oldApps.otherApps].map(app => [app.id, app]));
+  for (const [type, items] of [['nano', apps.nanoApps], ['other', apps.otherApps]]) {
+    items.forEach((app, index) => {
+      const old = oldById.get(app.id);
+      app.type = type;
+      app.color = old?.color || COLORS[index % COLORS.length];
+      app.note = old?.note || app.note;
+      if (!app.note) delete app.note;
+    });
+  }
+}
+
+function saveWhitelist(result) {
+  const whitelistPath = path.join(__dirname, '..', 'whitelist.json');
+  const normalizedDate = normalizeDate(result.date || '');
+  const dateParts = normalizedDate.match(/^(\d{4})\/(\d{1,2})\/(\d{1,2})$/);
+  const dateIso = dateParts
+    ? `${dateParts[1]}-${dateParts[2].padStart(2, '0')}-${dateParts[3].padStart(2, '0')}`
+    : '';
+  const displayDate = dateIso
+    ? new Intl.DateTimeFormat('en-US', {
+        month: 'long',
+        day: 'numeric',
+        year: 'numeric',
+        timeZone: 'UTC'
+      }).format(new Date(`${dateIso}T00:00:00Z`))
+    : result.date;
+  const data = {
+    lastChecked: new Date().toISOString(),
+    sourceDate: displayDate,
+    sourceDateISO: dateIso,
+    sourcePage: result.sourcePage,
+    pdfUrl: result.pdfUrl,
+    pageCount: result.pageCount,
+    total: result.apps.nanoApps.length + result.apps.otherApps.length,
+    nanoCount: result.apps.nanoApps.length,
+    otherCount: result.apps.otherApps.length,
+    nanoApps: result.apps.nanoApps,
+    otherApps: result.apps.otherApps
+  };
+  fs.writeFileSync(whitelistPath, JSON.stringify(data, null, 2), 'utf-8');
+  console.log('whitelist.json updated');
 }
 
 function generateChangelog(oldApps, newApps) {
@@ -973,37 +1142,6 @@ function saveNews(newsItems, whitelistDate) {
   console.log('news.json updated');
 }
 
-function updateHtml(apps, updateDate) {
-    const htmlPath = path.join(__dirname, '..', 'index.html');
-    if (!fs.existsSync(htmlPath)) {
-      console.error('index.html not found');
-      return;
-    }
-
-    let html = fs.readFileSync(htmlPath, 'utf-8');
-
-    if (apps.nanoApps.length > 0) {
-      const str = JSON.stringify(apps.nanoApps, null, 2);
-      html = html.replace(/const nanoApps = \[[\s\S]*?\];/, `const nanoApps = ${str};`);
-    }
-
-    if (apps.otherApps.length > 0) {
-      const str = JSON.stringify(apps.otherApps, null, 2);
-      html = html.replace(/const otherApps = \[[\s\S]*?\];/, `const otherApps = ${str};`);
-    }
-
-    if (updateDate) {
-      html = html.replace(/白名单更新：[\w\s,]+/, `白名单更新：${updateDate}`);
-    }
-
-    const total = apps.nanoApps.length + apps.otherApps.length;
-    html = html.replace(/>\d+ 个已批准</, `>${total} 个已批准<`);
-    html = html.replace(/显示全部 \d+ 个 APP/g, `显示全部 ${total} 个 APP`);
-
-    fs.writeFileSync(htmlPath, html, 'utf-8');
-    console.log('index.html updated');
-}
-
 const isDirectRun = process.argv[1] && import.meta.url === pathToFileURL(path.resolve(process.argv[1])).href;
 if (isDirectRun) main();
 
@@ -1015,7 +1153,9 @@ export {
   filterRecentNews,
   normalizeDate,
   normalizeTitle,
+  parseWhitelistPages,
   refreshExistingNews,
   scoreRegulatoryRelevance,
-  shouldAcceptAnalyzedNews
+  shouldAcceptAnalyzedNews,
+  validateWhitelist
 };

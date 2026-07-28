@@ -3,9 +3,11 @@ import {
   balanceNewsBySource,
   deduplicateAllNews,
   normalizeDate,
+  parseWhitelistPages,
   refreshExistingNews,
   scoreRegulatoryRelevance,
-  shouldAcceptAnalyzedNews
+  shouldAcceptAnalyzedNews,
+  validateWhitelist
 } from './scrape-secp.js';
 
 const relevant = {
@@ -79,5 +81,37 @@ const balanced = balanceNewsBySource([
 ]);
 assert.equal(balanced.filter(item => item.source === 'TechJuice').length, 2, 'non-official source cap should apply');
 assert.ok(balanced.some(item => item.source === 'SECP Official'), 'official source should be preserved');
+
+const textItem = (text, x, y, width = text.length * 6) => ({ text, x, y, width });
+const parsedWhitelist = parseWhitelistPages([[
+  textItem('01', 70, 700),
+  textItem('Example Finance (Private) Limited', 100, 700, 170),
+  textItem('(Nano & BNPL)', 100, 680, 80),
+  textItem('Example Cash', 280, 700, 70),
+  textItem('Approved - Other Lending Apps (i.e EWA, BNPL, B2B, B2C etc.)', 60, 500, 330),
+  textItem('S#', 70, 480),
+  textItem('Name of NBFCs', 140, 480),
+  textItem('URL', 310, 480),
+  textItem('01', 70, 450),
+  textItem('Other Finance Limited', 100, 450, 115),
+  textItem('(Earned Wage Access)', 100, 430, 105),
+  textItem('Other App', 280, 450, 55)
+]]);
+assert.equal(parsedWhitelist.nanoApps[0].name, 'Example Cash');
+assert.equal(parsedWhitelist.nanoApps[0].tag, 'Nano & BNPL');
+assert.equal(parsedWhitelist.otherApps[0].name, 'Other App');
+assert.equal(parsedWhitelist.otherApps[0].tag, 'EWA');
+assert.doesNotMatch(parsedWhitelist.nanoApps[0].nbfc, /Other Lending Apps|Name of NBFCs/);
+
+const validWhitelist = {
+  nanoApps: Array.from({ length: 10 }, (_, index) => ({ id: `nano${index}`, name: `Nano ${index}`, nbfc: `NBFC ${index}` })),
+  otherApps: Array.from({ length: 5 }, (_, index) => ({ id: `other${index}`, name: `Other ${index}`, nbfc: `NBFC ${index}` }))
+};
+assert.equal(validateWhitelist(validWhitelist), true);
+assert.throws(
+  () => validateWhitelist({ ...validWhitelist, otherApps: [] }),
+  /Whitelist validation failed/,
+  'partial PDF parses must fail instead of silently publishing stale data'
+);
 
 console.log('Scraper logic tests passed');

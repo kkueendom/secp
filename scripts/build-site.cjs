@@ -5,6 +5,7 @@ const root = path.resolve(__dirname, "..");
 const distServer = path.join(root, "dist", "server");
 const html = fs.readFileSync(path.join(root, "index.html"), "utf8");
 const news = fs.readFileSync(path.join(root, "news.json"), "utf8");
+const whitelist = fs.readFileSync(path.join(root, "whitelist.json"), "utf8");
 const changelog = fs.readFileSync(path.join(root, "changelog.json"), "utf8");
 const socialCard = fs.readFileSync(path.join(root, "public", "og.png")).toString("base64");
 
@@ -14,6 +15,7 @@ fs.mkdirSync(distServer, { recursive: true });
 const worker = `
 const PAGE = ${JSON.stringify(html)};
 const NEWS = ${JSON.stringify(news)};
+const WHITELIST = ${JSON.stringify(whitelist)};
 const CHANGELOG = ${JSON.stringify(changelog)};
 const SOCIAL_CARD = ${JSON.stringify(socialCard)};
 
@@ -50,6 +52,7 @@ export default {
       return response(page, "text/html; charset=utf-8", request);
     }
     if (url.pathname === "/news.json") return response(NEWS, "application/json; charset=utf-8", request);
+    if (url.pathname === "/whitelist.json") return response(WHITELIST, "application/json; charset=utf-8", request);
     if (url.pathname === "/changelog.json") return response(CHANGELOG, "application/json; charset=utf-8", request);
     if (url.pathname === "/og.png") return response(decodeBase64(SOCIAL_CARD), "image/png", request, 200, { "Cache-Control": "public, max-age=86400" });
     return response("Not found", "text/plain; charset=utf-8", request, 404);

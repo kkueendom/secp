@@ -61,6 +61,6 @@ jobs:
           run: |
             git config user.email "github-actions[bot]@users.noreply.github.com"
             git config user.name "github-actions[bot]"
-            git add index.html changelog.json news.json
+            git add changelog.json news.json whitelist.json
             git commit -m "Auto-update SECP data"
             git push https://${{ secrets.GH_TOKEN || secrets.GITHUB_TOKEN }}@github.com/kkueendom/secp.git HEAD:main
