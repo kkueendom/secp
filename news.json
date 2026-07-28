@@ -1,21 +1,21 @@
 {
-  "lastUpdated": "2026-07-28T03:44:58.523Z",
-  "lastChecked": "2026-07-28T03:44:58.523Z",
+  "lastUpdated": "2026-07-28T03:50:21.161Z",
+  "lastChecked": "2026-07-28T03:50:21.161Z",
   "newsUpdateDate": "2026-07-28",
   "latestArticleDate": "2026/7/27",
   "whitelistDate": "December 5, 2025",
   "items": [
     {
       "date": "2026/7/27",
-      "title": "Finance Minister Chairs First Meeting of Access to Finance Steering Committee, Calls for",
+      "title": "Finance Minister Chairs First Meeting of Access to Finance Steering Committee, Calls for Accelerated Implementation of Access to Finance Plan",
       "link": "https://pid.gov.pk/site/press_detail/33354",
       "source": "Government of Pakistan (PID)",
-      "summary": "巴基斯坦财政部长主持了金融准入指导委员会的首次会议，呼吁加强金融包容性。该委员会旨在协调各方努力，改善中小企业和个人的融资渠道，推动数字金融服务发展。会议强调了政策协调和监管框架优化的重要性，以促进金融科技和创新。",
-      "businessImpact": "该会议表明政府正积极推动金融包容性，可能带来更有利的监管环境，但需关注后续具体政策对nano lending的定价、消费者保护和KYC/AML要求的影响。",
+      "summary": "巴基斯坦财政部长主持了金融准入指导委员会的首次会议，呼吁加速实施金融准入计划。该计划旨在扩大金融服务覆盖面，特别是对中小企业和低收入群体，可能涉及数字金融基础设施和信贷渠道的优化。",
+      "businessImpact": "该会议可能推动更广泛的金融包容性政策，间接影响数字信贷的准入环境和基础设施，但未直接涉及nano lending的监管或定价，需关注后续具体措施。",
       "keywords": [
         "金融准入",
         "指导委员会",
-        "金融包容性"
+        "巴基斯坦"
       ],
       "relevanceScore": 0.527
     },
@@ -78,20 +78,6 @@
         "商业增长"
       ],
       "relevanceScore": 0.85
-    },
-    {
-      "date": "2026/7/8",
-      "title": "Finance Minister Aurangzeb reviews SECP Reforms, stresses balanced regulation to boost Business Growth",
-      "link": "https://www.secp.gov.pk/wp-content/uploads/2026/07/8-july-.pdf",
-      "source": "SECP Official",
-      "summary": "巴基斯坦财政部长Aurangzeb审查了SECP（证券交易委员会）的改革进展，强调通过平衡监管来促进商业增长。这表明政府倾向于在加强监管的同时，避免过度限制企业活动，以支持经济发展。",
-      "businessImpact": "该新闻未直接涉及数字信贷或NBFC监管细则，但暗示未来监管可能更注重平衡，对nano lending业务影响有限，需关注后续具体政策调整。",
-      "keywords": [
-        "SECP改革",
-        "平衡监管",
-        "商业增长"
-      ],
-      "relevanceScore": 0.534
     }
   ]
 }
