@@ -2,816 +2,986 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  <meta name="format-detection" content="telephone=no">
-  <meta name="theme-color" content="#ffffff">
-  <meta name="description" content="追踪巴基斯坦 SECP 数字贷款监管政策，包括 Nano Lending、BNPL APP 白名单及合规要求">
-  <title>SECP 解析 - 巴基斯坦数字贷款监管追踪</title>
-  <!-- 添加到主屏幕图标（可选） -->
-  <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#081d2d">
+  <meta name="description" content="面向数字信贷从业者的巴基斯坦 SECP 监管动态、白名单与合规要求监测看板">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="SECP Watch｜巴基斯坦数字信贷监管监测">
+  <meta property="og:description" content="监管变化，一眼看到业务影响。">
+  <meta property="og:image" content="__OG_IMAGE__">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="SECP Watch｜巴基斯坦数字信贷监管监测">
+  <meta name="twitter:description" content="监管变化，一眼看到业务影响。">
+  <meta name="twitter:image" content="__OG_IMAGE__">
+  <title>SECP Watch｜巴基斯坦数字信贷监管监测</title>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background: #f5f5f7;
-      min-height: 100vh;
-    }
-
     :root {
-      --blue: #007aff; --green: #34c759; --orange: #ff9500;
-      --red: #ff3b30; --purple: #af52de; --gray: #86868b;
-    }
-    .header {
-      background: rgba(255,255,255,0.9); backdrop-filter: blur(20px);
-      padding: 20px 24px; border-bottom: 1px solid #d2d2d7;
-      position: sticky; top: 0; z-index: 100;
-      display: flex; justify-content: space-between; align-items: center;
-    }
-    .title { font-size: 24px; font-weight: 600; }
-    .subtitle { font-size: 13px; color: var(--gray); margin-top: 4px; }
-
-    /* 手动更新按钮 */
-    .update-btn {
-      display: flex; align-items: center; gap: 6px;
-      padding: 10px 16px; border-radius: 20px;
-      background: linear-gradient(135deg, #007aff, #5856d6);
-      color: #fff; border: none; cursor: pointer;
-      font-size: 14px; font-weight: 500;
-      box-shadow: 0 2px 8px rgba(0,122,255,0.3);
-      transition: all 0.2s;
-    }
-    .update-btn:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 4px 12px rgba(0,122,255,0.4);
-    }
-    .update-btn:active { transform: translateY(0); }
-    .update-icon { font-size: 16px; }
-    .update-btn.loading .update-icon {
-      animation: spin 1s linear infinite;
-    }
-    @keyframes spin {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
-    .main { max-width: 1000px; margin: 0 auto; padding: 24px; }
-    .card {
-      background: #fff; border-radius: 16px; padding: 20px;
-      margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.08);
-    }
-    .card-header {
-      display: flex; align-items: center; gap: 10px;
-      margin-bottom: 16px; flex-wrap: wrap;
-    }
-    .card-title { font-size: 17px; font-weight: 600; }
-    .card-badge {
-      margin-left: auto; padding: 4px 10px; border-radius: 12px;
-      font-size: 12px; font-weight: 500;
-    }
-    .card-link { width: 100%; font-size: 12px; margin-top: 8px; }
-    .card-link a { color: var(--blue); text-decoration: none; }
-
-    /* 分类区块 */
-    .section { margin-bottom: 20px; }
-    .section-header {
-      display: flex; align-items: center; gap: 10px;
-      padding-bottom: 10px; border-bottom: 1px solid #e5e5e5; margin-bottom: 12px;
-    }
-    .section-icon {
-      width: 28px; height: 28px; border-radius: 6px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 14px; color: #fff;
-    }
-    .section-title { font-size: 15px; font-weight: 600; }
-    .section-count {
-      margin-left: auto; font-size: 12px; color: var(--gray);
-      background: #f5f5f7; padding: 2px 8px; border-radius: 10px;
+      --ink: #10212d;
+      --muted: #667681;
+      --paper: #f5f7f6;
+      --card: #ffffff;
+      --line: #dfe6e3;
+      --navy: #081d2d;
+      --navy-2: #12384a;
+      --green: #0f8a62;
+      --green-dark: #086448;
+      --green-soft: #e8f5ef;
+      --amber: #c87913;
+      --amber-soft: #fff5e5;
+      --red: #c4473a;
+      --red-soft: #fff0ed;
+      --blue: #236891;
+      --blue-soft: #eaf3f8;
+      --shadow: 0 16px 48px rgba(13, 32, 43, .08);
+      --radius: 18px;
     }
 
-    /* APP 列表 */
-    .app-grid {
-      display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: Inter, "SF Pro Display", "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      font-size: 15px;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+    button, input { font: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    a { color: inherit; }
+    :focus-visible { outline: 3px solid rgba(15, 138, 98, .35); outline-offset: 3px; }
+
+    .shell { width: min(1180px, calc(100% - 40px)); margin: 0 auto; }
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      color: #fff;
+      background: rgba(8, 29, 45, .94);
+      border-bottom: 1px solid rgba(255,255,255,.1);
+      backdrop-filter: blur(16px);
+    }
+    .topbar-inner {
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      font-weight: 720;
+      letter-spacing: -.02em;
+    }
+    .brand-mark {
+      width: 36px;
+      height: 36px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255,255,255,.22);
+      border-radius: 11px;
+      background: linear-gradient(145deg, #1a9b72, #0a644a);
+      font-size: 12px;
+      letter-spacing: .08em;
+    }
+    .brand small {
+      display: block;
+      color: #9fb3bd;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+    .nav { display: flex; align-items: center; gap: 24px; }
+    .nav a {
+      color: #c6d2d7;
+      font-size: 13px;
+      text-decoration: none;
+    }
+    .nav a:hover { color: #fff; }
+    .source-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 40px;
+      padding: 0 15px;
+      color: #fff;
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 12px;
+      background: rgba(255,255,255,.08);
+      cursor: pointer;
+    }
+    .source-button::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #58d5a9;
+      box-shadow: 0 0 0 5px rgba(88,213,169,.12);
+    }
+
+    .hero {
+      overflow: hidden;
+      color: #fff;
+      background:
+        radial-gradient(circle at 82% 18%, rgba(26,155,114,.28), transparent 28%),
+        linear-gradient(135deg, var(--navy), #0c2e3e 68%, #0d3a3a);
+    }
+    .hero-inner { position: relative; padding: 72px 0 54px; }
+    .hero-inner::after {
+      content: "PK";
+      position: absolute;
+      right: -18px;
+      bottom: -72px;
+      color: rgba(255,255,255,.035);
+      font: 800 270px/1 Arial, sans-serif;
+      letter-spacing: -.1em;
+      pointer-events: none;
+    }
+    .eyebrow {
+      display: flex;
+      align-items: center;
       gap: 10px;
+      margin-bottom: 16px;
+      color: #7dd9b8;
+      font-size: 11px;
+      font-weight: 750;
+      letter-spacing: .18em;
+      text-transform: uppercase;
     }
-    .app-item {
-      display: flex; align-items: flex-start; gap: 12px;
-      padding: 12px; background: #f9f9f9; border-radius: 12px;
-      transition: all 0.2s;
+    .eyebrow::before { content: ""; width: 26px; height: 1px; background: currentColor; }
+    h1 {
+      max-width: 760px;
+      margin: 0;
+      font-size: clamp(38px, 5vw, 64px);
+      line-height: 1.08;
+      letter-spacing: -.055em;
     }
-    .app-item:hover { background: #f0f0f0; }
-    .app-logo {
-      width: 44px; height: 44px; border-radius: 10px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 18px; font-weight: 700; color: #fff; flex-shrink: 0;
+    .hero-copy {
+      max-width: 670px;
+      margin: 22px 0 34px;
+      color: #b9c9d0;
+      font-size: 17px;
     }
-    .app-info { flex: 1; min-width: 0; }
-    .app-name { font-size: 14px; font-weight: 600; margin-bottom: 2px; }
-    .app-nbfc {
-      font-size: 11px; color: var(--gray); margin-bottom: 4px;
-      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    .freshness {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 8px 11px;
+      color: #c9d6db;
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 10px;
+      background: rgba(255,255,255,.05);
+      font-size: 12px;
     }
-    .app-tag {
-      display: inline-block; padding: 2px 6px; border-radius: 4px;
-      font-size: 10px; font-weight: 500; color: #fff;
+    .freshness i { width: 8px; height: 8px; border-radius: 50%; background: #58d5a9; }
+    .snapshot {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      margin-top: 42px;
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 16px;
+      background: rgba(255,255,255,.06);
+      backdrop-filter: blur(10px);
     }
-    /* 备注显示（固定备注） */
-    .app-note-display {
-      margin-top: 6px; padding: 6px 8px; background: #fff8e6;
-      border-left: 3px solid #ffc107; border-radius: 4px;
-      font-size: 12px; color: #856404; line-height: 1.4;
+    .metric { min-width: 0; padding: 18px 22px; border-right: 1px solid rgba(255,255,255,.1); }
+    .metric:last-child { border-right: 0; }
+    .metric-label { color: #9eb1ba; font-size: 11px; letter-spacing: .06em; text-transform: uppercase; }
+    .metric-value { margin-top: 6px; font-size: 25px; font-weight: 760; letter-spacing: -.03em; }
+    .metric-note { margin-top: 2px; color: #9eb1ba; font-size: 11px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+    main { padding: 40px 0 72px; }
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 18px;
+    }
+    .section-kicker { color: var(--green-dark); font-size: 11px; font-weight: 760; letter-spacing: .14em; text-transform: uppercase; }
+    h2 { margin: 3px 0 0; font-size: 28px; line-height: 1.2; letter-spacing: -.035em; }
+    .section-note { max-width: 440px; margin: 0; color: var(--muted); font-size: 13px; text-align: right; }
+    .panel {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--card);
+      box-shadow: var(--shadow);
     }
 
-    /* 要求卡片 */
-    .req-list { list-style: none; }
-    .req-item {
-      display: flex; gap: 12px; padding: 12px 0;
-      border-bottom: 1px solid #f0f0f0;
+    .signal-layout { display: grid; grid-template-columns: minmax(0, 1.75fr) minmax(260px, .75fr); gap: 20px; }
+    .signal-panel { padding: 20px; }
+    .toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--line);
     }
-    .req-item:last-child { border-bottom: none; }
-    .req-num {
-      width: 24px; height: 24px; border-radius: 50%;
-      background: var(--purple); color: #fff;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 12px; font-weight: 600; flex-shrink: 0;
+    .chips { display: flex; flex-wrap: wrap; gap: 7px; }
+    .chip {
+      min-height: 34px;
+      padding: 0 12px;
+      color: var(--muted);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #fff;
+      cursor: pointer;
+      font-size: 12px;
     }
-    .req-title { font-weight: 500; margin-bottom: 4px; }
-    .req-desc { font-size: 13px; color: var(--gray); line-height: 1.4; }
-
-    .expand-btn {
-      width: 100%; padding: 10px; background: none;
-      border: 1px solid #ddd; border-radius: 8px;
-      color: var(--blue); cursor: pointer; font-size: 14px; margin-top: 12px;
+    .chip.active { color: #fff; border-color: var(--navy); background: var(--navy); }
+    .search {
+      position: relative;
+      width: min(245px, 100%);
     }
-
-    /* 新闻列表 */
-    .news-list { display: flex; flex-direction: column; gap: 12px; }
+    .search input {
+      width: 100%;
+      height: 38px;
+      padding: 0 12px 0 35px;
+      color: var(--ink);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: #f8faf9;
+    }
+    .search::before {
+      content: "";
+      position: absolute;
+      top: 12px;
+      left: 13px;
+      width: 10px;
+      height: 10px;
+      border: 1.7px solid #819098;
+      border-radius: 50%;
+    }
+    .search::after {
+      content: "";
+      position: absolute;
+      top: 22px;
+      left: 23px;
+      width: 6px;
+      height: 1.7px;
+      background: #819098;
+      transform: rotate(45deg);
+    }
+    .news-list { display: grid; }
     .news-item {
-      padding: 12px; background: #f9f9f9; border-radius: 10px;
-      border-left: 3px solid var(--blue);
+      display: grid;
+      grid-template-columns: 92px minmax(0, 1fr) auto;
+      gap: 18px;
+      padding: 22px 4px;
+      border-bottom: 1px solid var(--line);
     }
-    .news-date { font-size: 11px; color: var(--gray); margin-bottom: 4px; }
-    .news-title { font-weight: 600; font-size: 14px; margin-bottom: 4px; }
-    .news-desc { font-size: 13px; color: #444; line-height: 1.4; margin-bottom: 6px; }
-    .news-link { font-size: 12px; color: var(--blue); text-decoration: none; }
-    .news-link:hover { text-decoration: underline; }
-    .news-impact {
-      font-size: 12px; color: #ff9500; background: #fff8e6; padding: 6px 10px;
-      border-radius: 6px; margin-top: 6px; line-height: 1.4; border-left: 3px solid #ff9500;
+    .news-item:last-child { border-bottom: 0; }
+    .news-date { color: var(--muted); font-size: 12px; }
+    .source-badge {
+      display: inline-block;
+      margin-top: 6px;
+      padding: 3px 7px;
+      color: var(--blue);
+      border-radius: 5px;
+      background: var(--blue-soft);
+      font-size: 10px;
+      font-weight: 700;
     }
-    .news-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 6px; }
-    .news-tag {
-      font-size: 10px; padding: 2px 6px; background: #f0f0f0;
-      border-radius: 4px; color: #666;
+    .source-badge.official { color: var(--green-dark); background: var(--green-soft); }
+    .news-title { margin: 0; font-size: 16px; line-height: 1.4; letter-spacing: -.01em; }
+    .news-desc {
+      display: -webkit-box;
+      margin: 7px 0 10px;
+      overflow: hidden;
+      color: var(--muted);
+      font-size: 13px;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
     }
-    .news-source { font-size: 11px; color: #86868b; margin-top: 4px; }
-
-    /* 风险提示 */
-    .risk-list { display: flex; flex-direction: column; gap: 10px; }
-    .risk-item {
-      display: flex; align-items: flex-start; gap: 10px;
-      padding: 10px 12px; border-radius: 8px; background: #f9f9f9;
+    .impact {
+      padding: 9px 11px;
+      color: #72501e;
+      border-left: 3px solid #dfa347;
+      border-radius: 4px 8px 8px 4px;
+      background: var(--amber-soft);
+      font-size: 12px;
     }
+    .impact strong { color: #4f3716; }
+    .news-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 10px; }
+    .news-tag { padding: 3px 7px; color: #5f6d75; border-radius: 5px; background: #f0f3f2; font-size: 10px; }
+    .relevance { display: flex; flex-direction: column; align-items: end; gap: 18px; }
+    .score { min-width: 50px; padding: 5px 7px; border-radius: 6px; font-size: 10px; font-weight: 750; text-align: center; }
+    .score.high { color: var(--red); background: var(--red-soft); }
+    .score.medium { color: var(--amber); background: var(--amber-soft); }
+    .article-link { color: var(--green-dark); font-size: 12px; font-weight: 700; text-decoration: none; white-space: nowrap; }
+    .article-link:hover { text-decoration: underline; }
+    .empty { padding: 44px 16px; color: var(--muted); text-align: center; }
 
-    /* 变更记录 */
-    .changelog-list { display: flex; flex-direction: column; gap: 16px; }
-    .changelog-item {
-      border-radius: 10px; padding: 14px; background: #f9f9f9;
-      border-left: 4px solid #ff9500;
+    .briefing { padding: 24px; color: #fff; background: var(--navy); }
+    .briefing-label { color: #73d6b2; font-size: 10px; font-weight: 760; letter-spacing: .15em; text-transform: uppercase; }
+    .briefing h3 { margin: 8px 0 18px; font-size: 21px; line-height: 1.25; }
+    .action-list { display: grid; gap: 0; }
+    .action {
+      display: grid;
+      grid-template-columns: 26px 1fr;
+      gap: 10px;
+      padding: 15px 0;
+      border-top: 1px solid rgba(255,255,255,.11);
     }
-    .changelog-date {
-      font-size: 11px; color: #86868b; margin-bottom: 8px; font-weight: 500;
+    .action-num {
+      width: 23px;
+      height: 23px;
+      display: grid;
+      place-items: center;
+      color: #9fe3ca;
+      border: 1px solid rgba(159,227,202,.3);
+      border-radius: 50%;
+      font-size: 10px;
     }
-    .changelog-summary {
-      display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 10px;
+    .action strong { display: block; font-size: 13px; }
+    .action span { display: block; margin-top: 3px; color: #9fb2bb; font-size: 11px; line-height: 1.45; }
+    .coverage { margin-top: 20px; padding: 15px; border-radius: 11px; background: rgba(255,255,255,.06); }
+    .coverage-title { margin-bottom: 10px; color: #9fb2bb; font-size: 10px; text-transform: uppercase; letter-spacing: .1em; }
+    .coverage-row { display: flex; justify-content: space-between; padding: 5px 0; font-size: 12px; }
+    .coverage-row span:last-child { color: #8ddcbe; }
+
+    .content-section { margin-top: 48px; }
+    .whitelist-panel { overflow: hidden; }
+    .whitelist-toolbar {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 18px 20px;
+      border-bottom: 1px solid var(--line);
     }
-    .changelog-stat {
-      display: inline-flex; align-items: center; gap: 4px;
-      padding: 4px 8px; border-radius: 8px; font-size: 12px; font-weight: 500;
+    .count-line { display: flex; align-items: center; gap: 18px; color: var(--muted); font-size: 12px; }
+    .count-line strong { color: var(--ink); font-size: 18px; }
+    .app-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .app-item {
+      display: grid;
+      grid-template-columns: 40px minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 12px;
+      min-height: 86px;
+      padding: 15px 20px;
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
     }
-    .changelog-stat.added { background: #f0fff4; color: #34c759; }
-    .changelog-stat.removed { background: #fff5f5; color: #ff3b30; }
-    .changelog-stat.changed { background: #fff8e6; color: #ff9500; }
-    .changelog-details {
-      font-size: 13px; color: #444; line-height: 1.5;
+    .app-item:nth-child(even) { border-right: 0; }
+    .app-logo {
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      border-radius: 10px;
+      background: var(--app-color);
+      font-size: 14px;
+      font-weight: 780;
     }
-    .changelog-details ul { padding-left: 18px; margin: 4px 0; }
-    .changelog-details li { margin-bottom: 4px; }
-    .changelog-details .add-icon { color: #34c759; margin-right: 4px; }
-    .changelog-details .remove-icon { color: #ff3b30; margin-right: 4px; }
-    .changelog-details .change-icon { color: #ff9500; margin-right: 4px; }
-    .risk-item.high { background: #fff5f5; }
-    .risk-item.medium { background: #fff8e6; }
-    .risk-item.low { background: #f0fff4; }
-    .risk-icon { font-size: 16px; flex-shrink: 0; }
-    .risk-content { flex: 1; }
-    .risk-title { font-weight: 600; font-size: 14px; margin-bottom: 2px; }
-    .risk-desc { font-size: 12px; color: #666; line-height: 1.4; }
-
-    
-    .footer { text-align: center; padding: 24px; font-size: 12px; color: var(--gray); }
-    .footer a { color: var(--blue); text-decoration: none; }
-
-    /* ========== 手机端适配 ========== */
-    @media (max-width: 768px) {
-      body { font-size: 15px; }
-
-      .header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 8px;
-        padding: 16px;
-      }
-      .title { font-size: 20px; }
-      .subtitle { font-size: 12px; line-height: 1.4; }
-      .update-btn {
-        padding: 8px 14px; font-size: 13px;
-        position: absolute; top: 16px; right: 16px;
-      }
-      .header { position: relative; padding-right: 120px; }
-
-      .main { padding: 12px; }
-
-      .card {
-        padding: 16px;
-        border-radius: 12px;
-        margin-bottom: 12px;
-      }
-      .card-header {
-        flex-wrap: wrap;
-        gap: 8px;
-      }
-      .card-title { font-size: 16px; }
-      .card-badge {
-        margin-left: 0;
-        font-size: 11px;
-      }
-      .card-link { font-size: 11px; }
-
-      /* APP 列表手机适配 */
-      .app-grid { grid-template-columns: 1fr; gap: 8px; }
-      .app-item { padding: 10px; }
-      .app-logo { width: 40px; height: 40px; font-size: 16px; }
-      .app-name { font-size: 13px; }
-      .app-nbfc { font-size: 10px; }
-      .app-tag { font-size: 9px; padding: 2px 5px; }
-      .app-note-display { font-size: 11px; padding: 5px 6px; }
-
-      /* 分类标题 */
-      .section-header { flex-wrap: wrap; gap: 8px; }
-      .section-icon { width: 24px; height: 24px; font-size: 12px; }
-      .section-title { font-size: 13px; }
-      .section-count { font-size: 11px; }
-
-      /* 新闻列表手机适配 */
-      .news-item { padding: 10px; }
-      .news-date { font-size: 10px; }
-      .news-title { font-size: 13px; }
-      .news-desc { font-size: 12px; }
-      .news-link { font-size: 11px; padding: 4px 0; display: inline-block; }
-
-      /* 风险提示手机适配 */
-      .risk-item { padding: 8px 10px; }
-      .risk-icon { font-size: 14px; }
-      .risk-title { font-size: 13px; }
-      .risk-desc { font-size: 11px; }
-
-      /* 要求列表手机适配 */
-      .req-item { padding: 10px 0; gap: 10px; }
-      .req-num { width: 22px; height: 22px; font-size: 11px; }
-      .req-title { font-size: 13px; }
-      .req-desc { font-size: 12px; }
-
-      .expand-btn {
-        padding: 12px;
-        font-size: 14px;
-        min-height: 44px;
-      }
-
-      .footer { padding: 16px; font-size: 11px; }
+    .app-name { font-weight: 720; }
+    .app-nbfc { margin-top: 2px; overflow: hidden; color: var(--muted); font-size: 11px; text-overflow: ellipsis; white-space: nowrap; }
+    .app-note { margin-top: 5px; color: var(--amber); font-size: 10px; }
+    .app-tag { padding: 4px 8px; color: var(--green-dark); border-radius: 6px; background: var(--green-soft); font-size: 10px; font-weight: 700; }
+    .official-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--green-dark);
+      font-size: 12px;
+      font-weight: 700;
+      text-decoration: none;
     }
+    .official-link:hover { text-decoration: underline; }
+    .list-footer { display: flex; justify-content: space-between; gap: 16px; padding: 16px 20px; color: var(--muted); font-size: 11px; }
 
-    /* 超小屏幕（iPhone SE 等） */
-    @media (max-width: 375px) {
-      .title { font-size: 18px; }
-      .card { padding: 12px; }
-      .card-title { font-size: 14px; }
-      .section-title { font-size: 12px; flex: 1; }
-      .app-logo { width: 36px; height: 36px; font-size: 14px; }
+    .compliance-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    details {
+      align-self: start;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #fff;
     }
-
-    /* 触摸设备优化 */
-    @media (hover: none) and (pointer: coarse) {
-      .app-item:hover { background: #f9f9f9; }
-
-      /* 增大可点击元素 */
-      .news-link,
-      .card-link a {
-        padding: 8px 0;
-        display: inline-block;
-      }
+    summary {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      min-height: 72px;
+      padding: 16px 48px 16px 18px;
+      cursor: pointer;
+      list-style: none;
     }
-
-    /* 横屏手机 */
-    @media (max-width: 768px) and (orientation: landscape) {
-      .header { padding: 12px 16px; }
-      .main { padding: 12px 24px; }
-      .app-grid { grid-template-columns: repeat(2, 1fr); }
+    summary::-webkit-details-marker { display: none; }
+    summary::after {
+      content: "+";
+      position: absolute;
+      right: 18px;
+      color: var(--green-dark);
+      font-size: 21px;
+      font-weight: 350;
     }
+    details[open] summary::after { content: "−"; }
+    .detail-title { font-weight: 720; }
+    .detail-meta { margin-top: 2px; color: var(--muted); font-size: 11px; }
+    .requirement-count { padding: 4px 8px; color: var(--green-dark); border-radius: 6px; background: var(--green-soft); font-size: 10px; font-weight: 750; }
+    .requirements { margin: 0; padding: 0 18px 16px; list-style: none; }
+    .requirements li {
+      display: grid;
+      grid-template-columns: 22px 1fr;
+      gap: 9px;
+      padding: 11px 0;
+      border-top: 1px solid var(--line);
+      font-size: 12px;
+    }
+    .req-num { color: var(--green-dark); font-size: 10px; font-weight: 780; }
+    .requirements strong { display: block; font-size: 12px; }
+    .requirements span { color: var(--muted); }
 
-    /* 暗色模式支持（可选） */
-    @media (prefers-color-scheme: dark) {
-      /* 保持亮色主题，如需暗色可取消注释
-      body { background: #1c1c1e; color: #fff; }
-      .card { background: #2c2c2e; }
-      */
+    .audit {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 24px;
+      padding: 21px 24px;
+    }
+    .audit-status { display: flex; align-items: center; gap: 13px; }
+    .audit-icon { width: 38px; height: 38px; display: grid; place-items: center; color: var(--green-dark); border-radius: 10px; background: var(--green-soft); font-weight: 800; }
+    .audit-title { font-weight: 720; }
+    .audit-copy { margin-top: 2px; color: var(--muted); font-size: 12px; }
+    .audit-meta { color: var(--muted); font-size: 11px; text-align: right; }
+
+    footer { padding: 28px 0 40px; color: var(--muted); border-top: 1px solid var(--line); font-size: 11px; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 24px; }
+    .footer-links { display: flex; gap: 16px; }
+    .footer-links a { color: var(--green-dark); text-decoration: none; }
+
+    dialog {
+      width: min(540px, calc(100% - 32px));
+      padding: 0;
+      color: var(--ink);
+      border: 0;
+      border-radius: 18px;
+      box-shadow: 0 26px 80px rgba(0,0,0,.25);
+    }
+    dialog::backdrop { background: rgba(5,19,28,.72); backdrop-filter: blur(3px); }
+    .dialog-head { display: flex; justify-content: space-between; gap: 20px; padding: 22px 24px; border-bottom: 1px solid var(--line); }
+    .dialog-head h3 { margin: 0; font-size: 20px; }
+    .dialog-head p { margin: 4px 0 0; color: var(--muted); font-size: 12px; }
+    .close-button { width: 34px; height: 34px; border: 0; border-radius: 50%; background: #eef2f0; cursor: pointer; }
+    .source-list { display: grid; padding: 10px 24px 20px; }
+    .source-row { display: grid; grid-template-columns: 1fr auto; gap: 18px; align-items: center; padding: 15px 0; border-bottom: 1px solid var(--line); text-decoration: none; }
+    .source-row:last-child { border-bottom: 0; }
+    .source-row strong { display: block; font-size: 13px; }
+    .source-row span { display: block; margin-top: 2px; color: var(--muted); font-size: 11px; }
+    .source-row b { color: var(--green-dark); font-size: 12px; }
+
+    @media (max-width: 900px) {
+      .nav a { display: none; }
+      .snapshot { grid-template-columns: 1fr 1fr; }
+      .metric:nth-child(2) { border-right: 0; }
+      .metric:nth-child(-n+2) { border-bottom: 1px solid rgba(255,255,255,.1); }
+      .signal-layout { grid-template-columns: 1fr; }
+      .briefing { display: grid; grid-template-columns: .8fr 1.2fr; gap: 24px; }
+      .coverage { margin-top: 0; }
+    }
+    @media (max-width: 680px) {
+      .shell { width: min(100% - 24px, 1180px); }
+      .topbar-inner { min-height: 62px; }
+      .brand-text { font-size: 13px; }
+      .brand small { display: none; }
+      .source-button { padding: 0 11px; font-size: 12px; }
+      .hero-inner { padding: 50px 0 28px; }
+      h1 { font-size: 39px; }
+      .hero-copy { margin: 18px 0 26px; font-size: 14px; }
+      .snapshot { margin-top: 30px; }
+      .metric { padding: 15px; }
+      .metric-value { font-size: 21px; }
+      main { padding-top: 28px; }
+      .section-head { display: block; }
+      .section-note { margin-top: 8px; text-align: left; }
+      .toolbar, .whitelist-toolbar { align-items: stretch; flex-direction: column; }
+      .search { width: 100%; }
+      .news-item { grid-template-columns: 70px minmax(0, 1fr); gap: 12px; }
+      .relevance { grid-column: 2; align-items: start; flex-direction: row; justify-content: space-between; }
+      .briefing { display: block; }
+      .coverage { margin-top: 20px; }
+      .app-list { grid-template-columns: 1fr; }
+      .app-item, .app-item:nth-child(even) { border-right: 0; }
+      .compliance-grid { grid-template-columns: 1fr; }
+      .audit { grid-template-columns: 1fr; }
+      .audit-meta { text-align: left; }
+      .footer-inner { display: block; }
+      .footer-links { margin-top: 10px; flex-wrap: wrap; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
     }
   </style>
 </head>
 <body>
-  
-  
-
-  <header class="header">
-    <div>
-      <h1 class="title">SECP 监管追踪器</h1>
-      <p class="subtitle" id="updateTime">白名单更新：加载中... | 新闻更新：加载中...</p>
+  <header class="topbar">
+    <div class="shell topbar-inner">
+      <a class="brand" href="#top" aria-label="返回页面顶部">
+        <span class="brand-mark">SW</span>
+        <span class="brand-text">SECP Watch<small>Pakistan regulatory monitor</small></span>
+      </a>
+      <nav class="nav" aria-label="主导航">
+        <a href="#signals">监管信号</a>
+        <a href="#whitelist">白名单</a>
+        <a href="#compliance">合规清单</a>
+        <button class="source-button" type="button" data-open-sources>官方数据源</button>
+      </nav>
     </div>
-    <button class="update-btn" onclick="manualUpdate()">
-      <span class="update-icon">🔄</span>
-      <span>手动更新</span>
-    </button>
   </header>
 
-  <main class="main">
-    <!-- 新闻动态 -->
-    <div class="card">
-      <div class="card-header">
-        <span>📰</span>
-        <span class="card-title">本周新闻动态</span>
-        <span class="card-badge" style="background:#007aff;color:#fff;">2026年1月</span>
-      </div>
-
-      <div class="news-list" id="newsList">
-        <div class="news-item">
-          <div class="news-date">2026-01-14</div>
-          <div class="news-title">巴基斯坦与美国金融科技公司签署数字支付 MoU</div>
-          <div class="news-desc">巴基斯坦与 World Liberty Financial 签署合作备忘录，重点发展数字支付和跨境交易基础设施。</div>
-          <a class="news-link" href="https://mettisglobal.news/Pakistan-signs-MoU-with-US-fintech-for-digital-payments-57795" target="_blank">查看详情 →</a>
+  <section class="hero" id="top">
+    <div class="shell hero-inner">
+      <div class="eyebrow">Pakistan · Digital lending intelligence</div>
+      <h1>监管变化，<br>一眼看到业务影响。</h1>
+      <p class="hero-copy">持续追踪 SECP、FIA 与相关机构动态，将新闻、白名单和合规要求整理成可执行的业务情报。</p>
+      <div class="freshness"><i></i><span id="freshnessText">正在校验数据更新时间…</span></div>
+      <div class="snapshot" aria-label="监管监测摘要">
+        <div class="metric">
+          <div class="metric-label">最新信号</div>
+          <div class="metric-value" id="latestSignal">—</div>
+          <div class="metric-note" id="latestSignalNote">正在加载</div>
         </div>
-        <div class="news-item">
-          <div class="news-date">2026-01-06</div>
-          <div class="news-title">SLG-Trax 计划推出 5 亿卢比数字贷款业务</div>
-          <div class="news-desc">Secure Logistics-Trax 集团计划收购金融科技平台 IP，通过 NBFC 子公司向 9,000+ 客户提供数字贷款。</div>
-          <a class="news-link" href="https://profit.pakistantoday.com.pk/2026/01/06/slg-trax-moves-to-acquire-fintech-ip-plans-rs500-million-digital-lending-rollout/" target="_blank">查看详情 →</a>
+        <div class="metric">
+          <div class="metric-label">高相关事项</div>
+          <div class="metric-value" id="highSignalCount">—</div>
+          <div class="metric-note">相关度 ≥ 80%</div>
         </div>
-        <div class="news-item">
-          <div class="news-date">2025-12-29</div>
-          <div class="news-title">SECP 发布最新 Digital Lending App 白名单</div>
-          <div class="news-desc">配合 Google Play 商店新政策，SECP 更新白名单至 25 个合规 APP（14 个 Nano + 11 个其他类型）。</div>
-          <a class="news-link" href="https://propakistani.pk/2025/12/29/secp-shares-new-whitelist-of-approved-lending-apps/" target="_blank">查看详情 →</a>
+        <div class="metric">
+          <div class="metric-label">许可应用</div>
+          <div class="metric-value">25</div>
+          <div class="metric-note">Nano 14 · 其他 11</div>
         </div>
-        <div class="news-item">
-          <div class="news-date">2026-01</div>
-          <div class="news-title">外资持续看好巴基斯坦数字银行</div>
-          <div class="news-desc">WeOne Group 向 Mobilink Bank 注资 2,000 万美元，显示外国投资者对巴基斯坦数字金融信心增强。</div>
-          <a class="news-link" href="https://www.crowdfundinsider.com/2026/01/257102-pakistans-crypto-and-fintech-sector-expands-poised-for-steady-growth-in-2026/" target="_blank">查看详情 →</a>
+        <div class="metric">
+          <div class="metric-label">白名单版本</div>
+          <div class="metric-value">2025.12</div>
+          <div class="metric-note" id="whitelistAge">SECP 官方 PDF</div>
         </div>
       </div>
     </div>
+  </section>
 
-    <!-- 风险提示 -->
-    <div class="card" style="border-left:4px solid #ff3b30;">
-      <div class="card-header">
-        <span>⚠️</span>
-        <span class="card-title">风险提示</span>
-        <span class="card-badge" style="background:#ff3b30;color:#fff;">重要</span>
+  <main class="shell">
+    <section id="signals">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">Regulatory signals</div>
+          <h2>最新监管信号</h2>
+        </div>
+        <p class="section-note">按时间与业务相关度整理；“官方”仅指监管机构或政府部门的原始发布。</p>
       </div>
-
-      <div class="risk-list">
-        <div class="risk-item high">
-          <span class="risk-icon">🔴</span>
-          <div class="risk-content">
-            <div class="risk-title">高利率警告</div>
-            <div class="risk-desc">Nano Lending 日利率可达 0.75%，APR 最高 274%，借款前请充分了解成本</div>
+      <div class="signal-layout">
+        <div class="panel signal-panel">
+          <div class="toolbar">
+            <div class="chips" role="group" aria-label="新闻筛选">
+              <button class="chip active" type="button" data-news-filter="all">全部</button>
+              <button class="chip" type="button" data-news-filter="official">仅官方</button>
+              <button class="chip" type="button" data-news-filter="high">高相关</button>
+              <button class="chip" type="button" data-news-filter="secp">SECP</button>
+            </div>
+            <label class="search">
+              <span style="position:absolute;clip:rect(0 0 0 0)">搜索监管动态</span>
+              <input id="newsSearch" type="search" placeholder="搜索机构、主题或关键词">
+            </label>
+          </div>
+          <div class="news-list" id="newsList" aria-live="polite">
+            <div class="empty">正在载入监管动态…</div>
           </div>
         </div>
-        <div class="risk-item high">
-          <span class="risk-icon">🔴</span>
-          <div class="risk-content">
-            <div class="risk-title">非法 APP 诈骗</div>
-            <div class="risk-desc">大量未授权贷款 APP 仍在活跃，仅下载 SECP 白名单内的 APP</div>
+        <aside class="panel briefing">
+          <div>
+            <div class="briefing-label">Action brief</div>
+            <h3>本期建议优先关注</h3>
+            <div class="action-list">
+              <div class="action">
+                <div class="action-num">01</div>
+                <div><strong>检查 AML/CFT 交易监测</strong><span>FIA 加强虚拟资产犯罪调查，复核异常资金流和客户风险分层。</span></div>
+              </div>
+              <div class="action">
+                <div class="action-num">02</div>
+                <div><strong>准备数据保护差距分析</strong><span>将现有授权、采集、存储和第三方共享流程映射至 SECP 要求。</span></div>
+              </div>
+              <div class="action">
+                <div class="action-num">03</div>
+                <div><strong>核验白名单展示信息</strong><span>确认应用名称、NBFC 主体和产品类型与最新官方 PDF 一致。</span></div>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="risk-item medium">
-          <span class="risk-icon">🟠</span>
-          <div class="risk-content">
-            <div class="risk-title">过度负债风险</div>
-            <div class="risk-desc">所有 NBFC 合计借款上限 Rs.100,000，SECP 提醒消费者谨慎借贷</div>
+          <div class="coverage">
+            <div class="coverage-title">监测覆盖</div>
+            <div class="coverage-row"><span>监管机构</span><span>SECP · FIA · PTA</span></div>
+            <div class="coverage-row"><span>重点议题</span><span>信贷 · AML · 数据</span></div>
+            <div class="coverage-row"><span>业务范围</span><span>Nano · BNPL · EWA</span></div>
           </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="content-section" id="whitelist">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">Licensed apps</div>
+          <h2>数字信贷应用白名单</h2>
         </div>
-        <div class="risk-item low">
-          <span class="risk-icon">🟢</span>
-          <div class="risk-content">
-            <div class="risk-title">费用总额有上限保护</div>
-            <div class="risk-desc">所有费用（利息+手续费+逾期费）总和不得超过贷款本金</div>
+        <a class="official-link" href="https://www.secp.gov.pk/document/digital-lending-apps-being-run-and-administered-by-duly-licensed-lending-nbfcs/?wpdmdl=46367" target="_blank" rel="noopener noreferrer">查看 SECP 官方 PDF ↗</a>
+      </div>
+      <div class="panel whitelist-panel">
+        <div class="whitelist-toolbar">
+          <div class="chips" role="group" aria-label="白名单类型筛选">
+            <button class="chip active" type="button" data-app-filter="all">全部 25</button>
+            <button class="chip" type="button" data-app-filter="nano">Nano 14</button>
+            <button class="chip" type="button" data-app-filter="other">其他 11</button>
           </div>
+          <label class="search">
+            <span style="position:absolute;clip:rect(0 0 0 0)">搜索白名单应用</span>
+            <input id="appSearch" type="search" placeholder="搜索 APP 或 NBFC 主体">
+          </label>
+        </div>
+        <div class="app-list" id="appList" aria-live="polite"></div>
+        <div class="list-footer">
+          <span id="appResultCount">显示 25 个应用</span>
+          <span>名单版本：December 5, 2025</span>
         </div>
       </div>
+    </section>
 
-      <div style="margin-top:12px;padding:10px;background:#fff5f5;border-radius:8px;font-size:12px;">
-        <strong>非法 APP 黑名单：</strong>
-        <a href="https://www.secp.gov.pk/document/list-of-illegal-digital-apps/" target="_blank">查看 SECP 公布的非法贷款平台列表 (更新于 May 19, 2025)</a>
+    <section class="content-section" id="compliance">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">Compliance checklist</div>
+          <h2>上架前合规检查</h2>
+        </div>
+        <a class="official-link" href="https://www.secp.gov.pk/document/circular-no-14-requirement-for-self-assessment-declaration-to-be-submitted-by-nbfc-engaged-in-digital-lending-along-with-application-for-whitelisting-of-digital-lending-app-2/?wpdmdl=51659" target="_blank" rel="noopener noreferrer">Circular No.14 of 2024 ↗</a>
       </div>
-    </div>
+      <div class="compliance-grid" id="complianceGrid"></div>
+    </section>
 
-    <!-- 白名单变更记录 -->
-    <div class="card">
-      <div class="card-header">
-        <span>📊</span>
-        <span class="card-title">白名单变更记录</span>
-        <span class="card-badge" style="background:#ff9500;color:#fff;">追踪历史</span>
-      </div>
-
-      <div id="changelogContainer">
-        <div style="text-align:center;padding:20px;color:#86868b;font-size:14px;">
-          暂无变更记录<br><span style="font-size:12px;">下次自动更新后将显示变更历史</span>
+    <section class="content-section" aria-labelledby="auditHeading">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">Change audit</div>
+          <h2 id="auditHeading">白名单变更审计</h2>
         </div>
       </div>
-    </div>
-
-    <!-- 白名单 -->
-    <div class="card">
-      <div class="card-header">
-        <span>📱</span>
-        <span class="card-title">Digital Lending App White List</span>
-        <span class="card-badge" style="background:#34c759;color:#fff;">25 个已批准</span>
-        <div class="card-link">
-          <a href="https://www.secp.gov.pk/document/digital-lending-apps-being-run-and-administered-by-duly-licensed-lending-nbfcs/?wpdmdl=46367" target="_blank">下载官方 PDF (Dec 5, 2025) →</a>
+      <div class="panel audit" id="auditContainer">
+        <div class="audit-status">
+          <div class="audit-icon">✓</div>
+          <div><div class="audit-title">尚无已记录的名单变更</div><div class="audit-copy">建立基准版本后，新增、移除或主体变更会在这里展示。</div></div>
         </div>
+        <div class="audit-meta">基准版本<br>December 5, 2025</div>
       </div>
-
-      <!-- Nano Lending Apps -->
-      <div class="section">
-        <div class="section-header">
-          <div class="section-icon" style="background:linear-gradient(135deg,#34c759,#30d158);">💰</div>
-          <span class="section-title">Approved - Nano Lending Apps</span>
-          <span class="section-count">14 个</span>
-        </div>
-        <div class="app-grid" id="nanoGrid"></div>
-      </div>
-
-      <!-- Other Lending Apps -->
-      <div class="section">
-        <div class="section-header">
-          <div class="section-icon" style="background:linear-gradient(135deg,#007aff,#5856d6);">🏦</div>
-          <span class="section-title">Approved - Other Lending Apps (EWA, BNPL, B2B, B2C etc.)</span>
-          <span class="section-count">11 个</span>
-        </div>
-        <div class="app-grid" id="otherGrid"></div>
-      </div>
-
-      <button class="expand-btn" id="expandBtn" onclick="toggleExpand()">显示全部 25 个 APP</button>
-    </div>
-
-    <!-- Digital Lending App 白名单要求 -->
-    <div class="card">
-      <div class="card-header">
-        <span>📝</span>
-        <span class="card-title">Digital Lending App 上白名单要求</span>
-        <span class="card-badge" style="background:#007aff;color:#fff;">Circular No.14 of 2024</span>
-      </div>
-
-      <!-- UI/UX 合规要求 -->
-      <div style="margin-bottom:16px;">
-        <div style="font-weight:600;margin-bottom:8px;color:#1d1d1f;">一、APP UI/UX 合规要求</div>
-        <ul class="req-list">
-          <li class="req-item"><span class="req-num">1</span><div><div class="req-title">显示 NBFC 全称和牌照信息</div><div class="req-desc">APP 主屏幕需展示完整公司名称和 SECP 牌照编号</div></div></li>
-          <li class="req-item"><span class="req-num">2</span><div><div class="req-title">注册前信息披露</div><div class="req-desc">注册时需告知用户 APP 将访问的数据权限，并获取明确同意</div></div></li>
-          <li class="req-item"><span class="req-num">3</span><div><div class="req-title">风险提示弹窗（Nano Lending）</div><div class="req-desc">每次打开 APP 需显示中英文/乌尔都语风险提示：高利率、谨慎借贷等</div></div></li>
-          <li class="req-item"><span class="req-num">4</span><div><div class="req-title">多因素认证（MFA）</div><div class="req-desc">实施强密码、OTP（有效期≤120秒）、生物识别等认证机制</div></div></li>
-          <li class="req-item"><span class="req-num">5</span><div><div class="req-title">禁止访问用户隐私数据</div><div class="req-desc">不得访问借款人的短信、通话记录、通讯录、相册（担保人除外）</div></div></li>
-          <li class="req-item"><span class="req-num">6</span><div><div class="req-title">提供贷款计算器</div><div class="req-desc">首页需提供计算器，展示处理费、利息、逾期费等所有成本</div></div></li>
-          <li class="req-item"><span class="req-num">7</span><div><div class="req-title">KYC 验证</div><div class="req-desc">CNIC 正反面上传（OCR）+ 活体自拍/生物识别验证</div></div></li>
-          <li class="req-item"><span class="req-num">8</span><div><div class="req-title">关键事实声明（Key Fact Statement）</div><div class="req-desc">放款前需展示利率、费用、还款计划等关键信息（视频/音频/截图）</div></div></li>
-        </ul>
-      </div>
-
-      <!-- Nano Lending 特殊规定 -->
-      <div style="margin-bottom:16px;">
-        <div style="font-weight:600;margin-bottom:8px;color:#1d1d1f;">二、Nano Lending 特殊规定</div>
-        <ul class="req-list">
-          <li class="req-item"><span class="req-num">1</span><div><div class="req-title">贷款上限</div><div class="req-desc">单笔最高 Rs.50,000，期限最长 90 天；所有 NBFC 合计不超过 Rs.100,000</div></div></li>
-          <li class="req-item"><span class="req-num">2</span><div><div class="req-title">利率上限</div><div class="req-desc">每日利率不超过 0.75%，APR 不超过 274%</div></div></li>
-          <li class="req-item"><span class="req-num">3</span><div><div class="req-title">禁止复利</div><div class="req-desc">不得对利息或逾期费再计利息</div></div></li>
-          <li class="req-item"><span class="req-num">4</span><div><div class="req-title">费用总额限制</div><div class="req-desc">所有费用（利息+手续费+逾期费等）总和不得超过贷款本金</div></div></li>
-          <li class="req-item"><span class="req-num">5</span><div><div class="req-title">禁止预扣费用</div><div class="req-desc">放款金额必须等于批准金额，不得预扣首期还款或手续费</div></div></li>
-        </ul>
-      </div>
-
-      <!-- 安全与数据要求 -->
-      <div style="margin-bottom:16px;">
-        <div style="font-weight:600;margin-bottom:8px;color:#1d1d1f;">三、安全与数据要求</div>
-        <ul class="req-list">
-          <li class="req-item"><span class="req-num">1</span><div><div class="req-title">应用安全</div><div class="req-desc">实施 WAF、定期 VAPT 测试、API 使用最新 TLS 协议</div></div></li>
-          <li class="req-item"><span class="req-num">2</span><div><div class="req-title">数据加密</div><div class="req-desc">数据传输和存储必须使用强加密算法</div></div></li>
-          <li class="req-item"><span class="req-num">3</span><div><div class="req-title">数据本地化</div><div class="req-desc">数据必须存储在巴基斯坦境内的云服务器</div></div></li>
-        </ul>
-      </div>
-
-      <!-- 申请材料 -->
-      <div style="margin-bottom:12px;">
-        <div style="font-weight:600;margin-bottom:8px;color:#1d1d1f;">四、申请材料（Annexure-B）</div>
-        <ul class="req-list">
-          <li class="req-item"><span class="req-num">1</span><div><div class="req-title">律所审核的隐私政策</div></div></li>
-          <li class="req-item"><span class="req-num">2</span><div><div class="req-title">相关协议确认书</div><div class="req-desc">与征信机构、NADRA、支付网关、云服务商的协议</div></div></li>
-          <li class="req-item"><span class="req-num">3</span><div><div class="req-title">APP 条款和条件</div></div></li>
-          <li class="req-item"><span class="req-num">4</span><div><div class="req-title">投诉处理政策</div></div></li>
-          <li class="req-item"><span class="req-num">5</span><div><div class="req-title">标准贷款协议</div></div></li>
-          <li class="req-item"><span class="req-num">6</span><div><div class="req-title">CEO 提交自我评估声明的董事会授权书</div></div></li>
-        </ul>
-      </div>
-
-      <div style="padding:10px;background:#f0f9ff;border-radius:8px;font-size:12px;">
-        详细要求：<a href="https://www.secp.gov.pk/document/circular-no-14-requirement-for-self-assessment-declaration-to-be-submitted-by-nbfc-engaged-in-digital-lending-along-with-application-for-whitelisting-of-digital-lending-app-2/?wpdmdl=51659" target="_blank">Circular No.14 of 2024 - Self-Assessment Declaration</a>
-      </div>
-    </div>
+    </section>
   </main>
 
-  <footer class="footer">
-    <p>数据来源：<a href="https://www.secp.gov.pk/" target="_blank">SECP 官网</a> | <a href="https://www.secp.gov.pk/data-and-statistics/nbfcs/" target="_blank">NBFCs 数据</a></p>
+  <footer>
+    <div class="shell footer-inner">
+      <div>本页面用于监管信息监测，不构成法律或投资意见。关键决策请以监管机构原文为准。</div>
+      <div class="footer-links">
+        <a href="https://www.secp.gov.pk/" target="_blank" rel="noopener noreferrer">SECP 官网</a>
+        <a href="https://www.secp.gov.pk/data-and-statistics/nbfcs/" target="_blank" rel="noopener noreferrer">NBFC 数据</a>
+        <a href="https://www.secp.gov.pk/document/list-of-illegal-digital-apps/" target="_blank" rel="noopener noreferrer">非法 APP 列表</a>
+      </div>
+    </div>
   </footer>
 
+  <dialog id="sourceDialog" aria-labelledby="sourceDialogTitle">
+    <div class="dialog-head">
+      <div><h3 id="sourceDialogTitle">官方数据源</h3><p>这里是核验与手动检查入口，不会自动修改本页数据。</p></div>
+      <button class="close-button" type="button" aria-label="关闭" data-close-sources>×</button>
+    </div>
+    <div class="source-list">
+      <a class="source-row" href="https://www.secp.gov.pk/document/digital-lending-apps-being-run-and-administered-by-duly-licensed-lending-nbfcs/" target="_blank" rel="noopener noreferrer"><span><strong>Digital Lending App 白名单</strong><span>核验应用名称、主体与产品类型</span></span><b>打开 ↗</b></a>
+      <a class="source-row" href="https://www.secp.gov.pk/document/list-of-illegal-digital-apps/" target="_blank" rel="noopener noreferrer"><span><strong>非法 Digital Lending App 列表</strong><span>核验 SECP 公布的未授权平台</span></span><b>打开 ↗</b></a>
+      <a class="source-row" href="https://www.secp.gov.pk/data-and-statistics/nbfcs/" target="_blank" rel="noopener noreferrer"><span><strong>NBFC 数据与统计</strong><span>查看持牌主体与官方统计资料</span></span><b>打开 ↗</b></a>
+    </div>
+  </dialog>
+
   <script>
-    // ========== 白名单数据（基于 SECP PDF Dec 5, 2025）==========
     const nanoApps = [
-      { id: "paisayaar", name: "Paisayaar", nbfc: "JingleCred Digital Financial Services Limited", tag: "Nano & BNPL", color: "#2ecc71", letter: "P", note: "金果" },
-      { id: "aitemaad", name: "Aitemaad", nbfc: "4Sight Finance Services (Pvt) Limited", tag: "Nano & BNPL", color: "#27ae60", letter: "A", note: "萨摩耶" },
-      { id: "hakeem", name: "Hakeem", nbfc: "Walee Financial Services (Pvt) Limited", tag: "Nano", color: "#1abc9c", letter: "H", note: "LOCAL" },
-      { id: "fauricash", name: "Fauri Cash", nbfc: "Pakisnova Microfinance Company (Pvt) Limited", tag: "Nano", color: "#16a085", letter: "F", note: "迈步" },
-      { id: "smartqarza", name: "SmartQarza", nbfc: "Goldlion Financial Private Limited", tag: "Nano", color: "#e74c3c", letter: "S", note: "快牛" },
-      { id: "jazzcash", name: "JazzCash", nbfc: "JazzCash Private Limited", tag: "Digital Lending", color: "#c0392b", letter: "J", note: "local" },
-      { id: "moneytap", name: "Money Tap", nbfc: "Zanda Financials (Pvt) Limited", tag: "Nano", color: "#3498db", letter: "M", note: "致鑫" },
-      { id: "pakcredit", name: "Pakcredit", nbfc: "VisionCred Financial Services (Pvt) Limited", tag: "Nano", color: "#2980b9", letter: "P", note: "众志诚" },
-      { id: "daira", name: "Daira", nbfc: "Finleap Financial Services (Private) Limited", tag: "Nano & BNPL", color: "#0984e3", letter: "D", note: "拍拍贷" },
-      { id: "loanlado", name: "Loan Lado", nbfc: "Easy Finance (Private) Limited", tag: "Nano", color: "#6c5ce7", letter: "L", note: "上海瑾灿" },
-      { id: "cashbazar", name: "CashBazar", nbfc: "Bluesky Financial Services (Private) Limited", tag: "Nano", color: "#0652DD", letter: "B" },
-      { id: "sahara", name: "Sahara", nbfc: "Awami Financials (Private) Limited", tag: "Nano", color: "#ffc312", letter: "S", note: "金格方" },
-      { id: "paisaghur", name: "PaisaGhur", nbfc: "Quark Financials Pakistan (Private) Limited", tag: "Nano", color: "#009432", letter: "P", note: "成都博问" },
-      { id: "qarzmitra", name: "QarzMitra", nbfc: "Fintech Gharana Financial (Private) Limited", tag: "Nano", color: "#38ada9", letter: "Q", note: "武汉 老板薛磊 cash代运营" }
-    ];
+      { name: "Paisayaar", nbfc: "JingleCred Digital Financial Services Limited", tag: "Nano & BNPL", color: "#16845f", note: "金果" },
+      { name: "Aitemaad", nbfc: "4Sight Finance Services (Pvt) Limited", tag: "Nano & BNPL", color: "#2b735c", note: "萨摩耶" },
+      { name: "Hakeem", nbfc: "Walee Financial Services (Pvt) Limited", tag: "Nano", color: "#197c72", note: "LOCAL" },
+      { name: "Fauri Cash", nbfc: "Pakisnova Microfinance Company (Pvt) Limited", tag: "Nano", color: "#26766c", note: "迈步" },
+      { name: "SmartQarza", nbfc: "Goldlion Financial Private Limited", tag: "Nano", color: "#a74f43", note: "快牛" },
+      { name: "JazzCash", nbfc: "JazzCash Private Limited", tag: "Digital Lending", color: "#a43d36", note: "local" },
+      { name: "Money Tap", nbfc: "Zanda Financials (Pvt) Limited", tag: "Nano", color: "#2d6f95", note: "致鑫" },
+      { name: "Pakcredit", nbfc: "VisionCred Financial Services (Pvt) Limited", tag: "Nano", color: "#356589", note: "众志诚" },
+      { name: "Daira", nbfc: "Finleap Financial Services (Private) Limited", tag: "Nano & BNPL", color: "#2a7196", note: "拍拍贷" },
+      { name: "Loan Lado", nbfc: "Easy Finance (Private) Limited", tag: "Nano", color: "#62558c", note: "上海瑾灿" },
+      { name: "CashBazar", nbfc: "Bluesky Financial Services (Private) Limited", tag: "Nano", color: "#285a95" },
+      { name: "Sahara", nbfc: "Awami Financials (Private) Limited", tag: "Nano", color: "#a97824", note: "金格方" },
+      { name: "PaisaGhur", nbfc: "Quark Financials Pakistan (Private) Limited", tag: "Nano", color: "#347851", note: "成都博问" },
+      { name: "QarzMitra", nbfc: "Fintech Gharana Financial (Private) Limited", tag: "Nano", color: "#3a776f", note: "武汉 · Cash 代运营" }
+    ].map(app => ({ ...app, type: "nano" }));
 
     const otherApps = [
-      { id: "abhi", name: "Abhi", nbfc: "Abhi Private LTD", tag: "EWA", color: "#00b894", letter: "A" },
-      { id: "zoodpay", name: "ZoodPay & ZoodMall", nbfc: "Tez Financial Services Limited", tag: "BNPL", color: "#d63031", letter: "Z" },
-      { id: "muawin", name: "Muawin", nbfc: "Cashew Financial Services Limited", tag: "B2B", color: "#e17055", letter: "M" },
-      { id: "qistbazaar", name: "QistBazaar", nbfc: "QistBazaar Pvt Limited", tag: "BNPL", color: "#d63031", letter: "Q" },
-      { id: "tijara", name: "Tijara", nbfc: "CreditBook Financial Services Limited", tag: "B2B", color: "#00b894", letter: "T" },
-      { id: "edufi", name: "Edufi", nbfc: "Edufi Financial Services (Private) Limited", tag: "Study Now Pay Later", color: "#e74c3c", letter: "E" },
-      { id: "taleemconnect", name: "Taleem Connect", nbfc: "Taleem Finance Company Limited", tag: "Education", color: "#e74c3c", letter: "T" },
-      { id: "neempaymenow", name: "NeemPaymenow", nbfc: "Neem Exponential Financial Services (Private) Limited", tag: "EWA", color: "#27ae60", letter: "N" },
-      { id: "novafinance", name: "Nova Finance", nbfc: "Viva Finance (Private) Limited", tag: "EWA", color: "#2d3436", letter: "N" },
-      { id: "baadmay", name: "Baadmay", nbfc: "MG Financial Services Limited", tag: "BNPL", color: "#6c5ce7", letter: "B" },
-      { id: "alifshop", name: "Alif Shop", nbfc: "Alif Finance (Private) Limited", tag: "BNPL", color: "#00b894", letter: "A" }
+      { name: "Abhi", nbfc: "Abhi Private LTD", tag: "EWA", color: "#28816a" },
+      { name: "ZoodPay & ZoodMall", nbfc: "Tez Financial Services Limited", tag: "BNPL", color: "#a24642" },
+      { name: "Muawin", nbfc: "Cashew Financial Services Limited", tag: "B2B", color: "#a36145" },
+      { name: "QistBazaar", nbfc: "QistBazaar Pvt Limited", tag: "BNPL", color: "#95483f" },
+      { name: "Tijara", nbfc: "CreditBook Financial Services Limited", tag: "B2B", color: "#2c7d66" },
+      { name: "Edufi", nbfc: "Edufi Financial Services (Private) Limited", tag: "Study Now Pay Later", color: "#a95349" },
+      { name: "Taleem Connect", nbfc: "Taleem Finance Company Limited", tag: "Education", color: "#9f5a45" },
+      { name: "NeemPaymenow", nbfc: "Neem Exponential Financial Services (Private) Limited", tag: "EWA", color: "#39745a" },
+      { name: "Nova Finance", nbfc: "Viva Finance (Private) Limited", tag: "EWA", color: "#3b4850" },
+      { name: "Baadmay", nbfc: "MG Financial Services Limited", tag: "BNPL", color: "#675884" },
+      { name: "Alif Shop", nbfc: "Alif Finance (Private) Limited", tag: "BNPL", color: "#357c68" }
+    ].map(app => ({ ...app, type: "other" }));
+
+    const complianceGroups = [
+      {
+        title: "APP UI / UX 合规", meta: "身份披露、授权、认证与信息展示",
+        items: [
+          ["展示 NBFC 与牌照信息", "主屏展示完整公司名称和 SECP 牌照编号。"],
+          ["注册前信息披露", "说明数据访问权限并取得明确同意。"],
+          ["Nano 风险提示", "每次打开时展示中英文或乌尔都语风险提示。"],
+          ["多因素认证", "强密码、≤120 秒 OTP 或生物识别。"],
+          ["限制隐私数据访问", "不得访问短信、通话记录、通讯录或相册。"],
+          ["贷款计算器", "首页展示处理费、利息、逾期费等成本。"],
+          ["KYC 验证", "CNIC OCR 与活体自拍或生物识别。"],
+          ["Key Fact Statement", "放款前展示利率、费用和还款计划。"]
+        ]
+      },
+      {
+        title: "Nano Lending 特别规定", meta: "额度、定价与费用边界",
+        items: [
+          ["贷款上限", "单笔 Rs.50,000、最长 90 天；跨 NBFC 合计 Rs.100,000。"],
+          ["利率上限", "日利率不超过 0.75%，APR 不超过 274%。"],
+          ["禁止复利", "不得对利息或逾期费用再次计息。"],
+          ["费用总额限制", "利息与各类费用合计不得超过本金。"],
+          ["禁止预扣费用", "放款金额应与批准金额一致。"]
+        ]
+      },
+      {
+        title: "安全与数据要求", meta: "应用安全、加密和数据本地化",
+        items: [
+          ["应用安全", "部署 WAF，定期进行 VAPT，API 使用最新 TLS。"],
+          ["数据加密", "传输中和静态数据均使用强加密。"],
+          ["数据本地化", "数据存储于巴基斯坦境内的云服务器。"]
+        ]
+      },
+      {
+        title: "申请材料", meta: "Annexure-B 提交文件",
+        items: [
+          ["隐私政策", "由律所审核的正式版本。"],
+          ["第三方协议确认", "征信、NADRA、支付网关和云服务协议。"],
+          ["APP 条款和条件", "与实际产品流程一致。"],
+          ["投诉处理政策", "明确渠道、时限与升级机制。"],
+          ["标准贷款协议", "覆盖关键事实与还款义务。"],
+          ["董事会授权书", "授权 CEO 提交自我评估声明。"]
+        ]
+      }
     ];
 
-    let expanded = false;
+    const fallbackNews = [
+      {
+        date: "2026/7/21", title: "FIA Launches Crypto Crime Unit to Choke Money Laundering Networks",
+        link: "https://www.techjuice.pk/fia-launches-crypto-crime-unit-to-choke-money-laundering-networks/", source: "TechJuice",
+        summary: "巴基斯坦联邦调查局成立加密货币犯罪调查部门，加强金融科技领域 AML/CFT 监管。",
+        businessImpact: "复核 nano lending 业务的 KYC、异常交易监测和虚拟资产相关资金流。",
+        keywords: ["FIA", "AML/CFT", "金融科技合规"], relevanceScore: .7
+      },
+      {
+        date: "2026/7/8", title: "Finance Minister reviews SECP Reforms, calls for balanced Regulation",
+        link: "https://www.secp.gov.pk/media-center/event-gallery/finance-minister-aurangzeb-reviews-secp-reforms-calls-for-balanced-regulation-to-drive-business-growth/", source: "SECP Official",
+        summary: "财政部长审查 SECP 改革进展，强调以平衡监管促进商业增长。",
+        businessImpact: "关注数字贷款规则、消费者保护、利率上限和数据隐私要求是否进一步明确。",
+        keywords: ["SECP 改革", "数字贷款", "消费者保护"], relevanceScore: .85
+      }
+    ];
 
-    // 渲染 APP 卡片（备注已固化在数据中）
-    function renderApp(app) {
-      return `
-        <div class="app-item">
-          <div class="app-logo" style="background:${app.color}">${app.letter}</div>
-          <div class="app-info">
-            <div class="app-name">${app.name}</div>
-            <div class="app-nbfc">${app.nbfc}</div>
-            <span class="app-tag" style="background:${app.color}">${app.tag}</span>
-            ${app.note ? `<div class="app-note-display">${app.note}</div>` : ''}
+    const state = { news: [], newsFilter: "all", newsQuery: "", appFilter: "all", appQuery: "" };
+    const allApps = [...nanoApps, ...otherApps];
+
+    function escapeHtml(value = "") {
+      return String(value).replace(/[&<>"']/g, char => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;" }[char]));
+    }
+
+    function safeUrl(value = "") {
+      try {
+        const url = new URL(value);
+        return url.protocol === "https:" ? url.href : "#";
+      } catch { return "#"; }
+    }
+
+    function parseDate(value) {
+      const match = String(value || "").match(/(\d{4})[/-](\d{1,2})[/-](\d{1,2})/);
+      return match ? new Date(+match[1], +match[2] - 1, +match[3]) : new Date(value);
+    }
+
+    function formatDate(value) {
+      const date = parseDate(value);
+      if (Number.isNaN(date.getTime())) return escapeHtml(value);
+      return new Intl.DateTimeFormat("zh-CN", { year: "numeric", month: "2-digit", day: "2-digit" }).format(date).replaceAll("/", ".");
+    }
+
+    function daysAgo(value) {
+      const date = parseDate(value);
+      return Math.max(0, Math.floor((Date.now() - date.getTime()) / 86400000));
+    }
+
+    function isOfficial(item) {
+      return /official|SECP|FIA|PTA/i.test(item.source || "") && /secp\.gov\.pk|gov\.pk/i.test(item.link || "");
+    }
+
+    function renderNews() {
+      const query = state.newsQuery.trim().toLowerCase();
+      const items = state.news.filter(item => {
+        const haystack = [item.title, item.summary, item.businessImpact, item.source, ...(item.keywords || [])].join(" ").toLowerCase();
+        const matchesQuery = !query || haystack.includes(query);
+        const matchesFilter =
+          state.newsFilter === "all" ||
+          (state.newsFilter === "official" && isOfficial(item)) ||
+          (state.newsFilter === "high" && Number(item.relevanceScore) >= .8) ||
+          (state.newsFilter === "secp" && /secp/i.test(haystack));
+        return matchesQuery && matchesFilter;
+      });
+
+      const container = document.getElementById("newsList");
+      if (!items.length) {
+        container.innerHTML = '<div class="empty">没有匹配的监管动态，请调整筛选条件。</div>';
+        return;
+      }
+
+      container.innerHTML = items.map(item => {
+        const score = Number(item.relevanceScore || 0);
+        const scoreClass = score >= .8 ? "high" : "medium";
+        const scoreLabel = score >= .8 ? "高相关" : "关注";
+        const tags = (item.keywords || []).slice(0, 3).map(tag => `<span class="news-tag">${escapeHtml(tag)}</span>`).join("");
+        return `
+          <article class="news-item">
+            <div>
+              <div class="news-date">${formatDate(item.date)}</div>
+              <span class="source-badge ${isOfficial(item) ? "official" : ""}">${isOfficial(item) ? "官方" : "媒体"} · ${escapeHtml(item.source)}</span>
+            </div>
+            <div>
+              <h3 class="news-title">${escapeHtml(item.title)}</h3>
+              ${item.summary ? `<p class="news-desc">${escapeHtml(item.summary)}</p>` : ""}
+              ${item.businessImpact ? `<div class="impact"><strong>业务影响：</strong>${escapeHtml(item.businessImpact)}</div>` : ""}
+              ${tags ? `<div class="news-tags">${tags}</div>` : ""}
+            </div>
+            <div class="relevance">
+              <span class="score ${scoreClass}">${scoreLabel} ${Math.round(score * 100)}%</span>
+              <a class="article-link" href="${safeUrl(item.link)}" target="_blank" rel="noopener noreferrer" aria-label="阅读原文：${escapeHtml(item.title)}">原文 ↗</a>
+            </div>
+          </article>`;
+      }).join("");
+    }
+
+    function renderApps() {
+      const query = state.appQuery.trim().toLowerCase();
+      const apps = allApps.filter(app => {
+        const matchesType = state.appFilter === "all" || app.type === state.appFilter;
+        const matchesQuery = !query || `${app.name} ${app.nbfc} ${app.tag} ${app.note || ""}`.toLowerCase().includes(query);
+        return matchesType && matchesQuery;
+      });
+      document.getElementById("appList").innerHTML = apps.length ? apps.map(app => `
+        <article class="app-item">
+          <div class="app-logo" style="--app-color:${app.color}">${escapeHtml(app.name.charAt(0))}</div>
+          <div>
+            <div class="app-name">${escapeHtml(app.name)}</div>
+            <div class="app-nbfc" title="${escapeHtml(app.nbfc)}">${escapeHtml(app.nbfc)}</div>
+            ${app.note ? `<div class="app-note">关联备注 · ${escapeHtml(app.note)}</div>` : ""}
           </div>
-        </div>
-      `;
+          <span class="app-tag">${escapeHtml(app.tag)}</span>
+        </article>`).join("") : '<div class="empty" style="grid-column:1/-1">未找到匹配的白名单应用。</div>';
+      document.getElementById("appResultCount").textContent = `显示 ${apps.length} 个应用`;
     }
 
-    // 渲染列表
-    function render() {
-      const nanoGrid = document.getElementById('nanoGrid');
-      const otherGrid = document.getElementById('otherGrid');
-      const btn = document.getElementById('expandBtn');
-
-      const showNano = expanded ? nanoApps : nanoApps.slice(0, 4);
-      const showOther = expanded ? otherApps : otherApps.slice(0, 4);
-
-      nanoGrid.innerHTML = showNano.map(renderApp).join('');
-      otherGrid.innerHTML = showOther.map(renderApp).join('');
-      btn.textContent = expanded ? '收起' : '显示全部 25 个 APP';
+    function renderCompliance() {
+      document.getElementById("complianceGrid").innerHTML = complianceGroups.map((group, groupIndex) => `
+        <details ${groupIndex === 0 ? "open" : ""}>
+          <summary>
+            <span><span class="detail-title">${escapeHtml(group.title)}</span><span class="detail-meta">${escapeHtml(group.meta)}</span></span>
+            <span class="requirement-count">${group.items.length} 项</span>
+          </summary>
+          <ol class="requirements">
+            ${group.items.map((item, index) => `<li><span class="req-num">${String(index + 1).padStart(2, "0")}</span><span><strong>${escapeHtml(item[0])}</strong><span>${escapeHtml(item[1])}</span></span></li>`).join("")}
+          </ol>
+        </details>`).join("");
     }
 
-    function toggleExpand() {
-      expanded = !expanded;
-      render();
+    function updateSummary(meta) {
+      const sorted = [...state.news].sort((a, b) => parseDate(b.date) - parseDate(a.date));
+      const latest = sorted[0];
+      const highCount = state.news.filter(item => Number(item.relevanceScore) >= .8).length;
+      const updatedAt = meta.newsUpdateDate || meta.lastUpdated || latest?.date;
+      const age = daysAgo(updatedAt);
+      document.getElementById("latestSignal").textContent = latest ? formatDate(latest.date).slice(5) : "—";
+      document.getElementById("latestSignalNote").textContent = latest ? `${escapeHtml(latest.source)} · ${state.news.length} 条收录` : "暂无数据";
+      document.getElementById("highSignalCount").textContent = highCount;
+      document.getElementById("freshnessText").textContent = age === 0 ? "新闻数据今天已更新" : `新闻数据更新于 ${age} 天前`;
+      const whitelistDays = daysAgo("2025-12-05");
+      document.getElementById("whitelistAge").textContent = `官方版本距今 ${whitelistDays} 天`;
     }
 
-    // 手动更新功能
-    function manualUpdate() {
-      const btn = document.querySelector('.update-btn');
-      btn.classList.add('loading');
-
-      // 显示更新选项
-      const choice = confirm(
-        '📋 手动更新数据源\n\n' +
-        '点击「确定」打开 SECP 官方页面查看最新数据：\n' +
-        '• 白名单 PDF\n' +
-        '• 非法 APP 黑名单\n' +
-        '• 最新通知公告\n\n' +
-        '点击「取消」仅刷新当前页面'
-      );
-
-      if (choice) {
-        // 打开 SECP 官方数据页面
-        window.open('https://www.secp.gov.pk/document/digital-lending-apps-being-run-and-administered-by-duly-licensed-lending-nbfcs/', '_blank');
-        window.open('https://www.secp.gov.pk/document/list-of-illegal-digital-apps/', '_blank');
-        window.open('https://www.secp.gov.pk/data-and-statistics/nbfcs/', '_blank');
-
-        setTimeout(() => {
-          btn.classList.remove('loading');
-          alert('✅ 已打开 SECP 官方页面\n\n如有更新，请联系管理员更新本页数据');
-        }, 500);
-      } else {
-        // 刷新页面
-        location.reload();
-      }
-    }
-
-    // 动态加载新闻
     async function loadNews() {
+      let meta = {};
       try {
-        const response = await fetch('news.json');
-        if (response.ok) {
-          const data = await response.json();
-          const newsList = document.getElementById('newsList');
-          if (newsList && data.items && data.items.length > 0) {
-            const sortedItems = [...data.items].sort((a, b) => {
-              const dateA = parseDate(a.date);
-              const dateB = parseDate(b.date);
-              return dateB - dateA;
-            });
-            
-            newsList.innerHTML = sortedItems.slice(0, 4).map(item => `
-              <div class="news-item">
-                <div class="news-date">${formatDate(item.date)}</div>
-                <div class="news-title">${item.title}</div>
-                ${item.summary ? `<div class="news-desc">${item.summary}</div>` : ''}
-                ${item.businessImpact ? `<div class="news-impact">💡 ${item.businessImpact}</div>` : ''}
-                ${item.keywords && item.keywords.length > 0 ? `<div class="news-tags">${item.keywords.map(k => `<span class="news-tag">${k}</span>`).join('')}</div>` : ''}
-                <a class="news-link" href="${item.link}" target="_blank">查看详情 →</a>
-                <div class="news-source">来源：${item.source}</div>
-              </div>
-            `).join('');
-            
-            const cardHeaders = document.querySelectorAll('.card-header');
-            for (const header of cardHeaders) {
-              if (header.textContent.includes('新闻动态')) {
-                const badge = header.querySelector('.card-badge');
-                if (badge && data.lastUpdated) {
-                  const date = new Date(data.lastUpdated);
-                  badge.textContent = `${date.getFullYear()}年${date.getMonth() + 1}月`;
-                }
-                break;
-              }
-            }
-          }
-          
-          updateSubtitle(data.lastUpdated, 'news');
-        }
-      } catch (e) {
-        console.log('Failed to load news.json, using fallback content');
+        const response = await fetch("news.json", { cache: "no-store" });
+        if (!response.ok) throw new Error("news.json unavailable");
+        meta = await response.json();
+        state.news = Array.isArray(meta.items) ? [...meta.items].sort((a, b) => parseDate(b.date) - parseDate(a.date)) : fallbackNews;
+      } catch {
+        state.news = fallbackNews;
+        meta.newsUpdateDate = fallbackNews[0].date;
       }
+      renderNews();
+      updateSummary(meta);
     }
 
-    async function updateSubtitle() {
-      let whitelistDate = '未更新';
-      let newsDate = '未更新';
-      
+    async function loadAudit() {
       try {
-        const newsResponse = await fetch('news.json');
-        if (newsResponse.ok) {
-          const newsData = await newsResponse.json();
-          if (newsData.newsUpdateDate) {
-            newsDate = formatSubtitleDate(newsData.newsUpdateDate);
-          } else if (newsData.lastUpdated) {
-            newsDate = formatSubtitleDate(newsData.lastUpdated);
-          }
-          if (newsData.whitelistDate) {
-            whitelistDate = newsData.whitelistDate;
-          }
-        }
-      } catch (e) {}
-      
-      if (whitelistDate === '未更新') {
-        try {
-          const changelogResponse = await fetch('changelog.json');
-          if (changelogResponse.ok) {
-            const changelogData = await changelogResponse.json();
-            if (changelogData && changelogData.length > 0) {
-              whitelistDate = formatSubtitleDate(changelogData[0].date);
-            }
-          }
-        } catch (e) {}
-      }
-      
-      const subtitle = document.getElementById('updateTime');
-      if (subtitle) {
-        subtitle.textContent = `白名单更新：${whitelistDate} | 新闻更新：${newsDate}`;
-      }
+        const response = await fetch("changelog.json", { cache: "no-store" });
+        const history = response.ok ? await response.json() : [];
+        if (!Array.isArray(history) || !history.length) return;
+        const latest = history[0];
+        const added = latest.added?.length || 0;
+        const removed = latest.removed?.length || 0;
+        const changed = latest.changed?.length || 0;
+        document.getElementById("auditContainer").innerHTML = `
+          <div class="audit-status">
+            <div class="audit-icon">Δ</div>
+            <div><div class="audit-title">最近一次记录：新增 ${added} · 移除 ${removed} · 变更 ${changed}</div><div class="audit-copy">名单变动已记录，可回溯核验。</div></div>
+          </div>
+          <div class="audit-meta">记录日期<br>${formatDate(latest.date)}</div>`;
+      } catch {}
     }
 
-    function formatSubtitleDate(dateStr) {
-      if (!dateStr) return '未更新';
-      
-      const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-      
-      const monthMatch = dateStr.match(/(January|February|March|April|May|June|July|August|September|October|November|December)\s+(\d{1,2}),?\s+(\d{4})/);
-      if (monthMatch) {
-        return dateStr;
-      }
-      
-      const date = new Date(dateStr);
-      if (!isNaN(date.getTime())) {
-        return `${monthNames[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
-      }
-      
-      return dateStr;
-    }
+    document.querySelectorAll("[data-news-filter]").forEach(button => button.addEventListener("click", () => {
+      state.newsFilter = button.dataset.newsFilter;
+      document.querySelectorAll("[data-news-filter]").forEach(item => item.classList.toggle("active", item === button));
+      renderNews();
+    }));
+    document.querySelectorAll("[data-app-filter]").forEach(button => button.addEventListener("click", () => {
+      state.appFilter = button.dataset.appFilter;
+      document.querySelectorAll("[data-app-filter]").forEach(item => item.classList.toggle("active", item === button));
+      renderApps();
+    }));
+    document.getElementById("newsSearch").addEventListener("input", event => { state.newsQuery = event.target.value; renderNews(); });
+    document.getElementById("appSearch").addEventListener("input", event => { state.appQuery = event.target.value; renderApps(); });
 
-    function parseDate(dateStr) {
-      if (!dateStr) return new Date(0);
-      const match = dateStr.match(/(\d{4})[\/-](\d{1,2})[\/-](\d{1,2})/);
-      if (match) {
-        return new Date(parseInt(match[1]), parseInt(match[2]) - 1, parseInt(match[3]));
-      }
-      return new Date(dateStr);
-    }
+    const sourceDialog = document.getElementById("sourceDialog");
+    document.querySelector("[data-open-sources]").addEventListener("click", () => sourceDialog.showModal());
+    document.querySelector("[data-close-sources]").addEventListener("click", () => sourceDialog.close());
+    sourceDialog.addEventListener("click", event => {
+      const rect = sourceDialog.getBoundingClientRect();
+      if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) sourceDialog.close();
+    });
 
-    function formatDate(dateStr) {
-      if (!dateStr) return '';
-      const match = dateStr.match(/(\d{4})[\/-](\d{1,2})[\/-](\d{1,2})/);
-      if (match) {
-        return `${match[1]}-${parseInt(match[2]).toString().padStart(2, '0')}-${parseInt(match[3]).toString().padStart(2, '0')}`;
-      }
-      return dateStr;
-    }
-
-    // 动态加载变更记录
-    async function loadChangelog() {
-      try {
-        const response = await fetch('changelog.json');
-        if (response.ok) {
-          const history = await response.json();
-          const container = document.getElementById('changelogContainer');
-          
-          if (history && history.length > 0) {
-            container.innerHTML = `<div class="changelog-list">${history.slice(0, 10).map(entry => {
-              let details = '';
-              if (entry.added && entry.added.length > 0) {
-                details += `<div><strong>新增 ${entry.added.length} 个 APP：</strong><ul>`;
-                details += entry.added.map(a => `<li><span class="add-icon">+</span>${a.name} (${a.type})</li>`).join('');
-                details += '</ul></div>';
-              }
-              if (entry.removed && entry.removed.length > 0) {
-                details += `<div><strong>移除 ${entry.removed.length} 个 APP：</strong><ul>`;
-                details += entry.removed.map(r => `<li><span class="remove-icon">-</span>${r.name}</li>`).join('');
-                details += '</ul></div>';
-              }
-              if (entry.changed && entry.changed.length > 0) {
-                details += `<div><strong>变更 ${entry.changed.length} 个 APP：</strong><ul>`;
-                details += entry.changed.map(c => `<li><span class="change-icon">~</span>${c.name}: ${c.changes.map(ch => `${ch.field}: ${ch.from} → ${ch.to}`).join(', ')}</li>`).join('');
-                details += '</ul></div>';
-              }
-              
-              return `
-                <div class="changelog-item">
-                  <div class="changelog-date">📅 ${entry.date}</div>
-                  <div class="changelog-summary">
-                    ${entry.added && entry.added.length > 0 ? `<span class="changelog-stat added">+${entry.added.length} 新增</span>` : ''}
-                    ${entry.removed && entry.removed.length > 0 ? `<span class="changelog-stat removed">-${entry.removed.length} 移除</span>` : ''}
-                    ${entry.changed && entry.changed.length > 0 ? `<span class="changelog-stat changed">~${entry.changed.length} 变更</span>` : ''}
-                  </div>
-                  ${details ? `<div class="changelog-details">${details}</div>` : ''}
-                </div>
-              `;
-            }).join('')}</div>`;
-          }
-        }
-      } catch (e) {
-        console.log('Failed to load changelog.json');
-      }
-    }
-
-    // 初始化
-    render();
+    renderApps();
+    renderCompliance();
     loadNews();
-    loadChangelog();
-    updateSubtitle();
+    loadAudit();
   </script>
 </body>
 </html>
