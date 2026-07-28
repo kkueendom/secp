@@ -582,6 +582,9 @@ function refreshExistingNews(existingItems, discoveredItems) {
       title: current.title || existing.title,
       link: current.link || existing.link,
       source: current.source || existing.source,
+      relevanceScore: current.ruleScore >= 0.55
+        ? Math.max(Number(existing.relevanceScore || 0), current.ruleScore)
+        : existing.relevanceScore,
       ruleScore: current.ruleScore ?? existing.ruleScore
     };
   });
@@ -746,9 +749,10 @@ async function analyzeNewsWithAI(newsItems) {
 
       const aiScore = Number(result.relevanceScore);
       const ruleScore = news.ruleScore ?? scoreRegulatoryRelevance(news);
-      const combinedScore = Number.isFinite(aiScore)
+      const blendedScore = Number.isFinite(aiScore)
         ? Math.min(1, Math.max(0, aiScore * 0.65 + ruleScore * 0.35))
         : ruleScore;
+      const combinedScore = ruleScore >= 0.55 ? Math.max(blendedScore, ruleScore) : blendedScore;
 
       analyzed.push({
         ...news,
