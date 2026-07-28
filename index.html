@@ -830,7 +830,8 @@
     }
 
     function isOfficial(item) {
-      return /official|SECP|FIA|PTA/i.test(item.source || "") && /secp\.gov\.pk|gov\.pk/i.test(item.link || "");
+      return /official|SECP|FIA|PTA|Government of Pakistan|PID|State Bank|SBP|PVARA|Finance Division/i.test(item.source || "")
+        && /secp\.gov\.pk|gov\.pk|sbp\.org\.pk/i.test(item.link || "");
     }
 
     function renderNews() {
@@ -844,7 +845,7 @@
           (state.newsFilter === "high" && Number(item.relevanceScore) >= .8) ||
           (state.newsFilter === "secp" && /secp/i.test(haystack));
         return matchesQuery && matchesFilter;
-      });
+      }).slice(0, 4);
 
       const container = document.getElementById("newsList");
       if (!items.length) {

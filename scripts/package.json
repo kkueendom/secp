@@ -2,6 +2,9 @@
     "name": "secp-scraper",
     "version": "1.0.0",
     "type": "module",
+    "scripts": {
+      "test": "node test-scraper.js"
+    },
     "dependencies": {
       "puppeteer": "^23.0.0",
       "pdf-parse": "^1.1.1",
