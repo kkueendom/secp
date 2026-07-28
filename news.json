@@ -1,65 +1,53 @@
 {
-  "lastUpdated": "2026-07-28T03:24:46.833Z",
+  "lastUpdated": "2026-07-28T03:42:46.591Z",
+  "lastChecked": "2026-07-28T03:42:46.591Z",
   "newsUpdateDate": "2026-07-28",
+  "latestArticleDate": "2026/7/13",
   "whitelistDate": "December 5, 2025",
   "items": [
     {
-      "date": "2026/7/23",
-      "title": "Mobile Users Losing Nearly a Third of Every Recharge to Taxes",
-      "link": "https://www.techjuice.pk/mobile-users-losing-nearly-a-third-of-every-recharge-to-taxes/",
-      "source": "TechJuice",
-      "summary": "巴基斯坦手机用户每次充值时需缴纳高达34.5%的税费，包括销售税、预扣税等。这一高税率显著增加了用户通信成本，可能影响低收入群体的移动支付使用频率和数字金融参与度。",
-      "businessImpact": "高额充值税可能抑制用户使用移动钱包和数字支付，进而影响nano lending的客户触达和还款渠道效率。需关注用户行为变化及替代支付方式的可行性。",
+      "date": "2026/7/13",
+      "title": "SECP Opens IBAN Verification for Faster KYC Onboarding",
+      "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOYmRUNzNNaWw0Z2R3Z0ZLTjJKOXVhUUVPdkxsVkJyOXQyaGVOeVhWTHBJbW1FY3ZMeUlKc1ZRVnV3R1VzbnUyUlNDQUhSS3gyeFdUQmlSTWFVLVdnQ3F3OGRpeTFBRDhDbTBTWEdOTXZReC1YSVVWYlR3Ulk0cjlnQUloY2g0eHBsd3c?oc=5&hl=en-US&gl=US&ceid=US:en",
+      "source": "Digital Pakistan",
+      "summary": "巴基斯坦证券交易委员会（SECP）推出IBAN验证功能，旨在加快KYC（了解你的客户）开户流程。该举措通过简化银行账户验证，提升数字金融服务的客户 onboarding 效率，降低合规成本。",
+      "businessImpact": "IBAN验证加速KYC流程，有助于降低nano lending业务的客户获取成本和开户时间，但需关注SECP是否将IBAN验证纳入强制性KYC要求，以及数据共享的合规性。",
       "keywords": [
-        "巴基斯坦",
-        "移动充值税",
-        "数字金融",
-        "nano lending",
-        "用户成本"
+        "IBAN验证",
+        "KYC加速",
+        "SECP"
       ],
-      "relevanceScore": 0.7
+      "relevanceScore": 0.667
     },
     {
-      "date": "2026/7/22",
-      "title": "Mobile Operators Raise Call, Data Package Prices by Up to 33% in Fresh Blow to Consumers",
-      "link": "https://www.techjuice.pk/mobile-operators-raise-call-data-package-prices-by-up-to-33-in-fresh-blow-to-consumers/",
-      "source": "TechJuice",
-      "summary": "巴基斯坦电信管理局批准后，移动运营商将通话和数据套餐价格年度上调19%至33%，加重消费者负担。此举可能影响低收入群体的移动互联网使用，对依赖手机渠道的数字金融服务构成潜在冲击。",
-      "businessImpact": "价格上涨可能降低目标用户的数据使用频率，影响nano lending的APP访问和还款行为，需关注用户活跃度下降及逾期风险上升。",
+      "date": "2026/7/12",
+      "title": "SECP introduces IBAN digital verification",
+      "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxONlRVdkhZY2ZDWjFnZHVHUzFUSExrR0M4OVUyb25FdEFCQzRrblp6MXo2UWk1ZFhtS0VldGxkVTJ5bkJJOUhQcDZkbkh2MVhSUnZJd1dZYUxNcFpad1dEMWFic3N5TkJyTG9OajhadnF6Ml9DVS1XdHhIeFVzZlFhR2tkRGHSAYwBQVVfeXFMUEVONWtfUm44VzM4ZTRUSkpjWE16UTdfeHN5OGljLUMxRnROa3dSUGdGYVB1Mnc3ZGQtSEYwaW1fbTNIVWI4SXhHdGZzTFlmcDlwT1NQa1lTa0kyZG9WOXhKWkxOR3dFS1ZKdF9lSmsybjdFMUp4VV9sUFJXbzdYdHdMU2xpYnJaczNWWU8?oc=5&hl=en-US&gl=US&ceid=US:en",
+      "source": "The Express Tribune",
+      "summary": "巴基斯坦证券交易委员会（SECP）推出IBAN数字验证服务，旨在简化银行账户验证流程，提升金融交易透明度与效率。该措施可能影响数字信贷机构的客户身份验证和资金流转环节。",
+      "businessImpact": "IBAN数字验证将优化KYC流程，降低账户验证成本与时间，但可能要求nano lending平台升级系统以兼容新验证标准，短期内增加合规投入。",
       "keywords": [
-        "巴基斯坦电信",
-        "数据套餐涨价",
-        "数字金融影响"
+        "IBAN数字验证",
+        "KYC合规",
+        "支付基础设施"
       ],
-      "relevanceScore": 0.7
+      "relevanceScore": 0.622
     },
     {
-      "date": "2026/7/22",
-      "title": "K-Electric Announces 10-Hour Power Outage in Karachi: Check Affected Areas",
-      "link": "https://www.techjuice.pk/k-electric-announces-10-hour-power-outage-in-karachi-check-affected-areas/",
-      "source": "TechJuice",
-      "summary": "巴基斯坦卡拉奇电力公司（K-Electric）宣布将于2026年7月23日对多个馈线进行计划性维护，导致卡拉奇多个区域停电超过10小时。此次停电将影响数十个地区的居民和商业活动。",
-      "businessImpact": "长时间停电将中断借款人还款渠道（如移动钱包、银行APP），导致逾期率上升；同时影响我司本地员工运营和客户服务响应，需提前与电信运营商及支付合作方确认备用方案。",
-      "keywords": [
-        "卡拉奇停电",
-        "nano lending风险",
-        "巴基斯坦电力中断"
-      ],
-      "relevanceScore": 0.7
-    },
-    {
-      "date": "2026/7/16",
-      "title": "SECP Engages Sialkot Business Community",
-      "link": "https://www.secp.gov.pk/media-center/event-gallery/secp-engages-sialkot-business-community/",
+      "date": "2026/7/11",
+      "title": "SECP enables Digital KYC through IBAN-Based Verification",
+      "link": "https://www.secp.gov.pk/wp-content/uploads/2026/07/11-july-.pdf",
       "source": "SECP Official",
-      "summary": "巴基斯坦证券交易委员会（SECP）委员Muzzafar Ahmed Mirza和Ali Farid Khwaja与锡亚尔科特商业社区进行接触，旨在加强监管机构与当地企业之间的沟通与合作。此举可能涉及金融监管政策宣导、合规要求讨论或促进商业环境改善。",
-      "businessImpact": "SECP与商业社区的互动可能预示未来对数字贷款业务（包括nano lending）的监管趋严，需关注合规要求变化及与地方商业协会的合作机会，以降低政策风险。",
+      "summary": "巴基斯坦证券交易委员会（SECP）正式启用基于IBAN的数字KYC验证机制，允许金融机构通过客户IBAN号码完成远程身份认证。此举旨在简化开户流程、降低合规成本，并提升金融包容性。该政策是SECP推动数字金融服务数字化的重要举措，尤其对无网点银行和小额信贷机构具有直接适用性。",
+      "businessImpact": "直接影响nano lending业务的KYC合规流程：可降低线下验证成本，加快客户获取速度。需关注SECP是否要求持牌NBFC强制采用此标准，以及IBAN验证与现有生物识别KYC的兼容性。",
       "keywords": [
-        "SECP",
-        "商业社区",
-        "金融监管"
+        "数字KYC",
+        "IBAN验证",
+        "SECP监管",
+        "金融包容性",
+        "合规成本"
       ],
-      "relevanceScore": 0.6
+      "relevanceScore": 0.84
     },
     {
       "date": "2026/7/8",
@@ -74,22 +62,6 @@
         "巴基斯坦金融科技",
         "nano lending",
         "商业增长"
-      ],
-      "relevanceScore": 0.85
-    },
-    {
-      "date": "2026/7/8",
-      "title": "SECP strengthens Partnership with IFC, World Bank Group",
-      "link": "https://www.secp.gov.pk/media-center/event-gallery/secp-strengthens-partnership-with-ifc-world-bank-group/",
-      "source": "SECP Official",
-      "summary": "巴基斯坦证券交易委员会（SECP）主席与IFC及世界银行集团代表会面，旨在加强合作，推动金融监管改革与数字金融发展。此举可能涉及提升金融包容性、完善数字贷款监管框架，并吸引国际资本与技术援助，以支持巴基斯坦金融科技生态系统的可持续增长。",
-      "businessImpact": "SECP与国际机构的合作可能加速数字贷款监管细则出台，需关注合规要求（如利率上限、数据保护）及资本准入标准，同时可能获得技术援助以优化风控模型。",
-      "keywords": [
-        "SECP",
-        "IFC",
-        "数字贷款监管",
-        "金融包容性",
-        "巴基斯坦金融科技"
       ],
       "relevanceScore": 0.85
     }
