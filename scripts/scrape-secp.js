@@ -113,7 +113,7 @@ async function main() {
         scrapeNewsFromSources(browser)
       ]);
 
-      const existingNews = cleanExistingNews(loadExistingNews());
+      const existingNews = refreshExistingNews(cleanExistingNews(loadExistingNews()), newsItems || []);
       const unseenNews = deduplicateNews(newsItems || [], existingNews);
       if (DRY_RUN) {
         console.log('\nNew candidate scores:');
@@ -445,13 +445,19 @@ async function enrichGenericArticles(browser, candidates) {
     try {
       await page.goto(item.link, { waitUntil: 'domcontentloaded' });
       const data = await page.evaluate(() => {
-        const title = document.querySelector('h1, .post-title, .entry-title, .article-title')?.textContent?.trim() || '';
+        const title = document.querySelector('h1, h2.photo_h2, .post-title, .entry-title, .article-title')?.textContent?.trim() || '';
         const content = document.querySelector('.entry-content, .post-content, .article-content, .story-content, [role="main"], article');
         return { title, excerpt: (content?.textContent || '').replace(/\s+/g, ' ').trim().substring(0, 900), link: location.href };
       });
+      const cleanedTitle = /PID/i.test(item.source)
+        ? data.title
+            .replace(/^PR No\.\s*\d+\s*/i, '')
+            .replace(/\s*(?:Islamabad|Karachi|Lahore):\s+[A-Z][a-z]+\s+\d{1,2},\s+\d{4}\s*$/i, '')
+            .trim()
+        : data.title;
       const candidate = {
         ...item,
-        title: data.title.length >= 12 ? data.title : item.title,
+        title: cleanedTitle.length >= 12 ? cleanedTitle : item.title,
         excerpt: data.excerpt || item.excerpt,
         link: data.link || item.link
       };
@@ -562,6 +568,22 @@ function cleanExistingNews(items) {
       return { ...item, ruleScore };
     })
     .filter(item => item.ruleScore >= MIN_RULE_SCORE && Number(item.relevanceScore || 0) >= 0.55);
+}
+
+function refreshExistingNews(existingItems, discoveredItems) {
+  const discoveredByUrl = new Map(discoveredItems.map(item => [canonicalUrl(item.link), item]));
+  return existingItems.map(existing => {
+    const current = discoveredByUrl.get(canonicalUrl(existing.link));
+    if (!current) return existing;
+    return {
+      ...existing,
+      date: current.date || existing.date,
+      title: current.title || existing.title,
+      link: current.link || existing.link,
+      source: current.source || existing.source,
+      ruleScore: current.ruleScore ?? existing.ruleScore
+    };
+  });
 }
 
 function compareNews(a, b) {
@@ -988,6 +1010,7 @@ export {
   filterRecentNews,
   normalizeDate,
   normalizeTitle,
+  refreshExistingNews,
   scoreRegulatoryRelevance,
   shouldAcceptAnalyzedNews
 };

@@ -3,6 +3,7 @@ import {
   balanceNewsBySource,
   deduplicateAllNews,
   normalizeDate,
+  refreshExistingNews,
   scoreRegulatoryRelevance,
   shouldAcceptAnalyzedNews
 } from './scrape-secp.js';
@@ -31,6 +32,13 @@ assert.ok(scoreRegulatoryRelevance(mobileTax) < 0.38, 'mobile recharge tax shoul
 assert.equal(shouldAcceptAnalyzedNews({ ...irrelevant, relevanceScore: 0.95 }), false, 'AI must not override a failed rule gate');
 assert.equal(shouldAcceptAnalyzedNews({ ...relevant, relevanceScore: 0.52 }), true, 'qualified policy news should survive a conservative AI score');
 assert.equal(normalizeDate('Mon, 27 Jul 2026 10:35:43 GMT'), '2026/7/27');
+
+const refreshed = refreshExistingNews(
+  [{ title: 'Truncated title', link: 'https://pid.gov.pk/site/press_detail/1', summary: 'Keep analysis' }],
+  [{ title: 'Complete official policy title', link: 'https://pid.gov.pk/site/press_detail/1', source: 'Government of Pakistan (PID)' }]
+);
+assert.equal(refreshed[0].title, 'Complete official policy title');
+assert.equal(refreshed[0].summary, 'Keep analysis');
 
 const duplicateItems = deduplicateAllNews([
   { title: 'SECP issues new lending rules - Dawn', link: 'https://example.com/a?utm_source=x' },
