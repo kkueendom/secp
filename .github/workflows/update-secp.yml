@@ -1,6 +1,14 @@
 name: Update SECP
 on:
     workflow_dispatch:
+    push:
+      branches:
+        - main
+      paths:
+        - "scripts/scrape-secp.js"
+        - "scripts/package.json"
+        - "scripts/test-scraper.js"
+        - ".github/workflows/update-secp.yml"
     schedule:
       - cron: "0 1,13 * * *"
 
