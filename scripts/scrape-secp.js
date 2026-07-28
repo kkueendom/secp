@@ -554,7 +554,8 @@ function scoreRegulatoryRelevance(item) {
 
 function shouldAcceptAnalyzedNews(item) {
   const ruleScore = item.ruleScore ?? scoreRegulatoryRelevance(item);
-  return ruleScore >= MIN_RULE_SCORE && Number(item.relevanceScore) >= MIN_FINAL_SCORE;
+  const finalScore = Number(item.relevanceScore);
+  return ruleScore >= 0.55 || (ruleScore >= MIN_RULE_SCORE && finalScore >= MIN_FINAL_SCORE);
 }
 
 function isOfficialSource(source = '') {
