@@ -1,10 +1,24 @@
 {
-  "lastUpdated": "2026-07-29T03:57:20.354Z",
-  "lastChecked": "2026-07-29T03:57:20.354Z",
+  "lastUpdated": "2026-07-29T15:20:20.060Z",
+  "lastChecked": "2026-07-29T15:20:20.060Z",
   "newsUpdateDate": "2026-07-29",
-  "latestArticleDate": "2026/7/28",
+  "latestArticleDate": "2026/7/29",
   "whitelistDate": "JULY 22, 2026",
   "items": [
+    {
+      "date": "2026/7/29",
+      "title": "Press Release (July 29) : SECP Steps Up Enforcement Drive, Imposes Rs 4.73 Billion in Penalties for Corporate Violations",
+      "link": "https://www.secp.gov.pk/wp-content/uploads/2026/07/Press-Release-July-29-SECP-Steps-Up-Enforcement-Drive-Imposes-Rs-4.73-Billion-in-Penalties-for-Corporate-Violations.pdf",
+      "source": "SECP Official",
+      "summary": "巴基斯坦证券交易委员会（SECP）加强执法力度，对企业违规行为处以47.3亿卢比罚款。该新闻聚焦于SECP整体执法行动，未提及数字信贷或金融科技具体监管规则，属于一般性企业合规执法。",
+      "businessImpact": "对nano lending业务无直接影响，但需关注SECP执法趋严趋势，确保自身合规运营，避免因一般性企业违规问题被处罚。",
+      "keywords": [
+        "SECP",
+        "执法",
+        "罚款"
+      ],
+      "relevanceScore": 0.69
+    },
     {
       "date": "2026/7/28",
       "title": "SECP facilitates Mutual Fund Industry through updated Master Circular",
