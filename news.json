@@ -1,7 +1,7 @@
 {
-  "lastUpdated": "2026-07-31T15:11:49.943Z",
-  "lastChecked": "2026-07-31T15:11:49.943Z",
-  "newsUpdateDate": "2026-07-31",
+  "lastUpdated": "2026-08-01T04:14:30.410Z",
+  "lastChecked": "2026-08-01T04:14:30.410Z",
+  "newsUpdateDate": "2026-08-01",
   "latestArticleDate": "2026/7/30",
   "whitelistDate": "JULY 22, 2026",
   "items": [
@@ -74,6 +74,20 @@
         "金融普惠"
       ],
       "relevanceScore": 0.67
+    },
+    {
+      "date": "2026/7/18",
+      "title": "Finance minister pushes reforms to deepen Pakistan’s corporate debt market",
+      "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPOVBTT2JqeG53Q041LTctaHUtSzR4RXZWX2ZNUGFpZVl4VTZCVEE1bWl1M0NSTlNrN1pIMUJkQ2JZSjhuUmpvMTBpZEtVQkdvemI3N05QaGNQUURUR3gxMzJuUVUyTDdqcTkteTd0NFZtTUZKeU13Wmt1ZnJQNktuN2dSaEFXT1hiUkxqUVZEd19mRW5JODdSZ0JSa0hYNUVIQUhfVmhEZUJhZC12Z3c?oc=5&hl=en-US&gl=US&ceid=US:en",
+      "source": "The Nation (Pakistan )",
+      "summary": "巴基斯坦财政部长推动改革以深化企业债务市场，旨在扩大融资渠道、降低对银行信贷的依赖。该举措主要针对大型企业和政府债券市场，属于资本市场发展范畴，与数字信贷或小额贷款监管无直接关联。",
+      "businessImpact": "该新闻对nano lending业务无直接影响。企业债务市场改革可能间接影响整体融资环境，但不会改变数字信贷的监管、牌照、定价或消费者保护规则。需关注后续是否伴随金融监管框架调整。",
+      "keywords": [
+        "企业债务市场",
+        "资本市场改革",
+        "巴基斯坦金融"
+      ],
+      "relevanceScore": 0.57
     },
     {
       "date": "2026/7/17",
