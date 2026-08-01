@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-08-01T04:14:30.410Z",
-  "lastChecked": "2026-08-01T04:14:30.410Z",
+  "lastUpdated": "2026-08-01T14:18:31.055Z",
+  "lastChecked": "2026-08-01T14:18:31.055Z",
   "newsUpdateDate": "2026-08-01",
   "latestArticleDate": "2026/7/30",
   "whitelistDate": "JULY 22, 2026",
@@ -74,6 +74,20 @@
         "金融普惠"
       ],
       "relevanceScore": 0.67
+    },
+    {
+      "date": "2026/7/22",
+      "title": "Pakistan’s FIA Launches Crypto Investigation Unit to Fight Money Laundering",
+      "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOUW1DS0traWF3RUxwdFFfYjNRVVdZR0p5WVpjcHViZHFtWUxNVXBaaUdpTG83V05OdHFFX19SRzVCMjNsUUZHRVFnank0V0lFcXYwdHVseE02LXRoYVBYQ2wzNVpDVVVnU21rX2paSkhFRXNjckdSLVpBUmY0UnBnWTd6OUt1NVIwU1g4ZVNocTVfZVpqR3MzbFY5R2NuSnczSGY3azU0QXJfUnM?oc=5&hl=en-US&gl=US&ceid=US:en",
+      "source": "Yahoo Finance",
+      "summary": "巴基斯坦联邦调查局（FIA）成立加密货币调查部门，旨在打击利用加密货币进行的洗钱活动。该部门将专注于追踪非法加密货币交易，并加强与金融情报机构的合作。此举反映了巴基斯坦在反洗钱和反恐融资方面加强监管力度的趋势，可能对包括数字信贷在内的金融科技行业产生间接影响。",
+      "businessImpact": "该新闻主要针对加密货币领域，不直接涉及nano lending。但需关注反洗钱监管趋严可能带来的合规成本上升，以及未来对数字支付和资金流动的审查加强。建议持续监控FIA对金融科技公司的执法动态。",
+      "keywords": [
+        "加密货币",
+        "反洗钱",
+        "FIA"
+      ],
+      "relevanceScore": 0.69
     },
     {
       "date": "2026/7/18",
