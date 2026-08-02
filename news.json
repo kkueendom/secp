@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-08-02T04:17:34.777Z",
-  "lastChecked": "2026-08-02T04:17:34.777Z",
+  "lastUpdated": "2026-08-02T14:19:46.616Z",
+  "lastChecked": "2026-08-02T14:19:46.616Z",
   "newsUpdateDate": "2026-08-02",
   "latestArticleDate": "2026/7/30",
   "whitelistDate": "JULY 22, 2026",
@@ -32,6 +32,20 @@
         "罚款"
       ],
       "relevanceScore": 0.69
+    },
+    {
+      "date": "2026/7/29",
+      "title": "Pakistan seeks to bring $300bn virtual asset market under regulation Breaking",
+      "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOMDNmX2xSNWNHMnNoM1FvUDM4UHUwSFNkSzRkS05HUVA4ZVJ1VHRxRmZ5OXNaZFZZVm0tc1JrckpnVnpkUzU1eUc5ZnpPYm1RREJlOWlxRHlJZF9rTDRLSXlCVER4aEYzbjJXOG83MWN6eGVEUDVFX0o2UmdlZWtDQ0hZRjBCMlVxbnl6UkJMU054eG5GQVpEZlp3bjFEN0hYdWduZzV2M1J2a2w3Ql9aZVBHMHBVQQ?oc=5&hl=en-US&gl=US&ceid=US:en",
+      "source": "Independent News Pakistan",
+      "summary": "巴基斯坦政府宣布计划将规模达3000亿美元的虚拟资产市场纳入监管框架，旨在规范加密货币及数字资产交易，防范金融风险并加强反洗钱（AML）措施。此举可能涉及新的牌照要求、交易报告义务及消费者保护规则，标志着巴基斯坦对数字资产从宽松转向主动监管。",
+      "businessImpact": "虚拟资产监管可能影响数字信贷的支付结算渠道（如稳定币使用），并强化KYC/AML要求，增加合规成本。需关注是否将nano lending的加密相关业务纳入监管，以及是否影响跨境资金流动和融资渠道。",
+      "keywords": [
+        "虚拟资产监管",
+        "KYC/AML",
+        "数字支付"
+      ],
+      "relevanceScore": 0.557
     },
     {
       "date": "2026/7/28",
