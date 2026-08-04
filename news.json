@@ -1,24 +1,23 @@
 {
-  "lastUpdated": "2026-08-04T03:56:55.779Z",
-  "lastChecked": "2026-08-04T03:56:55.779Z",
+  "lastUpdated": "2026-08-04T15:13:14.968Z",
+  "lastChecked": "2026-08-04T15:13:14.968Z",
   "newsUpdateDate": "2026-08-04",
-  "latestArticleDate": "2026/8/3",
+  "latestArticleDate": "2026/8/4",
   "whitelistDate": "JULY 22, 2026",
   "items": [
     {
-      "date": "2026/8/3",
-      "title": "Digital payments at fuel stations: SBP extends concessionary pricing mechanism",
-      "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBXVFlBd0dlV21SclA1Nks2SjdIU1VNMEJMUXNDWFVLcnRDMjhaZzNOUVdSaFNQeDI3dkVRLVoySGQxdTVlMEVVOHJpSDcwcGNoN3VFV1VR0gFWQVVfeXFMUFdUWUF3R2VXbVJyUDU2SzZKN0hTVU0wQkxRc0NYVUtydEMyOFpnM05RV1JoU1B4Mjd2RVEtWjJIZDF1NWUwRVU4cmlINzBwY2g3dUVXVVE?oc=5&hl=en-US&gl=US&ceid=US:en",
+      "date": "2026/8/4",
+      "title": "SECP forms working group for debt market reforms",
+      "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQMFVTZHB5bm5JZXowS2RrZFgwdjJqNW56SE9pdl8zSXFhNGdGbTRBS1dDVFlJQUhTSno4V1d1eHR4b2ZyOG8tUzZJSHVDN1J5THdhQllPckhienNLakwyOE9PeVNrSl9mN183Z0NMdXp0ZXBSaDU5Z1FCeC0tdzIxSGt1TkN5US16dlZJejA4ZEZCZ9IBVkFVX3lxTE94SktERDhsWmYyelp4NGlzT3ZCQjdjMU9XaGdoRVZNR0toUWxoakdMNGY2OE1xODRsZERNbGtqdlcyVnU2SWd3TGpBdEswYncyUmQ3Z0R3?oc=5&hl=en-US&gl=US&ceid=US:en",
       "source": "Business Recorder",
-      "summary": "巴基斯坦国家银行（SBP）宣布延长加油站数字支付的优惠定价机制，旨在鼓励电子支付在燃油零售领域的普及。该政策通过降低商户折扣率（MDR）等交易成本，提升数字支付在加油站场景的使用率，进一步推动巴基斯坦无现金社会建设。此举是SBP数字支付战略的一部分，有助于扩大支付基础设施覆盖，促进金融包容性。",
-      "businessImpact": "该政策虽不直接针对数字信贷，但将促进支付基础设施完善和数字交易习惯养成，可能间接扩大nano lending的客户触达和还款渠道。需关注支付成本变化对合作商户的影响，以及未来SBP是否将类似优惠扩展至其他数字金融服务。",
+      "summary": "巴基斯坦证券交易委员会（SECP）成立工作组，旨在推动债务市场改革，重点可能包括公司债券、政府债券市场基础设施及监管框架的完善。该举措旨在深化资本市场，提升融资效率，但未直接提及数字信贷或金融科技监管。",
+      "businessImpact": "对nano lending业务影响有限。债务市场改革可能间接改善融资环境，但未涉及NBFC、数字信贷或消费者保护规则。需关注后续是否扩展至非银行金融领域，但当前无直接影响。",
       "keywords": [
-        "SBP",
-        "数字支付",
-        "优惠定价",
-        "支付基础设施"
+        "债务市场改革",
+        "SECP",
+        "资本市场"
       ],
-      "relevanceScore": 0.529
+      "relevanceScore": 0.57
     },
     {
       "date": "2026/7/30",
@@ -108,7 +107,7 @@
       "date": "2026/7/21",
       "title": "Pakistan’s FIA Launches Crypto Investigation Unit to Fight Money Laundering",
       "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOUW1DS0traWF3RUxwdFFfYjNRVVdZR0p5WVpjcHViZHFtWUxNVXBaaUdpTG83V05OdHFFX19SRzVCMjNsUUZHRVFnank0V0lFcXYwdHVseE02LXRoYVBYQ2wzNVpDVVVnU21rX2paSkhFRXNjckdSLVpBUmY0UnBnWTd6OUt1NVIwU1g4ZVNocTVfZVpqR3MzbFY5R2NuSnczSGY3azU0QXJfUnM?oc=5&hl=en-US&gl=US&ceid=US:en",
-      "source": "finance.yahoo.com",
+      "source": "Yahoo Finance",
       "summary": "巴基斯坦联邦调查局（FIA）成立加密货币调查部门，旨在打击利用加密货币进行的洗钱活动。该部门将专注于追踪非法加密货币交易，并加强与金融情报机构的合作。此举反映了巴基斯坦在反洗钱和反恐融资方面加强监管力度的趋势，可能对包括数字信贷在内的金融科技行业产生间接影响。",
       "businessImpact": "该新闻主要针对加密货币领域，不直接涉及nano lending。但需关注反洗钱监管趋严可能带来的合规成本上升，以及未来对数字支付和资金流动的审查加强。建议持续监控FIA对金融科技公司的执法动态。",
       "keywords": [
