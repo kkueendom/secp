@@ -1,10 +1,57 @@
 {
-  "lastUpdated": "2026-08-05T03:51:17.616Z",
-  "lastChecked": "2026-08-05T03:51:17.616Z",
+  "lastUpdated": "2026-08-05T15:05:20.133Z",
+  "lastChecked": "2026-08-05T15:05:20.133Z",
   "newsUpdateDate": "2026-08-05",
-  "latestArticleDate": "2026/8/4",
+  "latestArticleDate": "2026/8/5",
   "whitelistDate": "JULY 22, 2026",
   "items": [
+    {
+      "date": "2026/8/5",
+      "title": "SBP grants HugoBank approval for pilot operations",
+      "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQazlscllpMUZ6djdHbVh0VGkxUVg3cWlyTnZjNXdZbkxJZVhRQXZlTGRudmpNaVh5STVITGp4bHRSWC1HNHlPY2JNQk1sbHBPS1FsbFB3a2k1OHh1NFpySllLOHg0V0NxaFU5Wm9ZWUJHaUtySGl0T21rN0ltcVBxMS0xLUZqVDhyUWp5ZmE2MTdBcGvSAVZBVV95cUxOVlFjaHpPYW9HZndyRE5JX1N5UUk2MWFIYUdHQzBtQ0hVVnU2c2FEamJ6ZWZRclNfUEZOT0p4d1czUHNfakdpUm1PTkN6WFo4SDh5R1F6Zw?oc=5&hl=en-US&gl=US&ceid=US:en",
+      "source": "Business Recorder",
+      "summary": "巴基斯坦国家银行（SBP）批准HugoBank启动试点运营，这是该国数字银行发展的重要里程碑。HugoBank作为数字银行，其试点获批表明SBP正在推进数字银行框架落地，可能对现有数字信贷市场格局产生深远影响，包括竞争态势、监管实践和消费者选择。",
+      "businessImpact": "HugoBank作为持牌数字银行进入市场，可能加剧nano lending竞争，并推动SBP对数字信贷的监管标准趋严。需关注其定价策略、客户获取方式及与NBFC的合作模式，评估对现有市场份额和合规要求的潜在影响。",
+      "keywords": [
+        "HugoBank",
+        "数字银行",
+        "SBP",
+        "试点运营",
+        "数字信贷竞争"
+      ],
+      "relevanceScore": 0.687
+    },
+    {
+      "date": "2026/8/5",
+      "title": "Watch Pakistan’s Fintech Abhi Eyes Microfinance Bank IPO",
+      "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNRHJDUWNsNnhhVVlNNmoybkw5dC1Cdnl6YlZMb1lmUlNIb21Oa0FTVTBaWU96R3ZhLWY3RDJWOHhycUE4R0ZpXzRsOFE5NGdWSmNXZWNGYUU0UlBsdG10aS14Zkt6QjFPVDhmcnA3OE1zYjh1UzY2TVllZWtjbEJEUXg1T2JtZlhvZXZoR0xQOW5YRXJ0MXpXWktBTjhSRWhmS2xBdG5aQ1k?oc=5&hl=en-US&gl=US&ceid=US:en",
+      "source": "bloomberg.com",
+      "summary": "巴基斯坦金融科技公司Abhi正考虑通过IPO收购或设立微型金融银行（Microfinance Bank），以扩大其数字信贷和薪资预支服务。该消息表明巴基斯坦金融科技正从纯数字贷款向持牌银行机构升级，可能影响未来数字信贷的监管框架和竞争格局。",
+      "businessImpact": "Abhi若获得银行牌照，可能改变数字信贷市场竞争环境，并推动监管对非银行nano lenders的合规要求趋严。需关注其IPO进展及监管机构对金融科技持牌化的态度，评估对自身牌照和融资渠道的潜在影响。",
+      "keywords": [
+        "Abhi",
+        "微型金融银行",
+        "IPO",
+        "金融科技监管",
+        "数字信贷"
+      ],
+      "relevanceScore": 0.578
+    },
+    {
+      "date": "2026/8/4",
+      "title": "SECP FORMS WORKING GROUP TO DEVELOP CORPORATE DEBT MARKET ISLAMABAD, AUGUST 4: In a significant move to deepen Pakistan’s capital markets and expand long-term financing options for businesses, the Securities and Exchange Commission of Pakistan (SECP) has constituted a high-level Working Group to undertake a comprehensive review of the regulatory framework of corporate debt market and recommend reforms. Read More",
+      "link": "https://www.secp.gov.pk/wp-content/uploads/2026/08/august-4-.pdf",
+      "source": "SECP Official",
+      "summary": "巴基斯坦证券交易委员会（SECP）成立高级工作组，全面审查公司债务市场监管框架并提出改革建议，旨在深化资本市场、扩大企业长期融资渠道。该举措聚焦于债券发行、交易及投资者保护，属于资本市场基础设施发展范畴，未直接涉及数字信贷或消费金融监管。",
+      "businessImpact": "对公司债务市场的改革可能间接影响非银行金融机构（NBFC）的融资渠道，但短期内对nano lending的监管、牌照、定价等无直接影响。需关注后续改革是否涉及NBFC融资便利化，但当前不构成业务调整依据。",
+      "keywords": [
+        "SECP",
+        "公司债务市场",
+        "资本市场改革",
+        "长期融资"
+      ],
+      "relevanceScore": 0.69
+    },
     {
       "date": "2026/8/4",
       "title": "SECP forms working group for debt market reforms",
@@ -74,20 +121,6 @@
         "监管通知"
       ],
       "relevanceScore": 0.69
-    },
-    {
-      "date": "2026/7/28",
-      "title": "PVARA provides modern regulations for digital assets: Aurangzeb",
-      "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFAyVHBvb29YTkp5VE03UkRWUlBha2h2dnFMa01rdjZ3M3BwUmFDMjRpM1pNOUhnMUktSU1qV0lWYWpJaTJIN0sydGQwdWFBZGwtYjZoekd30gFWQVVfeXFMUDJUcG9vb1hOSnlUTTdSRFZSUGFraHZ2cUxrTWt2NnczcHBSYUMyNGkzWk05SGcxSS1JTWpXSVZhaklpMkg3SzJ0ZDB1YUFkbC1iNmh6R3c?oc=5&hl=en-US&gl=US&ceid=US:en",
-      "source": "Business Recorder",
-      "summary": "巴基斯坦财政部长Aurangzeb宣布，PVARA（巴基斯坦虚拟资产监管机构）为数字资产提供了现代化监管框架。该新闻主要聚焦于数字资产（如加密货币）的监管，而非直接涉及数字信贷或nano lending业务。",
-      "businessImpact": "该新闻对nano lending业务无直接影响，但可能间接影响数字金融生态。需关注未来数字资产监管是否延伸至数字信贷领域，但目前无直接关联。",
-      "keywords": [
-        "数字资产监管",
-        "PVARA",
-        "巴基斯坦金融科技"
-      ],
-      "relevanceScore": 0.57
     },
     {
       "date": "2026/7/27",
@@ -220,20 +253,6 @@
         "商业增长"
       ],
       "relevanceScore": 0.85
-    },
-    {
-      "date": "2026/7/8",
-      "title": "Finance Minister Aurangzeb reviews SECP Reforms, stresses balanced regulation to boost Business Growth",
-      "link": "https://www.secp.gov.pk/wp-content/uploads/2026/07/8-july-.pdf",
-      "source": "SECP Official",
-      "summary": "巴基斯坦财政部长Aurangzeb审查了SECP（证券交易委员会）的改革进展，强调需要采取平衡的监管方式以促进商业增长。这表明政府正致力于优化监管环境，在保障市场稳定的同时支持企业发展。目前尚未发布具体的数字信贷或金融科技监管细则。",
-      "businessImpact": "该新闻未直接涉及数字信贷监管规则，但暗示未来监管可能趋于平衡。需关注SECP后续是否出台针对NBFC或数字贷款的具体政策，尤其是定价和消费者保护方面。",
-      "keywords": [
-        "SECP改革",
-        "平衡监管",
-        "商业增长"
-      ],
-      "relevanceScore": 0.69
     },
     {
       "date": "2026/7/7",
