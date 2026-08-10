@@ -1,10 +1,24 @@
 {
-  "lastUpdated": "2026-08-10T03:03:09.547Z",
-  "lastChecked": "2026-08-10T03:03:09.547Z",
+  "lastUpdated": "2026-08-10T14:08:56.564Z",
+  "lastChecked": "2026-08-10T14:08:56.564Z",
   "newsUpdateDate": "2026-08-10",
-  "latestArticleDate": "2026/8/5",
+  "latestArticleDate": "2026/8/8",
   "whitelistDate": "JULY 22, 2026",
   "items": [
+    {
+      "date": "2026/8/8",
+      "title": "SBP Deputy Governor stresses tech-led push for financial inclusion",
+      "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxPTjJpeTdubjlka3lya05aTzFDZjZaclZFekNOMmVaYm5FNkh0UFY4Q1dTVEZHLXZUM0hmTUtBd0F2WWlNTXc4cnhEbEdXSkhBWWJMRzZxV0owa1AwTk1yWDhqRUtUUWx4N2tieDJyamxBTkF3MFBRYUg4OU9FRUZWQWVaamtQMnVDNk5qNlVKY1FEbzl6ckpNR1FfNGFKQQ?oc=5&hl=en-US&gl=US&ceid=US:en",
+      "source": "Mettis Global",
+      "summary": "巴基斯坦国家银行（SBP）副行长强调通过技术驱动推动金融包容性，呼吁利用数字工具扩大金融服务覆盖面。该表态反映了央行对金融科技和数字金融的积极态度，可能预示着未来在监管框架、支付基础设施和普惠金融政策上的支持性调整。",
+      "businessImpact": "该表态对nano lending业务构成积极信号，可能带来更友好的监管环境和支付基础设施升级，但需关注具体政策落地，如数字信贷指引、KYC简化及消费者保护要求的变化。",
+      "keywords": [
+        "金融包容性",
+        "技术驱动",
+        "SBP政策信号"
+      ],
+      "relevanceScore": 0.561
+    },
     {
       "date": "2026/8/5",
       "title": "SBP grants HugoBank approval for pilot operations",
@@ -25,7 +39,7 @@
       "date": "2026/8/5",
       "title": "Watch Pakistan’s Fintech Abhi Eyes Microfinance Bank IPO",
       "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNRHJDUWNsNnhhVVlNNmoybkw5dC1Cdnl6YlZMb1lmUlNIb21Oa0FTVTBaWU96R3ZhLWY3RDJWOHhycUE4R0ZpXzRsOFE5NGdWSmNXZWNGYUU0UlBsdG10aS14Zkt6QjFPVDhmcnA3OE1zYjh1UzY2TVllZWtjbEJEUXg1T2JtZlhvZXZoR0xQOW5YRXJ0MXpXWktBTjhSRWhmS2xBdG5aQ1k?oc=5&hl=en-US&gl=US&ceid=US:en",
-      "source": "Bloomberg.com",
+      "source": "bloomberg.com",
       "summary": "巴基斯坦金融科技公司Abhi正考虑通过IPO收购或设立微型金融银行（Microfinance Bank），以扩大其数字信贷和薪资预支服务。该消息表明巴基斯坦金融科技正从纯数字贷款向持牌银行机构升级，可能影响未来数字信贷的监管框架和竞争格局。",
       "businessImpact": "Abhi若获得银行牌照，可能改变数字信贷市场竞争环境，并推动监管对非银行nano lenders的合规要求趋严。需关注其IPO进展及监管机构对金融科技持牌化的态度，评估对自身牌照和融资渠道的潜在影响。",
       "keywords": [
@@ -84,7 +98,7 @@
       "date": "2026/7/29",
       "title": "Pakistan’s Fintech Abhi Plans Microfinance Bank IPO This Month",
       "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPSUlqX3Nvbks4d3pCVlVMVTd1QnNwZG1KekEzZk52akppWHowQmVLaTlKVTZxVUhOMEh4N3ZoWUtEQUotczJyYmxJRDF3Xy1RYkVGYlkyVFdTdm9ZQWVjZ1NWRUpNbk5JQTlyQVc1WHdHVW1wa1ZwbEVHdW9iSU1WU0Q3azM5V3I3N2xDMmpLcjdpZU5Ca01pTlFsdURNZkozSEFnU29ERV93SXlGSzNaU2FGRQ?oc=5&hl=en-US&gl=US&ceid=US:en",
-      "source": "Bloomberg.com",
+      "source": "bloomberg.com",
       "summary": "巴基斯坦金融科技公司Abhi计划本月进行微型金融银行IPO，表明该国数字金融领域正加速正规化与资本化。此举可能推动监管机构加强对数字信贷机构的合规要求，尤其是对持牌微型金融银行与非银行金融公司的差异化监管。",
       "businessImpact": "Abhi的IPO可能引发监管对数字信贷机构资本充足率、消费者保护及数据安全的更高要求，需关注未来牌照审批与定价规则变化。",
       "keywords": [
