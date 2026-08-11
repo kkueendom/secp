@@ -1,22 +1,51 @@
 {
-  "lastUpdated": "2026-08-11T02:56:28.584Z",
-  "lastChecked": "2026-08-11T02:56:28.584Z",
+  "lastUpdated": "2026-08-11T14:09:10.897Z",
+  "lastChecked": "2026-08-11T14:09:10.897Z",
   "newsUpdateDate": "2026-08-11",
-  "latestArticleDate": "2026/8/10",
+  "latestArticleDate": "2026/8/11",
   "whitelistDate": "JULY 22, 2026",
   "items": [
     {
+      "date": "2026/8/11",
+      "title": "Finance minister chairs second meeting of Access to Finance Steering Committee",
+      "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNaFFQSkoxOE5tRVFad2dDRldrenFvSUx2Q1R6a0VmZGd2dlRQM3FSWVB5c3RCODk4Mkt1ZWhBeFpPMnE2Mk1jQTJiSTBJQ2dPaFB4TVM0dmduUVhyY0lVeHNWME05bjFERnNuUGFTSHpTQ3RodEppbHBMLWUxQllKQU9WbFMwaUhmcDladWxyWVhkMGdaOGNxXzMxTVlmS2tldFZKVnpoTzdrOGs3NEtZ?oc=5&hl=en-US&gl=US&ceid=US:en",
+      "source": "The Nation (Pakistan )",
+      "summary": "巴基斯坦财政部长主持了第二届融资准入指导委员会会议，旨在协调各方力量扩大企业和个人获得融资的渠道。会议可能涉及金融包容性、中小企业融资及数字金融发展等议题，但具体政策细节未披露。该会议属于高层政策协调机制，可能为后续金融监管改革铺路。",
+      "businessImpact": "该会议可能推动融资准入相关政策调整，间接影响数字信贷市场环境。需关注后续是否出台针对小额贷款、NBFC或数字金融的监管新规，以及是否影响支付基础设施和信贷数据共享机制。短期内无直接监管变化，但政策方向值得跟踪。",
+      "keywords": [
+        "融资准入",
+        "金融包容性",
+        "政策协调"
+      ],
+      "relevanceScore": 0.55
+    },
+    {
       "date": "2026/8/10",
       "title": "SECP raises Rs307bn through issuance of 72 Sukuk",
-      "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOSUg2cE16RFVHRUFreWZ2WUtXaWRtU0ZaTHdZN0w4YXJXR1loTWotRmM2RzFfNnBVNjJQbDBKZHlHVC1vN05rOU03eWdxUW5BM3E3WUlzRG15bU5nc1RWUFJzSzhEeVNORTFsTFBjajkwYzJfd1o2MlNCLUJQY0toRFRLUk01QlFKdzNEUTEwZGtwQdIBVkFVX3lxTE4za0lfR2NuelRIVlR5VTVuc2FtSUZpdTNfZjNFblJyamlqMGZMeTFTUHFmaEY0c3ZjaFZFZVQ1OG9jcGc0enN1WUxYWXhyZHcxd3l5eUNn?oc=5&hl=en-US&gl=US&ceid=US:en",
+      "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE4za0lfR2NuelRIVlR5VTVuc2FtSUZpdTNfZjNFblJyamlqMGZMeTFTUHFmaEY0c3ZjaFZFZVQ1OG9jcGc0enN1WUxYWXhyZHcxd3l5eUNn0gFWQVVfeXFMTjNrSV9HY256VEhWVHlVNW5zYW1JRml1M19mM0VuUnJqaWowZkx5MVNQcWZoRjRzdmNoVkVlVDU4b2NwZzR6c3VZTFhZeHJkdzF3eXl5Q2c?oc=5&hl=en-US&gl=US&ceid=US:en",
       "source": "Business Recorder",
-      "summary": "巴基斯坦证券交易委员会（SECP）通过发行72只Sukuk（伊斯兰债券）筹集了3070亿卢比。该举措旨在发展伊斯兰资本市场，为政府项目和企业提供融资渠道，同时增强金融市场的深度和流动性。",
-      "businessImpact": "该新闻主要涉及伊斯兰债券发行，对nano lending业务无直接影响。但可能间接改善整体融资环境，需关注伊斯兰金融产品对传统信贷的竞争影响。",
+      "summary": "巴基斯坦证券交易委员会（SECP）通过发行72只伊斯兰债券（Sukuk）筹集了3070亿卢比。该举措属于资本市场融资活动，旨在为政府或项目提供资金，不直接涉及数字信贷、NBFC监管或金融科技政策。",
+      "businessImpact": "该新闻对nano lending业务无直接影响。关注点在于伊斯兰债券市场发展可能反映整体融资环境，但不会改变数字信贷的监管、牌照或定价规则。",
       "keywords": [
         "SECP",
         "Sukuk",
         "伊斯兰债券",
-        "资本市场"
+        "资本市场",
+        "巴基斯坦"
+      ],
+      "relevanceScore": 0.57
+    },
+    {
+      "date": "2026/8/10",
+      "title": "SBP to tighten export subsidy rules",
+      "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBEQmp2Rnd1ZWFCYTBjamNIUjdyZDhsMjNSdG5kaVVRbjZ4LUJPYnlESjBhY1FaU1pZdTJNbFhRdXdOcHZOMEFGXzVDVGpqRE4wQzhtVFpR0gFWQVVfeXFMUERCanZGd3VlYUJhMGNqY0hSN3JkOGwyM1J0bmRpVVFuNngtQk9ieURKMGFjUVpTWll1Mk1sWFF1d05wdk4wQUZfNUNUampETjBDOG1UWlE?oc=5&hl=en-US&gl=US&ceid=US:en",
+      "source": "Business Recorder",
+      "summary": "巴基斯坦国家银行（SBP）宣布将收紧出口补贴规则，旨在规范出口融资优惠，防止滥用并提高补贴效率。该政策主要影响出口导向型企业，涉及出口融资、外汇回流及合规要求，但未直接提及数字信贷或金融科技监管。",
+      "businessImpact": "该政策主要针对出口领域，与nano lending业务无直接关联。但需关注SBP对金融合规的收紧趋势，可能预示未来对信贷机构监管趋严，建议持续跟踪SBP政策动向，确保现有牌照和运营合规。",
+      "keywords": [
+        "SBP",
+        "出口补贴",
+        "监管收紧"
       ],
       "relevanceScore": 0.57
     },
@@ -33,22 +62,6 @@
         "SBP政策信号"
       ],
       "relevanceScore": 0.561
-    },
-    {
-      "date": "2026/8/5",
-      "title": "SBP grants HugoBank approval for pilot operations",
-      "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQazlscllpMUZ6djdHbVh0VGkxUVg3cWlyTnZjNXdZbkxJZVhRQXZlTGRudmpNaVh5STVITGp4bHRSWC1HNHlPY2JNQk1sbHBPS1FsbFB3a2k1OHh1NFpySllLOHg0V0NxaFU5Wm9ZWUJHaUtySGl0T21rN0ltcVBxMS0xLUZqVDhyUWp5ZmE2MTdBcGvSAVZBVV95cUxOVlFjaHpPYW9HZndyRE5JX1N5UUk2MWFIYUdHQzBtQ0hVVnU2c2FEamJ6ZWZRclNfUEZOT0p4d1czUHNfakdpUm1PTkN6WFo4SDh5R1F6Zw?oc=5&hl=en-US&gl=US&ceid=US:en",
-      "source": "Business Recorder",
-      "summary": "巴基斯坦国家银行（SBP）批准HugoBank启动试点运营，这是该国数字银行发展的重要里程碑。HugoBank作为数字银行，其试点获批表明SBP正在推进数字银行框架落地，可能对现有数字信贷市场格局产生深远影响，包括竞争态势、监管实践和消费者选择。",
-      "businessImpact": "HugoBank作为持牌数字银行进入市场，可能加剧nano lending竞争，并推动SBP对数字信贷的监管标准趋严。需关注其定价策略、客户获取方式及与NBFC的合作模式，评估对现有市场份额和合规要求的潜在影响。",
-      "keywords": [
-        "HugoBank",
-        "数字银行",
-        "SBP",
-        "试点运营",
-        "数字信贷竞争"
-      ],
-      "relevanceScore": 0.687
     },
     {
       "date": "2026/8/5",
