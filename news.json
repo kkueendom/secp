@@ -1,7 +1,7 @@
 {
-  "lastUpdated": "2026-08-11T14:09:10.897Z",
-  "lastChecked": "2026-08-11T14:09:10.897Z",
-  "newsUpdateDate": "2026-08-11",
+  "lastUpdated": "2026-08-12T03:15:24.188Z",
+  "lastChecked": "2026-08-12T03:15:24.188Z",
+  "newsUpdateDate": "2026-08-12",
   "latestArticleDate": "2026/8/11",
   "whitelistDate": "JULY 22, 2026",
   "items": [
@@ -22,16 +22,16 @@
     {
       "date": "2026/8/10",
       "title": "SECP raises Rs307bn through issuance of 72 Sukuk",
-      "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE4za0lfR2NuelRIVlR5VTVuc2FtSUZpdTNfZjNFblJyamlqMGZMeTFTUHFmaEY0c3ZjaFZFZVQ1OG9jcGc0enN1WUxYWXhyZHcxd3l5eUNn0gFWQVVfeXFMTjNrSV9HY256VEhWVHlVNW5zYW1JRml1M19mM0VuUnJqaWowZkx5MVNQcWZoRjRzdmNoVkVlVDU4b2NwZzR6c3VZTFhZeHJkdzF3eXl5Q2c?oc=5&hl=en-US&gl=US&ceid=US:en",
-      "source": "Business Recorder",
-      "summary": "巴基斯坦证券交易委员会（SECP）通过发行72只伊斯兰债券（Sukuk）筹集了3070亿卢比。该举措属于资本市场融资活动，旨在为政府或项目提供资金，不直接涉及数字信贷、NBFC监管或金融科技政策。",
-      "businessImpact": "该新闻对nano lending业务无直接影响。关注点在于伊斯兰债券市场发展可能反映整体融资环境，但不会改变数字信贷的监管、牌照或定价规则。",
+      "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOSUg2cE16RFVHRUFreWZ2WUtXaWRtU0ZaTHdZN0w4YXJXR1loTWotRmM2RzFfNnBVNjJQbDBKZHlHVC1vN05rOU03eWdxUW5BM3E3WUlzRG15bU5nc1RWUFJzSzhEeVNORTFsTFBjajkwYzJfd1o2MlNCLUJQY0toRFRLUk01QlFKdzNEUTEwZGtwQdIBVkFVX3lxTE4za0lfR2NuelRIVlR5VTVuc2FtSUZpdTNfZjNFblJyamlqMGZMeTFTUHFmaEY0c3ZjaFZFZVQ1OG9jcGc0enN1WUxYWXhyZHcxd3l5eUNn?oc=5&hl=en-US&gl=US&ceid=US:en",
+      "source": "brecorder.com",
+      "summary": "巴基斯坦证券交易委员会（SECP）通过发行72只伊斯兰债券（Sukuk）筹集了3070亿卢比。该举措旨在发展伊斯兰资本市场，为政府项目提供融资，并增强金融市场的深度和流动性。SECP作为监管机构参与债券发行，体现了其推动资本市场多元化和伊斯兰金融发展的努力。",
+      "businessImpact": "该新闻不直接涉及数字信贷监管、牌照、定价、消费者保护、数据、KYC/AML或支付基础设施。但SECP活跃于资本市场可能间接影响整体金融环境，对nano lending业务无直接影响，需关注后续是否出台相关金融科技政策。",
       "keywords": [
         "SECP",
         "Sukuk",
         "伊斯兰债券",
         "资本市场",
-        "巴基斯坦"
+        "巴基斯坦金融"
       ],
       "relevanceScore": 0.57
     },
@@ -95,18 +95,18 @@
       "relevanceScore": 0.69
     },
     {
-      "date": "2026/7/30",
-      "title": "Pakistan’s Fintech Abhi Plans Microfinance Bank IPO This Month",
-      "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPSUlqX3Nvbks4d3pCVlVMVTd1QnNwZG1KekEzZk52akppWHowQmVLaTlKVTZxVUhOMEh4N3ZoWUtEQUotczJyYmxJRDF3Xy1RYkVGYlkyVFdTdm9ZQWVjZ1NWRUpNbk5JQTlyQVc1WHdHVW1wa1ZwbEVHdW9iSU1WU0Q3azM5V3I3N2xDMmpLcjdpZU5Ca01pTlFsdURNZkozSEFnU29ERV93SXlGSzNaU2FGRQ?oc=5&hl=en-US&gl=US&ceid=US:en",
-      "source": "Bloomberg.com",
-      "summary": "巴基斯坦金融科技公司Abhi计划本月进行微型金融银行IPO，表明该国数字金融领域正加速正规化与资本化。此举可能推动监管机构加强对数字信贷机构的合规要求，尤其是对持牌微型金融银行与非银行金融公司的差异化监管。",
-      "businessImpact": "Abhi的IPO可能引发监管对数字信贷机构资本充足率、消费者保护及数据安全的更高要求，需关注未来牌照审批与定价规则变化。",
+      "date": "2026/8/4",
+      "title": "SECP forms working group for debt market reforms",
+      "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQMFVTZHB5bm5JZXowS2RrZFgwdjJqNW56SE9pdl8zSXFhNGdGbTRBS1dDVFlJQUhTSno4V1d1eHR4b2ZyOG8tUzZJSHVDN1J5THdhQllPckhienNLakwyOE9PeVNrSl9mN183Z0NMdXp0ZXBSaDU5Z1FCeC0tdzIxSGt1TkN5US16dlZJejA4ZEZCZ9IBVkFVX3lxTE94SktERDhsWmYyelp4NGlzT3ZCQjdjMU9XaGdoRVZNR0toUWxoakdMNGY2OE1xODRsZERNbGtqdlcyVnU2SWd3TGpBdEswYncyUmQ3Z0R3?oc=5&hl=en-US&gl=US&ceid=US:en",
+      "source": "brecorder.com",
+      "summary": "巴基斯坦证券交易委员会（SECP）成立工作组，旨在推进债务市场改革。该举措聚焦于债券市场基础设施、发行流程和监管框架的完善，以增强市场深度和流动性。目前工作组尚处于初期阶段，具体改革措施和影响范围尚未明确。",
+      "businessImpact": "该新闻主要涉及债务市场改革，与nano lending业务无直接关联。但若改革涉及信贷资产证券化或非银行金融机构融资渠道，可能间接影响融资准入。需关注后续工作组是否将数字信贷纳入改革范围。",
       "keywords": [
-        "微型金融银行",
-        "IPO",
-        "数字信贷监管"
+        "债务市场改革",
+        "SECP",
+        "巴基斯坦金融监管"
       ],
-      "relevanceScore": 0.598
+      "relevanceScore": 0.57
     },
     {
       "date": "2026/7/29",
@@ -121,6 +121,20 @@
         "罚款"
       ],
       "relevanceScore": 0.69
+    },
+    {
+      "date": "2026/7/29",
+      "title": "Pakistan’s Fintech Abhi Plans Microfinance Bank IPO This Month",
+      "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPSUlqX3Nvbks4d3pCVlVMVTd1QnNwZG1KekEzZk52akppWHowQmVLaTlKVTZxVUhOMEh4N3ZoWUtEQUotczJyYmxJRDF3Xy1RYkVGYlkyVFdTdm9ZQWVjZ1NWRUpNbk5JQTlyQVc1WHdHVW1wa1ZwbEVHdW9iSU1WU0Q3azM5V3I3N2xDMmpLcjdpZU5Ca01pTlFsdURNZkozSEFnU29ERV93SXlGSzNaU2FGRQ?oc=5&hl=en-US&gl=US&ceid=US:en",
+      "source": "Bloomberg.com",
+      "summary": "巴基斯坦金融科技公司Abhi计划本月进行微型金融银行IPO，表明该国数字金融领域正加速正规化与资本化。此举可能推动监管机构加强对数字信贷机构的合规要求，尤其是对持牌微型金融银行与非银行金融公司的差异化监管。",
+      "businessImpact": "Abhi的IPO可能引发监管对数字信贷机构资本充足率、消费者保护及数据安全的更高要求，需关注未来牌照审批与定价规则变化。",
+      "keywords": [
+        "微型金融银行",
+        "IPO",
+        "数字信贷监管"
+      ],
+      "relevanceScore": 0.598
     },
     {
       "date": "2026/7/29",
