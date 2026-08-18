@@ -1,10 +1,53 @@
 {
-  "lastUpdated": "2026-08-12T03:15:24.188Z",
-  "lastChecked": "2026-08-12T03:15:24.188Z",
-  "newsUpdateDate": "2026-08-12",
-  "latestArticleDate": "2026/8/11",
+  "lastUpdated": "2026-08-18T13:33:42.896Z",
+  "lastChecked": "2026-08-18T13:33:42.896Z",
+  "newsUpdateDate": "2026-08-18",
+  "latestArticleDate": "2026/8/18",
   "whitelistDate": "JULY 22, 2026",
   "items": [
+    {
+      "date": "2026/8/18",
+      "title": "SBP overhauls housing finance rules, sets 30-year maximum tenor",
+      "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOQXhhT3JGcmNFSFhDWTNxSEcwb29rVXE5eVZGN1hxTUpZXzVibWhmVDVMWV9TdUFCV2JaZi10ZXYwNjQ1MGx0VEM3dlVfLUY5cGNBUHlneWgxZmFXcHBtbG5vcWNJX1N3OE5DZERnVER1RXYtcmVUTGM3RXdIa3FVU3YxVmZPNllEVlFrVmdfdHR5XzJQc3dOVQ?oc=5&hl=en-US&gl=US&ceid=US:en",
+      "source": "Mettis Global",
+      "summary": "巴基斯坦国家银行（SBP）对住房金融规则进行全面改革，设定了最长30年的贷款期限。该政策主要针对住房贷款市场，旨在规范长期融资和风险管理，不涉及数字信贷、NBFC或消费金融领域。",
+      "businessImpact": "该新闻与nano lending业务无直接关联，不影响数字信贷的监管、牌照、定价、消费者保护、数据、KYC/AML或支付基础设施。需关注SBP后续是否将类似期限调整应用于消费金融，但当前无直接影响。",
+      "keywords": [
+        "住房金融",
+        "SBP",
+        "贷款期限"
+      ],
+      "relevanceScore": 0.57
+    },
+    {
+      "date": "2026/8/14",
+      "title": "SBP governor vows focus on stability, reforms and export growth",
+      "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPdFBLc25IcnNpRTRSTlJHdlNUZFZCT3BrSWtHQzBvSVRpdTJTZFJhaklRX2thV1NxaUVLN1JBM3l4SDNwZVlKWmZJcVhTWDRXUUtiWEJZTW9NOFZ6UGJLak1OWnFfaTYtVTc5Q1d1Skd5Tk51d1BHSjBBci14Z2hwdExJczNuWXZfaWJvNWE1alBGN3pDbDVtQ3VxcnNEdVg4c1pyV9IBVkFVX3lxTE1ZbW9WU0xfN2V3STNDdmx1VC13MS1MeGFaaFhpMUJ0VFpOWFduVy1SeVltb3FkMFNyRnY4WEQxdEpxZDZkSjB4dkNIQzEzY2tUeG80VFBB?oc=5&hl=en-US&gl=US&ceid=US:en",
+      "source": "brecorder.com",
+      "summary": "巴基斯坦国家银行（SBP）行长承诺将重点放在金融稳定、改革和出口增长上。该声明反映了央行对宏观经济稳定的重视，但未提及具体数字信贷或金融科技监管措施。新闻来源为当地主流财经媒体，内容属于央行政策方向性表态，未涉及具体监管规则变动。",
+      "businessImpact": "该新闻对nano lending业务无直接影响，但央行强调稳定和改革可能预示未来监管环境趋严，需关注后续是否有针对数字信贷的具体政策出台。",
+      "keywords": [
+        "SBP",
+        "金融稳定",
+        "改革",
+        "出口增长"
+      ],
+      "relevanceScore": 0.57
+    },
+    {
+      "date": "2026/8/13",
+      "title": "Aurangzeb calls for framework to expand digital finance, electronic transactions",
+      "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQWU1uZkVtOHRJQUd6ZTVqSmVlbEhEeXFfaDVocE43UVJLVXRXRkx3bmhJRURjUHc1bEVxVlp0cHFoOHFtSENJbnFrRE1ENk1XVW85NEFPemowMm8zSjY4WEtOX0JFSlNSWUVLUURtb3FlYWVxcFN5Nld1enpGOEgtanYxS2RyQy1CaDdESV93ZGRubHdFblB0MTBZam53NnBwQ2FSUTU0dmRDbE1OazJldzNGRUJjdWs?oc=5&hl=en-US&gl=US&ceid=US:en",
+      "source": "The Express Tribune",
+      "summary": "巴基斯坦财政部长Aurangzeb呼吁建立框架以扩大数字金融和电子交易，强调需要政策支持以推动金融包容性和数字化支付。该表态反映了政府对数字金融发展的重视，可能预示着未来监管框架的调整，以促进电子交易和数字信贷的增长。",
+      "businessImpact": "该呼吁可能为数字信贷和nano lending创造更有利的政策环境，但需关注具体框架内容，如是否涉及牌照、定价或消费者保护的新规。短期内影响有限，但长期可能影响市场准入和合规要求。",
+      "keywords": [
+        "数字金融",
+        "电子交易",
+        "监管框架"
+      ],
+      "relevanceScore": 0.579
+    },
     {
       "date": "2026/8/11",
       "title": "Finance minister chairs second meeting of Access to Finance Steering Committee",
@@ -24,14 +67,14 @@
       "title": "SECP raises Rs307bn through issuance of 72 Sukuk",
       "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOSUg2cE16RFVHRUFreWZ2WUtXaWRtU0ZaTHdZN0w4YXJXR1loTWotRmM2RzFfNnBVNjJQbDBKZHlHVC1vN05rOU03eWdxUW5BM3E3WUlzRG15bU5nc1RWUFJzSzhEeVNORTFsTFBjajkwYzJfd1o2MlNCLUJQY0toRFRLUk01QlFKdzNEUTEwZGtwQdIBVkFVX3lxTE4za0lfR2NuelRIVlR5VTVuc2FtSUZpdTNfZjNFblJyamlqMGZMeTFTUHFmaEY0c3ZjaFZFZVQ1OG9jcGc0enN1WUxYWXhyZHcxd3l5eUNn?oc=5&hl=en-US&gl=US&ceid=US:en",
       "source": "brecorder.com",
-      "summary": "巴基斯坦证券交易委员会（SECP）通过发行72只伊斯兰债券（Sukuk）筹集了3070亿卢比。该举措旨在发展伊斯兰资本市场，为政府项目提供融资，并增强金融市场的深度和流动性。SECP作为监管机构参与债券发行，体现了其推动资本市场多元化和伊斯兰金融发展的努力。",
-      "businessImpact": "该新闻不直接涉及数字信贷监管、牌照、定价、消费者保护、数据、KYC/AML或支付基础设施。但SECP活跃于资本市场可能间接影响整体金融环境，对nano lending业务无直接影响，需关注后续是否出台相关金融科技政策。",
+      "summary": "巴基斯坦证券交易委员会（SECP）通过发行72只伊斯兰债券（Sukuk）筹集了3070亿卢比。该举措旨在发展伊斯兰资本市场，为政府项目提供融资，并增强金融市场的深度和流动性。SECP主席表示，此次发行反映了投资者对伊斯兰金融工具的信心，并有助于推动普惠金融。",
+      "businessImpact": "该新闻不涉及数字信贷监管、牌照、定价或消费者保护等直接政策变化。但伊斯兰债券市场发展可能间接影响融资环境，需关注未来是否伴随伊斯兰金融合规要求扩展至数字贷款领域。",
       "keywords": [
         "SECP",
         "Sukuk",
         "伊斯兰债券",
         "资本市场",
-        "巴基斯坦金融"
+        "巴基斯坦"
       ],
       "relevanceScore": 0.57
     },
@@ -93,20 +136,6 @@
         "长期融资"
       ],
       "relevanceScore": 0.69
-    },
-    {
-      "date": "2026/8/4",
-      "title": "SECP forms working group for debt market reforms",
-      "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQMFVTZHB5bm5JZXowS2RrZFgwdjJqNW56SE9pdl8zSXFhNGdGbTRBS1dDVFlJQUhTSno4V1d1eHR4b2ZyOG8tUzZJSHVDN1J5THdhQllPckhienNLakwyOE9PeVNrSl9mN183Z0NMdXp0ZXBSaDU5Z1FCeC0tdzIxSGt1TkN5US16dlZJejA4ZEZCZ9IBVkFVX3lxTE94SktERDhsWmYyelp4NGlzT3ZCQjdjMU9XaGdoRVZNR0toUWxoakdMNGY2OE1xODRsZERNbGtqdlcyVnU2SWd3TGpBdEswYncyUmQ3Z0R3?oc=5&hl=en-US&gl=US&ceid=US:en",
-      "source": "brecorder.com",
-      "summary": "巴基斯坦证券交易委员会（SECP）成立工作组，旨在推进债务市场改革。该举措聚焦于债券市场基础设施、发行流程和监管框架的完善，以增强市场深度和流动性。目前工作组尚处于初期阶段，具体改革措施和影响范围尚未明确。",
-      "businessImpact": "该新闻主要涉及债务市场改革，与nano lending业务无直接关联。但若改革涉及信贷资产证券化或非银行金融机构融资渠道，可能间接影响融资准入。需关注后续工作组是否将数字信贷纳入改革范围。",
-      "keywords": [
-        "债务市场改革",
-        "SECP",
-        "巴基斯坦金融监管"
-      ],
-      "relevanceScore": 0.57
     },
     {
       "date": "2026/7/29",
@@ -263,22 +292,6 @@
         "合规成本"
       ],
       "relevanceScore": 0.84
-    },
-    {
-      "date": "2026/7/11",
-      "title": "SECP unveils digital KYC for investors",
-      "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTE9wNzBDbGpld3RHYzZYM0wwOWRuYnN4aEhhd29KN0w1R0E0U0tOZS02Y1JGYUlsMHpiOVRnX3RSazRRMWZheWs1SkFzdllpaGxOUEs2ZUQ3RHFTMVNyMXBmTUxJWmpuMl9yaVh3SWZ3TFFBRWNoYVRVOWNn?oc=5&hl=en-US&gl=US&ceid=US:en",
-      "source": "Mettis Global",
-      "summary": "巴基斯坦证券交易委员会（SECP）推出面向投资者的数字KYC（e-KYC）方案，旨在简化开户流程、提升合规效率。该措施允许通过电子方式验证身份，减少纸质文件需求，有望降低金融机构的运营成本并增强反洗钱（AML）能力。",
-      "businessImpact": "该政策直接涉及KYC/AML合规要求，可能影响nano lending业务的客户身份验证流程。需关注SECP是否将e-KYC扩展至非银行金融公司（NBFC）及数字信贷领域，以及是否要求采用特定技术标准。",
-      "keywords": [
-        "数字KYC",
-        "SECP",
-        "投资者身份验证",
-        "AML合规",
-        "金融科技监管"
-      ],
-      "relevanceScore": 0.687
     },
     {
       "date": "2026/7/8",
